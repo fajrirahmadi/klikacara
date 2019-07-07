@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <item name="profile_menu_id" type="id" />
+    <item name="transaction_history_id" type="id" />
+    <item name="bank_id" type="id" />
+    <item name="banner_id" type="id" />
+    <item name="klik_menu_id" type="id" />
+    <item name="ulasan_id" type="id" />
+    <item name="rating_id" type="id" />
+    <item name="mitra_id" type="id" />
+    <item name="order_list_id" type="id" />
+    <item name="text_id" type="id" />
+    <item name="product_id" type="id" />
+    <item name="key_value_id" type="id" />
+    <item name="product_image_id" type="id" />
+
+</resources>

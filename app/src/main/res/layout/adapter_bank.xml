@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/areaBank"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+            android:id="@+id/cardLogo"
+            android:layout_width="wrap_content"
+            android:layout_margin="2dp"
+            style="@style/CardNormal">
+        <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/logoBankImageView"
+                android:layout_width="@dimen/image_big"
+                android:layout_height="@dimen/image_big"
+                android:src="@color/colorPrimary"/>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+            android:layout_toEndOf="@id/cardLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/bankTitleTextView"
+                style="@style/headerTextView"
+                android:textSize="@dimen/text_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@string/label_nama_bank"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/bankDescriptionTextView"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_small"
+                style="@style/normalTextView"
+                android:text="@string/label_nomor_a_n_nama_pemilik"/>
+    </LinearLayout>
+
+</RelativeLayout>

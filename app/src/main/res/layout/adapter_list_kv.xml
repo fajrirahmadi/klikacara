@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/keyTextView"
+            style="@style/normalTextView"
+            android:padding="@dimen/margin_medium"
+            android:layout_toStartOf="@+id/valueTextView"
+            android:textColor="@color/grey"
+            android:text="Nama Acara"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/valueTextView"
+            android:padding="@dimen/margin_medium"
+            style="@style/normalTextView"
+            android:text="Nikahan Mantan"
+            android:fontFamily="@font/font_lato_bold"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"/>
+
+    <View style="@style/Line"
+          android:layout_below="@id/keyTextView"/>
+
+</RelativeLayout>

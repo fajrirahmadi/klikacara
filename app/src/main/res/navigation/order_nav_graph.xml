@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/orderNavGraph"
+            app:startDestination="@id/orderDetailFragment">
+
+    <fragment android:id="@+id/orderDetailFragment"
+              tools:layout="@layout/fragment_order_detail"
+              android:label="OrderDetailFragment"
+              android:name="co.id.klikacara.order.view.OrderDetailFragment">
+
+        <action android:id="@+id/action_move_fromOrderDetailFragment_toOrderAddressFragment"
+                app:destination="@+id/orderAddressFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/orderAddressFragment"
+              tools:layout="@layout/fragment_order_address"
+              android:label="OrderAddressFragment"
+              android:name="co.id.klikacara.order.view.OrderAddressFragment">
+        <action android:id="@+id/action_move_fromOrderAddressFragment_toOrderDateFragment"
+                app:destination="@+id/orderDateFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+    </fragment>
+
+    <fragment android:id="@+id/orderDateFragment"
+              tools:layout="@layout/fragment_order_info_pesanan"
+              android:label="OrderDateFragment"
+              android:name="co.id.klikacara.order.view.OrderDateFragment">
+        <action android:id="@+id/action_move_fromOrderDateFragment_toOrderPaymentFragment"
+                app:destination="@+id/orderPaymentFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+    </fragment>
+
+    <fragment android:id="@+id/orderPaymentFragment"
+              tools:layout="@layout/fragment_order_bank_list"
+              android:label="OrderPaymentFragment"
+              android:name="co.id.klikacara.order.view.OrderPaymentFragment">
+        <action android:id="@+id/action_move_fromOrderPaymentFragment_toOrderConfirmationFragment"
+                app:destination="@+id/orderConfirmationFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+    </fragment>
+
+    <fragment android:id="@+id/orderConfirmationFragment"
+              tools:layout="@layout/fragment_order_konfirmasi"
+              android:label="OrderConfirmationFragment"
+              android:name="co.id.klikacara.order.view.OrderConfirmationFragment"/>
+
+</navigation>

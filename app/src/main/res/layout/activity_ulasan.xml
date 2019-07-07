@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_logo"/>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:text="Berilah tanggapan pada vendor untuk pelayanan lebih baik, saran Anda dapat meningkatkan pelayanan yang diberikan."
+                    android:textColor="@color/grey"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/headerTextView"
+                    android:textSize="@dimen/text_medium"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="Rating Mitra"/>
+
+            <android.support.v7.widget.AppCompatRatingBar
+                    android:id="@+id/ulasanRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_height="wrap_content"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/headerTextView"
+                    android:textSize="@dimen/text_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="Ulasan Pengguna"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                    android:paddingTop="@dimen/margin_small"
+                    android:paddingBottom="@dimen/margin_small"
+                    android:id="@+id/ulasanEditText"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:hint="Ulasan"
+                    android:textSize="@dimen/text_medium"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:minHeight="@dimen/edit_text_height"
+                    android:paddingStart="@dimen/margin_medium"
+                    android:paddingEnd="@dimen/margin_medium"
+                    style="@style/latoRegularEditText"/>
+
+            <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/submitButton"
+                    android:layout_marginTop="@dimen/margin_large"
+                    style="@style/submitButton"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

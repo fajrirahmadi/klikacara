@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "676533376357",
+    "firebase_url": "https://klikacara-2019.firebaseio.com",
+    "project_id": "klikacara-2019",
+    "storage_bucket": "klikacara-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676533376357:android:e7355953f13b4ed1",
+        "android_client_info": {
+          "package_name": "co.id.klikacara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676533376357-25dfg9j4bhnic4hd3othah1alvqfks9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.id.klikacara",
+            "certificate_hash": "d12baa87e734b642c00e2eddf85fc484c5e88296"
+          }
+        },
+        {
+          "client_id": "676533376357-ohoss370nfbnolhcf19d0k798d6pso6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzzI5JnHXdfDAxzl2FT8FNeYE4IDiwXvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676533376357-ohoss370nfbnolhcf19d0k798d6pso6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

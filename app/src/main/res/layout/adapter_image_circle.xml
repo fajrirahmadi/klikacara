@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/image_big"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_height="@dimen/image_big">
+
+    <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/mitraImageView"
+            android:layout_width="@dimen/image_big"
+            android:layout_height="@dimen/image_big"
+            android:padding="1dp"
+            android:background="@drawable/base_circle_primary"/>
+</RelativeLayout>

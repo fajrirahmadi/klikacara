@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_title"/>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/margin_medium"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mitraImageView"
+                        android:layout_width="@dimen/image_large"
+                        android:layout_height="@dimen/image_large"
+                        android:padding="1dp"
+                        android:background="@drawable/base_circle_primary"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/logo_klikacara"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/changeProfileButton"
+                        style="@style/normalTextView"
+                        android:text="@string/label_ubah"
+                        android:layout_below="@id/mitraImageView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/headerTextView"
+                    android:text="@string/label_informasi_umum"
+                    android:textSize="@dimen/text_medium"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_name"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/nameEditText"
+                    style="@style/registrationForm"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_name"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/normalTextView"
+                    android:text="@string/label_email"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/emailEditText"
+                    android:enabled="false"
+                    style="@style/registrationForm"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_email"/>
+
+            <LinearLayout
+                    android:id="@+id/areaMitra"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/headerTextView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/label_informasi_layanan"
+                        android:textSize="@dimen/text_medium"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:layout_marginTop="@dimen/margin_medium"
+                        style="@style/normalTextView"
+                        android:text="@string/label_kategori_mitra"/>
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/kategoriEditText"
+                        style="@style/registrationForm"
+                        android:enabled="false"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:drawableEnd="@drawable/ic_dropdown_grey"
+                        android:hint="@string/label_kategori_mitra"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:layout_marginTop="@dimen/margin_medium"
+                        style="@style/normalTextView"
+                        android:text="@string/label_nama_usaha"/>
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/namaUsahaEditText"
+                        style="@style/registrationForm"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:hint="@string/label_nama_usaha_ex"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/normalTextView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/label_phone"/>
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/phoneEditText"
+                        style="@style/registrationForm"
+                        android:inputType="number"
+                        android:enabled="false"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:hint="@string/label_phone"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/normalTextView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/label_address"/>
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/addressEditText"
+                        android:enabled="false"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/edit_text_height"
+                        style="@style/registrationForm"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:hint="@string/label_address"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/normalTextView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/label_description"/>
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/descriptionEditText"
+                        style="@style/registrationForm"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:hint="@string/label_description"/>
+            </LinearLayout>
+
+            <View style="@style/Devider"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

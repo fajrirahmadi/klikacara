@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">Klik Acara</string>
+    <string name="label_nyantai_bentar">Tunggu Sebentar</string>
+    <string name="label_info">Informasi</string>
+    <string name="label_error">Gagal</string>
+    <string name="label_success">Berhasil</string>
+
+    <!-- start label main menu -->
+    <string name="home">Beranda</string>
+    <string name="list">Transaksi</string>
+    <string name="profile">Profil</string>
+
+    <!-- start label menu profile -->
+    <string name="menu_edit_profile">Lihat &amp; Edit Profil</string>
+    <string name="menu_product">Produk Saya</string>
+    <string name="menu_change_password">Ganti Kata Sandi</string>
+    <string name="menu_about">Tentang Klikacara</string>
+    <string name="menu_contact_us">Hubungi Kami</string>
+    <string name="menu_privacy_policy">Kebijakan Privasi</string>
+    <string name="menu_logout">Keluar</string>
+
+    <!-- start of kyc -->
+    <string name="label_name">Nama</string>
+    <string name="label_ktp">Nomor Identitas (KTP/SIM)</string>
+    <string name="label_birth_place">Tempat Lahir</string>
+    <string name="label_birth_date">Tanggal Lahir</string>
+    <string name="label_address">Alamat</string>
+    <string name="label_email">Email</string>
+    <string name="label_phone">Nomor Telepon</string>
+
+    <!-- start of account information -->
+    <string name="label_bca">BCA</string>
+    <string name="label_account_number">Nomor Rekening</string>
+    <string name="label_branch_office">Kantor Cabang</string>
+    <string name="label_bri">BRI</string>
+    <string name="label_mandiri">Mandiri</string>
+    <string name="label_bni">BNI</string>
+    <string name="description_register_account">Isi semua informasi rekening di bawah ini (harus atas nama pribadi,
+        sesuai nama pendaftar)
+    </string>
+
+    <!-- start of label password -->
+    <string name="description_register_password">Masukkan kata sandi yang akan Anda gunakan pada aplikasi Klikacara
+    </string>
+    <string name="label_password">Kata Sandi</string>
+    <string name="label_confirm_password">Konfirmasi Kata Sandi</string>
+
+    <!-- start of login label -->
+    <string name="description_login_form">Bikin Acara Jadi Lebih Mudah dengan Klikacara</string>
+    <string name="label_forgot_password">Lupa kata sandi?</string>
+    <string name="label_dont_have_account">Belum punya akun?</string>
+    <string name="label_register_now">DAFTAR SEKARANG</string>
+
+    <!-- start of forgot password label -->
+    <string name="description_forgot_password">Masukkan email Anda yang terdaftar, kami akan mengirimkan form untuk
+        reset kata sandi Anda melalui email yang Anda daftarkan
+    </string>
+
+    <!-- start of transaction label -->
+    <string name="description_no_transaction_today">Anda belum memiliki transaksi hari ini</string>
+    <string name="label_bank">Bank</string>
+    <string name="label_choose_bank">Pilih Bank</string>
+    <string name="label_nominal">Nominal</string>
+    <string name="label_name_destination">Nama Dituju</string>
+    <string name="label_phone_destination">Nomor Telepon Tujuan</string>
+    <string name="label_address_destination">Alamat Tujuan</string>
+    <string name="label_description">Deskripsi</string>
+    <string name="label_receiver_detail">Detail Penerima</string>
+    <string name="label_transaction_detail">Detail Transaksi</string>
+    <string name="title_topup">Top Up Saldo</string>
+    <string name="title_topup_confirmation">Konfirmasi Top Up</string>
+    <string name="description_topup_confirmation">Apakah Anda yakin untuk melakukan top up senilai $?</string>
+    <string name="title_report">Laporan Saldo</string>
+    <string name="title_transfer">Transfer Saldo</string>
+    <string name="description_change_password">Masukkan kata sandi lama dan kata sandi baru yang akan Anda gunakan pada
+        aplikasi
+    </string>
+
+    <!-- start label change password -->
+    <string name="label_old_password">Kata Sandi Lama</string>
+    <string name="label_new_password">Kata Sandi Baru</string>
+    <string name="title_profile_view_edit">Lihat &amp; Ubah Profil</string>
+    <string name="title_profile_change_password">Ganti Kata Sandi</string>
+    <string name="title_profile_account_info">Akun Informasi</string>
+    <string name="title_forget_password">Lupa Kata Sandi</string>
+    <string name="label_bank_information">$$ a/n $</string>
+
+    <!-- start of label profile -->
+    <string name="label_point_value">$ Point</string>
+
+    <!-- start of home label -->
+    <string name="label_saldo_total">Saldo Total</string>
+    <string name="rp_0">Rp 0</string>
+    <string name="label_today_transaction">Transaksi Hari Ini</string>
+    <string name="label_top_up">Top Up</string>
+    <string name="label_report">Laporan</string>
+    <string name="label_transfer">Transfer</string>
+    <string name="label_detail">Detail</string>
+    <string name="label_kategori_mitra">Kategori Mitra</string>
+    <string name="label_nama_usaha">Nama Usaha</string>
+    <string name="label_nama_usaha_ex">Nama Usaha (PT/CV)</string>
+    <string name="label_penanggung_jawab">Penanggung Jawab</string>
+    <string name="label_province">Povinsi</string>
+    <string name="label_choose_province">Pilih Povinsi</string>
+    <string name="label_city">Kota/Kabupaten</string>
+    <string name="label_choose_city">Pilih Kota/Kabupaten</string>
+    <string name="label_disctrict">Kecamatan</string>
+    <string name="label_choose_district">Pilih Kecamatan</string>
+    <string name="label_pos_code">Kode Pos</string>
+    <string name="label_slogan">Slogan/Tagline</string>
+    <string name="label_mitra_picture">Foto Mitra</string>
+    <string name="label_nama_acara">Nama Acara</string>
+    <string name="label_dari">Waktu Mulai</string>
+    <string name="label_format_date">dd/mm/yyyy</string>
+    <string name="label_format_time">hh:mm</string>
+    <string name="label_selesai">Waktu Selesai</string>
+    <string name="label_jumlah_pemesanan">Total Pemesanan</string>
+    <string name="label_kategori_product_service">Kategori Produk/Layanan</string>
+    <string name="label_product_name">Nama Produk/Layanan</string>
+    <string name="label_product_description">Deskripsi Produk/Layanan</string>
+    <string name="label_price">Harga</string>
+    <string name="label_payment_type">Tipe Pembayaran</string>
+    <string name="label_product_picture">Foto Produk/Layanan (min. 1)</string>
+    <string name="label_submit">SUBMIT</string>
+    <string name="label_next">BERIKUTNYA</string>
+    <string name="label_total_bayar">Total Bayar</string>
+    <string name="label_total_pemesanan">Total Pemesanan</string>
+    <string name="label_masukkan_waktu_acara_anda">Masukkan Waktu Acara Anda</string>
+    <string name="label_konfirmasi_pesanan">Konfirmasi Pesanan</string>
+    <string name="label_nama_bank">Nama Bank</string>
+    <string name="label_nomor_a_n_nama_pemilik">Nomor a/n Nama Pemilik</string>
+    <string name="label_pilih_metode_pembayaran">Pilih Metode Pembayaran</string>
+    <string name="label_upload_bukti_pembayaran">Upload Bukti Pembayaran</string>
+    <string name="label_rekening_tujuan">Rekening Tujuan</string>
+    <string name="label_hapus">Hapus</string>
+    <string name="label_upload_bukti_transaksi">Upload bukti transaksi</string>
+    <string name="label_detail_pesanan">Detail Pesanan</string>
+    <string name="label_batalkan">Batalkan</string>
+    <string name="label_pesan_sekarang">Pesan Sekarang</string>
+    <string name="label_harga">Harga</string>
+    <string name="label_informasi_umum">Informasi Umum</string>
+    <string name="label_informasi_layanan">Informasi Mitra</string>
+    <string name="save">Save</string>
+    <string name="label_sisa_waktu_untuk_melakukan_pembayaran">Sisa waktu untuk melakukan pembayaran</string>
+    <string name="label_ubah">UBAH</string>
+
+</resources>

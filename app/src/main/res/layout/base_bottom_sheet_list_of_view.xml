@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/listOfItemBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="0dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium">
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/titleTextView"
+                style="@style/normalTextView"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/text_normal"/>
+
+        <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/closeButton"
+                android:layout_width="@dimen/margin_medium"
+                android:layout_height="@dimen/margin_medium"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/base_ic_cancel"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/itemRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_logo"/>
+
+    <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+            android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+                style="@style/CardNormal">
+            <RelativeLayout
+                    android:padding="@dimen/margin_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mitraImageView"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="@dimen/image_normal"
+                        android:padding="1dp"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:layout_height="@dimen/image_normal"
+                        android:src="@drawable/logo_klikacara"
+                        android:background="@drawable/base_circle_primary"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/mitraNameTextView"
+                        style="@style/headerTextView"
+                        android:layout_toEndOf="@id/mitraImageView"
+                        android:textSize="@dimen/text_medium"
+                        android:text="BKST Perform"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/vendorTypeTextView"
+                        style="@style/normalTextView"
+                        android:text="Vendor Acara"
+                        android:layout_below="@id/mitraNameTextView"
+                        android:layout_toEndOf="@id/mitraImageView"
+                        android:textColor="@color/grey"/>
+
+                <RatingBar
+                        android:id="@+id/vendorRating"
+                        android:layout_below="@id/vendorTypeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_toEndOf="@id/mitraImageView"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:rating="0"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <View style="@style/Line"
+              android:background="#10000000"/>
+
+        <android.support.design.widget.TabLayout
+                android:background="@color/white"
+                android:id="@+id/vendorTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:tabSelectedTextColor="@color/colorPrimaryDark"
+                app:tabTextAppearance="@style/AppTabTextAppearance"
+                app:tabTextColor="@color/grey">
+
+            <android.support.design.widget.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Produk Saya"/>
+
+            <android.support.design.widget.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Ulasan"/>
+        </android.support.design.widget.TabLayout>
+
+        <android.support.v4.view.ViewPager
+                android:id="@+id/vendorPager"
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_logo"/>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        <LinearLayout
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:id="@+id/paymentArea"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                <android.support.v7.widget.CardView
+                        android:id="@+id/areaCountDown"
+                        style="@style/CardNormal"
+                        android:visibility="gone"
+                        android:layout_margin="@dimen/no_margin">
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:padding="@dimen/margin_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                                style="@style/normalTextView"
+                                android:gravity="center"
+                                android:text="@string/label_sisa_waktu_untuk_melakukan_pembayaran"/>
+                        <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/timerTextView"
+                                style="@style/headerTextView"
+                                android:layout_marginTop="@dimen/margin_medium"
+                                android:gravity="center"/>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/headerTextView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:textSize="@dimen/text_medium"
+                        android:text="@string/label_rekening_tujuan"/>
+
+                <include layout="@layout/adapter_bank"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="@dimen/margin_medium"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/labelUploadBuktiPembayaranTextView"
+                        style="@style/headerTextView"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:visibility="gone"
+                        android:textSize="@dimen/text_medium"
+                        android:text="@string/label_upload_bukti_pembayaran"/>
+
+                <RelativeLayout
+                        android:id="@+id/buktiPemabayranArea"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/base_border_primary"
+                        android:layout_height="150dp">
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/buktiTransaksiImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/uploadPictureButton"
+                            style="@style/submitButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin_big"
+                            android:layout_centerInParent="true"
+                            android:textAllCaps="false"
+                            android:text="@string/label_upload_bukti_transaksi"
+                            android:paddingStart="@dimen/margin_medium"
+                            android:paddingEnd="@dimen/margin_medium"/>
+                </RelativeLayout>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/deleteButton"
+                        android:visibility="gone"
+                        style="@style/normalTextView"
+                        android:text="@string/label_hapus"
+                        android:textColor="@color/grey"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/margin_medium"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/headerTextView"
+                    android:textSize="@dimen/text_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_detail_pesanan"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/orderDetailRecycleView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/actionButton"
+                    android:visibility="gone"
+                    style="@style/submitButton"
+                    android:layout_marginTop="@dimen/margin_very_large"/>
+
+            <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/cancelButton"
+                    android:visibility="gone"
+                    android:textColor="@color/colorPrimary"
+                    style="@style/submitButton"
+                    android:background="@drawable/base_border_primary"
+                    android:text="@string/label_batalkan"
+                    android:layout_marginTop="@dimen/margin_medium"/>
+
+            <View style="@style/Devider"
+                  android:layout_marginTop="@dimen/margin_medium"
+                  android:layout_height="100dp"/>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

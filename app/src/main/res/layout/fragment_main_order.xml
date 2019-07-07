@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_title"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeOrder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <RelativeLayout
+                        android:visibility="visible"
+                        android:id="@+id/loginArea"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/noOrderArea"
+                            android:gravity="center"
+                            android:padding="@dimen/margin_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatImageView
+                                android:src="@drawable/logo_klikacara"
+                                android:layout_width="@dimen/image_big"
+                                android:padding="1dp"
+                                android:background="@drawable/base_circle_primary"
+                                android:layout_height="@dimen/image_big"/>
+
+                        <android.support.v7.widget.AppCompatTextView
+                                style="@style/normalTextView"
+                                android:gravity="center"
+                                android:layout_marginTop="@dimen/margin_medium"
+                                android:text="Anda belum memiliki pesanan"
+                                android:textColor="@color/grey"/>
+                    </LinearLayout>
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/orderRecycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    <View style="@style/Devider"
+                          android:layout_below="@id/orderRecycleView"/>
+                </RelativeLayout>
+
+                <com.wang.avi.AVLoadingIndicatorView
+                        android:id="@+id/loadingOrder"
+                        style="@style/Loading"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/margin_very_large"/>
+
+                <include
+                        android:visibility="gone"
+                        android:id="@+id/notLoginArea"
+                        layout="@layout/content_login_first"/>
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.design.widget.CoordinatorLayout>

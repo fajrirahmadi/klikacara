@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_no_shadow_with_logo"/>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        <LinearLayout
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/headerTextView"
+                    android:textSize="@dimen/text_normal"
+                    android:text="Masukkan Alamat Acara"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_address"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/addressEditText"
+                    style="@style/registrationForm"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_address"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_province"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/provinceEditText"
+                    android:focusable="false"
+                    style="@style/registrationForm"
+                    android:drawableEnd="@drawable/ic_dropdown_grey"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_choose_province"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_city"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/cityEditText"
+                    android:focusable="false"
+                    style="@style/registrationForm"
+                    android:drawableEnd="@drawable/ic_dropdown_grey"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_choose_city"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_disctrict"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/districtEditText"
+                    android:focusable="false"
+                    style="@style/registrationForm"
+                    android:drawableEnd="@drawable/ic_dropdown_grey"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_choose_district"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_pos_code"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/posCodeEditText"
+                    style="@style/registrationForm"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:inputType="number"
+                    android:hint="@string/label_pos_code"/>
+            <View style="@style/Devider"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.v7.widget.AppCompatButton
+            android:id="@+id/nextButton"
+            android:layout_below="@id/fakeLine"
+            android:background="@color/colorPrimary"
+            android:text="@string/label_next"
+            android:layout_gravity="bottom"
+            android:textColor="@color/white"
+            style="@style/normalButton"/>
+
+    <View style="@style/ViewFullScreen"
+          android:id="@+id/fakeViewBottomSheet"
+          android:visibility="gone"/>
+
+    <include layout="@layout/base_bottom_sheet_list_of_view"/>
+
+</android.support.design.widget.CoordinatorLayout>

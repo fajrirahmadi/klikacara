@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/CardNormal"
+        android:layout_width="wrap_content"
+        android:layout_margin="@dimen/no_margin">
+
+    <LinearLayout
+            android:layout_width="160dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/productImageView"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/logo_klikacara"
+                android:background="@color/colorPrimary"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/productTitleTextView"
+                style="@style/headerTextView"
+                android:textSize="@dimen/text_medium"
+                android:padding="@dimen/margin_small"
+                android:text="Katering Manja Banget"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/productPriceTextView"
+                style="@style/normalTextView"
+                android:paddingStart="@dimen/margin_small"
+                android:paddingEnd="@dimen/margin_small"
+                android:paddingBottom="@dimen/margin_small"
+                android:text="Rp 200.000/Paket"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

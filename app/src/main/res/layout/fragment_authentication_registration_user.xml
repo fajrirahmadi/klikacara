@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_logo"/>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        <LinearLayout
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:text="Daftar Sebagai"/>
+
+            <LinearLayout
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/penggunaButton"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        style="@style/normalButton"
+                        android:text="Pengguna"
+                        android:textColor="@color/white"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:background="@drawable/base_button_primary"/>
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/vendorButton"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_weight="1"
+                        android:text="Vendor"
+                        android:textColor="@color/colorPrimary"
+                        style="@style/normalButton"
+                        android:background="@drawable/base_border_primary"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_name"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/nameEditText"
+                    style="@style/registrationForm"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_name"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/normalTextView"
+                    android:text="@string/label_email"/>
+            <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/emailEditText"
+                    style="@style/registrationForm"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/label_email"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    style="@style/normalTextView"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/label_password"/>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:passwordToggleEnabled="true"
+                    app:hintEnabled="false"
+                    app:hintAnimationEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/passwordEditText"
+                        style="@style/registrationForm"
+                        android:inputType="textPassword"
+                        android:hint="@string/label_password"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/normalTextView"
+                    android:text="@string/label_confirm_password"/>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:passwordToggleEnabled="true"
+                    app:hintEnabled="false"
+                    app:hintAnimationEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/confirmPasswordEditText"
+                        style="@style/registrationForm"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="textPassword"
+                        android:hint="@string/label_confirm_password"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/submitButton"
+                    android:layout_marginTop="@dimen/margin_large"
+                    style="@style/submitButton"/>
+            <View style="@style/Devider"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

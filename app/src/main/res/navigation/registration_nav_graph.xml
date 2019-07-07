@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/registrationNavGraph"
+            app:startDestination="@id/registerUserFragment">
+
+    <fragment android:id="@+id/registerUserFragment"
+              tools:layout="@layout/fragment_authentication_registration_user"
+              android:label="RegisterUserFragment"
+              android:name="co.id.klikacara.authentication.view.RegisterUserFragment">
+        <action android:id="@+id/action_move_fromRegisterUserFragment_toRegisterMitraFragment"
+                app:destination="@+id/registerMitraFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+    </fragment>
+
+    <fragment android:id="@+id/registerMitraFragment"
+              tools:layout="@layout/fragment_authentication_registration_mitra"
+              android:label="RegisterMitraFragment"
+              android:name="co.id.klikacara.authentication.view.RegisterMitraFragment">
+        <action android:id="@+id/action_move_fromRegisterMitraFragment_toRegisterUsahaFragment"
+                app:destination="@+id/registerUsahaFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+    </fragment>
+
+    <fragment android:id="@+id/registerUsahaFragment"
+              tools:layout="@layout/fragment_authentication_registration_usaha"
+              android:label="RegisterUsahaFragment"
+              android:name="co.id.klikacara.authentication.view.RegisterUsahaFragment">
+    </fragment>
+
+</navigation>

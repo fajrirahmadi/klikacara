@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/authentication_nav_graph"
+            app:startDestination="@id/myProductFragment">
+
+    <fragment android:id="@+id/myProductFragment"
+              tools:layout="@layout/fragment_product_list"
+              android:label="MyProductFragment"
+              android:name="co.id.klikacara.product.view.MyProductFragment">
+
+        <action android:id="@+id/action_move_fromMyProductFragment_toAddProductFragment"
+                app:destination="@+id/addEditProductFragment"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/exit_to_right"
+                app:popExitAnim="@anim/enter_from_left"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/addEditProductFragment"
+              tools:layout="@layout/fragment_product_add_edit"
+              android:label="AddProductFragment"
+              android:name="co.id.klikacara.product.view.AddProductFragment"/>
+
+</navigation>

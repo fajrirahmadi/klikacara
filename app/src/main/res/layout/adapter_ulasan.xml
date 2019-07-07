@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginStart="@dimen/no_margin"
+        android:layout_marginTop="@dimen/no_margin"
+        android:layout_marginBottom="@dimen/no_margin"
+        style="@style/CardNormal">
+
+    <RelativeLayout
+            android:padding="@dimen/margin_medium"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/userImageView"
+                android:layout_width="@dimen/image_normal"
+                android:layout_height="@dimen/image_normal"
+                android:padding="1dp"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:background="@drawable/base_circle_primary"
+                android:src="@drawable/logo_klikacara"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/nameTextView"
+                style="@style/headerTextView"
+                android:layout_toEndOf="@id/userImageView"
+                android:text="Fajri Rahmadi"
+                android:textSize="@dimen/text_medium"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/roleTextView"
+                style="@style/normalTextView"
+                android:text="Vendor"
+                android:layout_toEndOf="@id/userImageView"
+                android:textColor="@color/grey"
+                android:layout_below="@id/nameTextView"/>
+
+        <View style="@style/Line"
+              android:id="@+id/line"
+              android:layout_below="@id/userImageView"
+              android:layout_marginTop="@dimen/margin_small"/>
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/ulasanTextView"
+                style="@style/normalTextView"
+                android:layout_below="@id/line"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="Keren banget Klikacara, bikin acara ngak perlu repot-repot. Top markotop!"/>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
