@@ -1,6 +1,6 @@
 package co.id.klikacara.order.presenter
 
-import android.support.v7.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatEditText
 import co.id.klikacara.base.presenter.BasePresenter
 import co.id.klikacara.base.utils.stringhelper.StringHelper
 import co.id.klikacara.order.contract.OrderContract

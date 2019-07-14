@@ -1,7 +1,7 @@
 package co.id.klikacara.order.view
 
 import android.os.Bundle
-import android.support.v4.util.PatternsCompat
+import androidx.core.util.PatternsCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

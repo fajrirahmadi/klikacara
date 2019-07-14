@@ -143,5 +143,28 @@
     <string name="save">Save</string>
     <string name="label_sisa_waktu_untuk_melakukan_pembayaran">Sisa waktu untuk melakukan pembayaran</string>
     <string name="label_ubah">UBAH</string>
+    <string name="menu_term_condition"><![CDATA[Syarat & Ketentuan]]></string>
+    <string name="label_mitra_klik_acara">Mitra Klik Acara</string>
+    <string name="label_kata_mereka_tentang_klik_acara">Kata Mereka Tentang Klik Acara</string>
+    <string name="label_pengisi_acara">Pengisi Acara</string>
+    <string name="paket_acara">Paket Acara</string>
+    <string name="label_perlengkapan_acara">Perlengkapan Acara</string>
+    <string name="label_acara_terbaru">Acara Terbaru</string>
+    <string name="label_hubungi_kami">Hubungi Kami</string>
+    <string name="value_phone" translatable="false">Phone ($)</string>
+    <string name="value_whatsapp" translatable="false">WhatsApp ($)</string>
+    <string name="value_email" translatable="false">Email ($)</string>
+    <string name="button_menjadi_vendor">Menjadi Vendor</string>
+    <string name="label_pengguna">Pengguna</string>
+    <string name="label_identity_text">Upload Identitas</string>
+    <string name="label_identity">Foto Identitas (KTP/SIM/Paspor)</string>
+    <string name="label_diri_dan_ktp"><![CDATA[Foto Identitas & Diri]]></string>
+    <string name="label_identity_with_user_text"><![CDATA[Upload Identitas & Diri]]></string>
+    <string name="label_tempat_usaha"><![CDATA[Foto Diri & Tempat Usaha]]></string>
+    <string name="label_user_place_text"><![CDATA[Upload Diri & Tempat Usaha]]></string>
+    <string name="label_dokument_usaha">Foto Dokumen Usaha</string>
+    <string name="label_dokumen_usaha_text">Upload Dokumen Usaha</string>
+    <string name="button_verify_vendor">Verifikasi Sekarang</string>
+    <string name="label_verifed">Terverifikasi</string>
 
 </resources>

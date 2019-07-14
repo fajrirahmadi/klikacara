@@ -12,7 +12,7 @@ import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.fragment.BaseFragment
 import co.id.klikacara.product.contract.ProductContract
 import co.id.klikacara.product.presenter.MyProductPresenter
-import co.id.klikacara.product.view.ProductDetailFragment
+import co.id.klikacara.product.view.ProductDetailActivity
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_list_of_view.*
@@ -35,7 +35,7 @@ class VendorProductFragment : BaseFragment(), ProductContract.MyProductView {
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
@@ -51,7 +51,7 @@ class VendorProductFragment : BaseFragment(), ProductContract.MyProductView {
             myProductPresenter.getListProductByVendorId(it)
         }
         productListAdapter.withOnClickListener { _, _, item, _ ->
-            val intent = getIntent(activity!!, ProductDetailFragment::class.java)
+            val intent = getIntent(activity!!, ProductDetailActivity::class.java)
             intent.putExtra(BuildConfig.productDb, Parcels.wrap(item.product))
             showActivity(intent)
             true

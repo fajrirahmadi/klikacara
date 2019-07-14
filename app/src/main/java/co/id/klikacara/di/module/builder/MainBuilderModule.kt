@@ -1,14 +1,13 @@
 package co.id.klikacara.di.module.builder
 
-import co.id.klikacara.di.module.HomeModule
-import co.id.klikacara.di.module.OrderModule
-import co.id.klikacara.di.module.ProfileDetailModule
-import co.id.klikacara.di.module.ProfileModule
+import co.id.klikacara.di.module.*
 import co.id.klikacara.di.module.view.MainViewModule
+import co.id.klikacara.di.module.view.VerifyVendorViewModule
 import co.id.klikacara.main.view.HomeFragment
 import co.id.klikacara.main.view.OrderFragment
 import co.id.klikacara.main.view.ProfileDetailActivity
 import co.id.klikacara.main.view.ProfileFragment
+import co.id.klikacara.main.view.profile.VerifyVendorActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -26,5 +25,8 @@ abstract class MainBuilderModule {
 
     @ContributesAndroidInjector(modules = [MainViewModule::class, ProfileDetailModule::class])
     internal abstract fun bindProfileDetailActivity(): ProfileDetailActivity
+
+    @ContributesAndroidInjector(modules = [VerifyVendorViewModule::class, VerifyVendorModule::class])
+    internal abstract fun bindVerifyVendorActivity(): VerifyVendorActivity
 
 }

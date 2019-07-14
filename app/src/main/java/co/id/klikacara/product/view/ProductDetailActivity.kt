@@ -1,13 +1,15 @@
 package co.id.klikacara.product.view
 
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
+import android.view.View
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import butterknife.OnClick
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.`object`.BaseProduct
 import co.id.klikacara.`object`.adapter.BannerAdapter
 import co.id.klikacara.`object`.authentication.Mitra
+import co.id.klikacara.authentication.view.AuthenticationActivity
 import co.id.klikacara.base.utils.stringhelper.StringHelper
 import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.activity.BaseActivity
@@ -20,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_product_detail.*
 import org.parceler.Parcels
 import javax.inject.Inject
 
-class ProductDetailFragment : BaseActivity(), ProductContract.ProductDetailView, SwipeRefreshLayout.OnRefreshListener {
+class ProductDetailActivity : BaseActivity(), ProductContract.ProductDetailView, SwipeRefreshLayout.OnRefreshListener {
 
     @Inject
     lateinit var productDetailPresenter: ProductDetailPresenter
@@ -60,13 +62,23 @@ class ProductDetailFragment : BaseActivity(), ProductContract.ProductDetailView,
 
     @OnClick(R.id.orderButton)
     fun onOrderButtonClicked() {
+        productDetailPresenter.openOrderActivity()
+    }
+
+    override fun userIsVendor() {
+        ViewHelper.hideView(orderButton)
+    }
+
+    override fun doOpenOrderActivity() {
         val intent = getIntent(this, OrderActivity::class.java)
         intent.putExtra(BuildConfig.productDb, Parcels.wrap(product))
         intent.putExtra(BuildConfig.mitraDb, Parcels.wrap(mitra))
         showActivity(intent)
     }
 
-    override fun userIsVendor() {
-        ViewHelper.hideView(orderButton)
+    override fun showDialogLogin() {
+        showInfoWithCancel("Anda harus login terlebih dahulu untuk memesan Acara", View.OnClickListener {
+            showActivity(getIntent(this, AuthenticationActivity::class.java))
+        })
     }
 }

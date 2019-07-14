@@ -4,13 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.AppCompatTextView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.ButterKnife
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
@@ -27,8 +26,10 @@ import java.util.*
 
 abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 
-    lateinit var progressDialog: ProgressDialog
+    var progressDialog: ProgressDialog? = null
     lateinit var infoDialog: BaseJavaDialog
+
+    private var isProgressShown = false
 
     override fun setContentView(layout: Int) {
         super.setContentView(layout)
@@ -56,25 +57,24 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         }
     }
 
-    fun showProgressDialog(title: String, message: String) {
-        progressDialog.title = title
-        progressDialog.description = message
-        progressDialog.show(supportFragmentManager)
-    }
-
     fun showProgressDialog(message: String) {
-        progressDialog.title = message
-        progressDialog.show(supportFragmentManager)
+        progressDialog?.title = message
+        progressDialog?.show(supportFragmentManager)
     }
 
     override fun showProgressDialog() {
-        if (!progressDialog.isAdded)
-            showProgressDialog("Nyantai Bentar . . .")
+        if (!isProgressShown) {
+            initProgressDialog()
+            isProgressShown = true
+            progressDialog?.show(supportFragmentManager, "PROGRESS_DIALOG")
+        }
     }
 
     override fun dismissProgressDialog() {
-        if (progressDialog.isAdded)
-            progressDialog.dismiss()
+        if (isProgressShown) {
+            isProgressShown = false
+            progressDialog?.dismissAllowingStateLoss()
+        }
     }
 
     override fun showSuccess(message: String) {
@@ -145,9 +145,9 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 
     fun configureItemAdapter(
         adapter: FastItemAdapter<*>,
-        recyclerView: RecyclerView
+        recyclerView: androidx.recyclerview.widget.RecyclerView
     ) {
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         recyclerView.adapter = adapter
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.isFocusable = false
@@ -157,9 +157,13 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 
     fun configureHorizontalItemAdapter(
         adapter: FastItemAdapter<*>,
-        recyclerView: RecyclerView
+        recyclerView: androidx.recyclerview.widget.RecyclerView
     ) {
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
+            this,
+            androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+            false
+        )
         recyclerView.adapter = adapter
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.isFocusable = false
@@ -181,6 +185,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         supportActionBar?.setDisplayShowHomeEnabled(false)
     }
 
+    @Suppress("DEPRECATION")
     protected fun configureToolbarWithHomeAndTitle(toolbar: Toolbar, title: String?) {
         findViewById<AppCompatTextView>(R.id.titleToolbar).text = title
         toolbar.title = ""
@@ -194,6 +199,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         )
     }
 
+    @Suppress("DEPRECATION")
     protected fun configureToolbarEmpty() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         this.setSupportActionBar(toolbar)
@@ -206,6 +212,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         )
     }
 
+    @Suppress("DEPRECATION")
     protected fun configureToolbarEmptyNoHome() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         this.setSupportActionBar(toolbar)

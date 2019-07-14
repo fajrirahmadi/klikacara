@@ -1,7 +1,7 @@
 package co.id.klikacara.validator
 
-import android.support.v4.util.PatternsCompat
-import android.support.v7.widget.AppCompatEditText
+import androidx.core.util.PatternsCompat
+import androidx.appcompat.widget.AppCompatEditText
 import co.id.klikacara.base.utils.stringhelper.StringHelper
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable

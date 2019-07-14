@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/keyTextView"
             style="@style/normalTextView"
             android:padding="@dimen/margin_medium"
@@ -12,7 +12,7 @@
             android:textColor="@color/grey"
             android:text="Nama Acara"/>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/valueTextView"
             android:padding="@dimen/margin_medium"
             style="@style/normalTextView"

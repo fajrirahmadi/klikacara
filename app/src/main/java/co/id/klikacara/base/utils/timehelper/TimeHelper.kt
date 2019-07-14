@@ -2,7 +2,7 @@ package co.id.klikacara.base.utils.timehelper
 
 import android.app.TimePickerDialog
 import android.content.Context
-import android.support.v7.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatEditText
 import java.util.*
 
 class TimeHelper {

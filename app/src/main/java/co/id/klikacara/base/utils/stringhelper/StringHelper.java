@@ -1,6 +1,6 @@
 package co.id.klikacara.base.utils.stringhelper;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Patterns;
 import org.apache.commons.lang3.StringUtils;
 

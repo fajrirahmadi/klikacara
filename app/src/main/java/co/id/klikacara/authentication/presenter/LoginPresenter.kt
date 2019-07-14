@@ -80,7 +80,7 @@ class LoginPresenter(
                         view.doOnLoginSuccess()
                         view.dismissProgressDialog()
                     }
-                    .addOnFailureListener { e ->
+                    .addOnFailureListener {
                         view.dismissProgressDialog()
                         view.showError(if (task.exception != null) task.exception?.message!! else "Tidak bisa masuk ke Klik Acara, cobalah beberapa saat lagi.")
                     }

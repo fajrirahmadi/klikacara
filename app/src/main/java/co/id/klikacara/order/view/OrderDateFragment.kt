@@ -35,7 +35,7 @@ class OrderDateFragment : BaseFragment(), OrderContract.OrderDateView {
     lateinit var mitra: Mitra
     lateinit var order: Order
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

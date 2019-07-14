@@ -27,7 +27,7 @@ class ProductListFragment : BaseFragment(), ProductContract.ProductListView {
 
     private val productListAdapter = FastItemAdapter<ProductAdapter>()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
@@ -56,7 +56,7 @@ class ProductListFragment : BaseFragment(), ProductContract.ProductListView {
     private fun configureProductAdapter() {
         configureGridItemAdapter(productListAdapter, productRecycleView, 2)
         productListAdapter.withOnClickListener { _, _, item, _ ->
-            val intent = getIntent(activity!!, ProductDetailFragment::class.java)
+            val intent = getIntent(activity!!, ProductDetailActivity::class.java)
             intent.putExtra(BuildConfig.productDb, Parcels.wrap(item.product))
             showActivity(intent)
             true

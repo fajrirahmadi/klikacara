@@ -6,7 +6,7 @@ import android.webkit.WebViewClient
 import co.id.klikacara.R
 import kotlinx.android.synthetic.main.base_activity_web_view.*
 
-class SajakWeb : BaseActivity() {
+class KlikWeb : BaseActivity() {
 
     companion object {
         val URL = "URL"
@@ -15,7 +15,6 @@ class SajakWeb : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.base_activity_web_view)
-        configureToolbarEmpty()
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 view?.loadUrl(url)

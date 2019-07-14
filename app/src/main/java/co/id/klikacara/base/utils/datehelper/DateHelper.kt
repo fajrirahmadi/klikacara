@@ -2,7 +2,7 @@ package co.id.klikacara.base.utils.datehelper
 
 import android.app.DatePickerDialog
 import android.content.Context
-import android.support.v7.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatEditText
 import co.id.klikacara.base.utils.timehelper.TimeUtils
 import java.util.*
 

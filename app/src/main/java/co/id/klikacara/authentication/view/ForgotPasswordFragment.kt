@@ -22,7 +22,7 @@ class ForgotPasswordFragment : BaseFragment(), AuthenticationContract.ForgetPass
     lateinit var forgetPasswordPresenter: ForgetPasswordPresenter
     val validatorUsecase = ValidatorUsecase()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

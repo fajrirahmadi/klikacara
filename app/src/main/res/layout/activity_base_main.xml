@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         tools:context=".main.view.MainActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_above="@id/bottomBar"
             android:layout_width="match_parent"
             android:background="@color/white"
@@ -50,7 +50,7 @@
                     android:layout_height="match_parent"
                     tools:layout="@layout/fragment_main_profile"/>
         </FrameLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
             android:id="@+id/bottomBar"

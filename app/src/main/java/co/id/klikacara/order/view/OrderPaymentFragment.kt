@@ -28,7 +28,7 @@ class OrderPaymentFragment : BaseFragment(), OrderContract.OrderPaymentView {
     private var selectedPosition: Int? = null
     lateinit var order: Order
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

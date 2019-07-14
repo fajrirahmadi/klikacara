@@ -4,6 +4,7 @@ import co.id.klikacara.main.contract.MainContract
 import co.id.klikacara.main.presenter.ProfilePresenter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import dagger.Module
 import dagger.Provides
 
@@ -14,6 +15,6 @@ class ProfileModule {
     fun provideHomePresenter(
         view: MainContract.ProfileView
     ): ProfilePresenter {
-        return ProfilePresenter(view, FirebaseAuth.getInstance(), FirebaseFirestore.getInstance())
+        return ProfilePresenter(view, FirebaseAuth.getInstance(), FirebaseFirestore.getInstance(), FirebaseRemoteConfig.getInstance())
     }
 }

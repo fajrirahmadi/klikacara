@@ -2,7 +2,7 @@ package co.id.klikacara.order.view
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +36,7 @@ class OrderAddressFragment : BaseFragment(), MasterContract.MasterAddressView {
     private lateinit var sheetBehaviorListOfItemCallback: BottomSheetBehavior.BottomSheetCallback
     private lateinit var order: Order
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

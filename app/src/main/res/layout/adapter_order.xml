@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         style="@style/CardNormal"
         android:layout_marginBottom="@dimen/no_margin">
@@ -10,7 +10,7 @@
             android:background="@color/white"
             android:padding="@dimen/margin_medium">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/orderImageView"
                 android:layout_width="@dimen/image_normal"
                 android:layout_height="@dimen/image_normal"
@@ -23,12 +23,12 @@
                 android:orientation="vertical"
                 android:layout_toEndOf="@id/orderImageView">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/orderItemNameTextView"
                     style="@style/headerTextView"
                     android:textSize="@dimen/text_medium"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/orderDateTextView"
                     style="@style/normalTextView"
                     android:textSize="@dimen/text_small"
@@ -37,19 +37,19 @@
             <View style="@style/Line"
                   android:layout_marginTop="@dimen/margin_small"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/orderStatusTextView"
                     style="@style/normalTextView"
                     android:textSize="@dimen/text_small"
                     android:layout_marginTop="@dimen/margin_small"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/amountTextView"
                     style="@style/normalTextView"
                     android:textSize="@dimen/text_normal"
                     android:textStyle="bold"/>
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/detailButton"
                     style="@style/normalButton"
                     android:layout_width="wrap_content"
@@ -65,4 +65,4 @@
 
     </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>

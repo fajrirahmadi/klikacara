@@ -7,7 +7,7 @@ import co.id.klikacara.di.module.ProductOwnModule
 import co.id.klikacara.di.module.view.ProductViewModule
 import co.id.klikacara.product.view.AddProductFragment
 import co.id.klikacara.product.view.MyProductFragment
-import co.id.klikacara.product.view.ProductDetailFragment
+import co.id.klikacara.product.view.ProductDetailActivity
 import co.id.klikacara.product.view.ProductListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -19,7 +19,7 @@ abstract class ProductBuilderModule {
     internal abstract fun bindProductListFragment(): ProductListFragment
 
     @ContributesAndroidInjector(modules = [ProductViewModule::class, ProductDetailModule::class])
-    internal abstract fun bindProductDetailFragment(): ProductDetailFragment
+    internal abstract fun bindProductDetailFragment(): ProductDetailActivity
 
     @ContributesAndroidInjector(modules = [ProductViewModule::class, ProductOwnModule::class])
     internal abstract fun bindProductOwnFragment(): MyProductFragment

@@ -30,14 +30,22 @@ class ProductDetailPresenter(
     }
 
     fun checkRole() {
-        database.collection(BuildConfig.mitraDb).document(auth.uid!!)
-            .get().addOnCompleteListener {
-                if (it.isSuccessful && it.result != null) {
-                    val mitra = it.result!!.toObject(Mitra::class.java)
-                    if (mitra != null)
-                        view.userIsVendor()
+        if (auth.currentUser != null)
+            database.collection(BuildConfig.mitraDb).document(auth.uid!!)
+                .get().addOnCompleteListener {
+                    if (it.isSuccessful && it.result != null) {
+                        val mitra = it.result!!.toObject(Mitra::class.java)
+                        if (mitra != null)
+                            view.userIsVendor()
+                    }
                 }
-            }
+    }
+
+    fun openOrderActivity() {
+        if (auth.currentUser == null)
+            view.showDialogLogin()
+        else
+            view.doOpenOrderActivity()
     }
 
 

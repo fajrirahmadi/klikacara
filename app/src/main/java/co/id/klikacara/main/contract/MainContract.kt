@@ -15,6 +15,7 @@ interface MainContract {
         fun setPengisiAcaraAdapter(klikMenuListAdapter: ArrayList<KlikMenuAdapter>)
         fun setUlasanAdapter(ulasanListAdapter: ArrayList<UlasanAdapter>)
         fun setMitraAdapter(mitraListAdapter: ArrayList<MitraAdapter>)
+        fun changeBanner()
 
     }
 
@@ -31,6 +32,7 @@ interface MainContract {
         fun showLoginArea()
         fun doOnLogoutSuccess()
         fun setUserData(user: User)
+        fun setMitraData(mitra: Mitra)
     }
 
     interface ProfileDetailView : BaseContract.View {
@@ -46,5 +48,12 @@ interface MainContract {
 
     interface MitraProfileView : BaseContract.View {
         fun setMitraData(mitra: Mitra)
+    }
+
+    interface VerifyVendorView : BaseContract.View {
+        fun doOnUploadFotoSuccess(path: String, index: Int)
+        fun doOnSuccessSubmitVerifyVendor()
+        fun setMitraData(mitra: Mitra)
+
     }
 }

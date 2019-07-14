@@ -4,7 +4,7 @@ import co.id.klikacara.permission.contract.PermissionContract
 import co.id.klikacara.product.contract.ProductContract
 import co.id.klikacara.product.view.AddProductFragment
 import co.id.klikacara.product.view.MyProductFragment
-import co.id.klikacara.product.view.ProductDetailFragment
+import co.id.klikacara.product.view.ProductDetailActivity
 import co.id.klikacara.product.view.ProductListFragment
 import dagger.Binds
 import dagger.Module
@@ -16,7 +16,7 @@ abstract class ProductViewModule {
             ProductContract.ProductListView
 
     @Binds
-    internal abstract fun provideProductDetailFragment(productDetailFragment: ProductDetailFragment):
+    internal abstract fun provideProductDetailFragment(productDetailActivity: ProductDetailActivity):
             ProductContract.ProductDetailView
 
     @Binds

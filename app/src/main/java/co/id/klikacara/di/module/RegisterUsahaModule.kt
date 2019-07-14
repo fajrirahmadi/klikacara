@@ -5,7 +5,6 @@ import co.id.klikacara.authentication.presenter.RegistrationUsahaPresenter
 import co.id.klikacara.permission.contract.PermissionContract
 import co.id.klikacara.permission.presenter.PermissionPresenter
 import co.id.klikacara.permission.usecase.PermissionUseCase
-import co.id.klikacara.validator.ValidatorUsecase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -17,10 +16,14 @@ class RegisterUsahaModule {
 
     @Provides
     fun provideRegisterUserPresenter(
-        view: AuthenticationContract.RegisterUsahaView,
-        useCase: ValidatorUsecase
+        view: AuthenticationContract.RegisterUsahaView
     ): RegistrationUsahaPresenter {
-        return RegistrationUsahaPresenter(view, FirebaseAuth.getInstance(), FirebaseFirestore.getInstance(), FirebaseStorage.getInstance())
+        return RegistrationUsahaPresenter(
+            view,
+            FirebaseAuth.getInstance(),
+            FirebaseFirestore.getInstance(),
+            FirebaseStorage.getInstance()
+        )
     }
 
     @Provides

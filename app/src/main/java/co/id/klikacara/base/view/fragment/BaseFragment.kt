@@ -5,12 +5,13 @@ import android.content.Intent
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import butterknife.ButterKnife
 import butterknife.Unbinder
@@ -28,15 +29,12 @@ import java.util.*
 
 abstract class BaseFragment : Fragment(), BaseContract.View {
 
-    lateinit var progressDialog: ProgressDialog
+    private var progressDialog: ProgressDialog? = null
     lateinit var infoDialog: BaseJavaDialog
 
     lateinit var unbinder: Unbinder
 
-    override fun dismissProgressDialog() {
-        if (progressDialog.isAdded)
-            progressDialog.dismissAllowingStateLoss()
-    }
+    private var isProgressShown = false
 
     override fun showError(message: String) {
         showError(message, View.OnClickListener { infoDialog.dismissAllowingStateLoss() })
@@ -91,8 +89,18 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
     }
 
     override fun showProgressDialog() {
-        if ((progressDialog.dialog != null && !progressDialog.dialog.isShowing) || progressDialog.dialog == null)
-            progressDialog.showAllowingStateLoss(childFragmentManager, "FRAGMENT")
+        if (!isProgressShown) {
+            initProgressDialog()
+            isProgressShown = true
+            progressDialog?.show(childFragmentManager, "PROGRESS_DIALOG")
+        }
+    }
+
+    override fun dismissProgressDialog() {
+        if (isProgressShown) {
+            isProgressShown = false
+            progressDialog?.dismissAllowingStateLoss()
+        }
     }
 
     fun showActivityAndFinishCurent(intent: Intent) {
@@ -153,9 +161,9 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
 
     fun configureItemAdapter(
         adapter: FastItemAdapter<*>,
-        recyclerView: RecyclerView
+        recyclerView: androidx.recyclerview.widget.RecyclerView
     ) {
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         recyclerView.adapter = adapter
         recyclerView.isNestedScrollingEnabled = false
         if (!adapter.isSelectable)
@@ -164,12 +172,12 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
 
     fun configureItemAdapter(
         adapter: FastItemAdapter<*>,
-        recyclerView: RecyclerView,
-        layout: LinearLayoutManager,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
+        layout: androidx.recyclerview.widget.LinearLayoutManager,
         scrollListener: CustomEndlessRecyclerViewScrollListener
     ) {
         recyclerView.layoutManager = layout
-        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         recyclerView.adapter = adapter
         recyclerView.addOnScrollListener(scrollListener)
         if (!adapter.isSelectable)
@@ -178,9 +186,13 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
 
     fun configureHorizontalItemAdapter(
         adapter: FastItemAdapter<*>,
-        recyclerView: RecyclerView
+        recyclerView: androidx.recyclerview.widget.RecyclerView
     ) {
-        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
+            activity,
+            androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+            false
+        )
         recyclerView.adapter = adapter
         recyclerView.isNestedScrollingEnabled = false
         if (!adapter.isSelectable)
@@ -189,10 +201,10 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
 
     fun configureGridItemAdapter(
         adapter: FastItemAdapter<*>,
-        recyclerView: RecyclerView,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
         span: Int
     ) {
-        recyclerView.layoutManager = GridLayoutManager(activity, span)
+        recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(activity, span)
         recyclerView.adapter = adapter
         recyclerView.isNestedScrollingEnabled = false
         if (!adapter.isSelectable)
@@ -204,6 +216,7 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
         view.findViewById<AppCompatTextView>(R.id.titleToolbar).text = title
     }
 
+    @Suppress("DEPRECATION")
     protected fun configureEmptyToolbar(view: View) {
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
         toolbar.title = ""

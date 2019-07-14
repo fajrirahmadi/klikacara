@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content">
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
             style="@style/CardNormal"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -15,7 +15,7 @@
                       android:background="@color/white"
                       android:padding="@dimen/margin_medium"
                       android:layout_height="match_parent">
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_heading"
                     style="@style/headerTextView"
                     android:layout_gravity="center_horizontal"
@@ -29,36 +29,40 @@
                     android:layout_gravity="center_horizontal"
                     android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_content"
                         android:layout_width="match_parent"
                         style="@style/normalTextView"/>
 
-                <RelativeLayout
-                        android:layout_marginTop="@dimen/margin_large"
-                        android:layout_width="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginBottom="@dimen/margin_medium"
-                        android:layout_height="wrap_content">
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatButton
-                            android:id="@+id/btn_cancel"
-                            android:layout_width="@dimen/image_medium"
-                            android:layout_height="@dimen/image_medium"
-                            android:layout_toStartOf="@+id/btn_ok"
-                            android:layout_marginEnd="@dimen/margin_normal"
-                            android:background="@drawable/base_ic_cancel"/>
+                <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_cancel"
+                        android:layout_weight="1"
+                        style="@style/normalButton"
+                        android:text="Tidak"
+                        android:layout_height="@dimen/margin_large"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:background="@color/white"/>
 
-                    <android.support.v7.widget.AppCompatButton
-                            android:id="@+id/btn_ok"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/base_ic_ok"
-                            android:layout_width="@dimen/image_medium"
-                            android:layout_height="@dimen/image_medium"/>
-                </RelativeLayout>
-
+                <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_ok"
+                        style="@style/normalButton"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_weight="1"
+                        android:layout_height="@dimen/margin_large"
+                        android:background="@drawable/base_button_primary"
+                        android:text="Ya"
+                        android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -1,11 +1,13 @@
 package co.id.klikacara.main.view
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.`object`.MitraType
@@ -13,7 +15,9 @@ import co.id.klikacara.`object`.adapter.BannerAdapter
 import co.id.klikacara.`object`.adapter.KlikMenuAdapter
 import co.id.klikacara.`object`.adapter.MitraAdapter
 import co.id.klikacara.`object`.adapter.UlasanAdapter
+import co.id.klikacara.base.utils.updatehelper.ForceUpdateChecker
 import co.id.klikacara.base.utils.viewhelper.ViewHelper
+import co.id.klikacara.base.view.adapter.ViewPagerAdapter
 import co.id.klikacara.base.view.fragment.BaseFragment
 import co.id.klikacara.main.contract.MainContract
 import co.id.klikacara.main.presenter.HomePresenter
@@ -25,12 +29,14 @@ import kotlinx.android.synthetic.main.fragment_main_home.*
 import org.parceler.Parcels
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.OnRefreshListener {
+
+class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.OnRefreshListener,
+    ForceUpdateChecker.OnUpdateNeededListener {
 
     @Inject
     lateinit var homePresenter: HomePresenter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
@@ -41,6 +47,7 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
     private val pengisiAcaraAdapter = FastItemAdapter<KlikMenuAdapter>()
     private val ulasanAdapter = FastItemAdapter<UlasanAdapter>()
     private val mitraAdapter = FastItemAdapter<MitraAdapter>()
+    private lateinit var pagerAdapter: ViewPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return getInflate(inflater, R.layout.fragment_main_home, container)
@@ -48,14 +55,46 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ForceUpdateChecker.with(activity!!).onUpdateNeeded(this).check()
         swipeHome.setOnRefreshListener(this)
         configureAdapter()
+        configureViewPager()
         homePresenter.getBanner()
         homePresenter.getMenuByType(MitraType.PERLENGKAPAN_ACARA)
         homePresenter.getMenuByType(MitraType.PAKET_ACARA)
         homePresenter.getMenuByType(MitraType.PENGISI_ACARA)
         homePresenter.getUlasan()
         homePresenter.getMitra()
+        homePresenter.initUlasan()
+    }
+
+    private fun configureViewPager() {
+        pagerAdapter = ViewPagerAdapter(childFragmentManager)
+        bannerPager.adapter = pagerAdapter
+        tabDots.setupWithViewPager(bannerPager, true)
+        homePresenter.runningPager()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        homePresenter.stopPager()
+    }
+
+    override fun changeBanner() {
+        if (pagerAdapter.count > 0) {
+            if (bannerPager.currentItem == pagerAdapter.count - 1)
+                bannerPager.currentItem = 0
+            else
+                bannerPager.currentItem = bannerPager.currentItem + 1
+        }
+    }
+
+    override fun onUpdateNeeded(updateUrl: String) {
+        showInfo("Tersedia versi terbaru, silahkan update aplikasi Anda terlebih dahulu", View.OnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(updateUrl))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        })
     }
 
     private fun configureAdapter() {
@@ -105,9 +144,17 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
     }
 
     override fun setBannerAdapter(bannerListAdapter: List<BannerAdapter>) {
+        /*
         this.bannerAdapter.clear()
         this.bannerAdapter.add(bannerListAdapter)
         ViewHelper.showView(bannerRecycleView)
+        */
+        pagerAdapter.clearFragment()
+        for (banner in bannerListAdapter) {
+            pagerAdapter.addFragment(BannerFragment.newInstance(banner.imageUrl), "")
+        }
+        pagerAdapter.notifyDataSetChanged()
+        ViewHelper.showView(areaBanner)
         ViewHelper.hideView(bannerLoading)
     }
 

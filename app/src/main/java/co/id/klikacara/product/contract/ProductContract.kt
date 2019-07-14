@@ -16,6 +16,8 @@ interface ProductContract {
     interface ProductDetailView : BaseContract.View {
         fun setDataVendor(mitra: Mitra)
         fun userIsVendor()
+        fun showDialogLogin()
+        fun doOpenOrderActivity()
     }
 
     interface MyProductView : BaseContract.View {

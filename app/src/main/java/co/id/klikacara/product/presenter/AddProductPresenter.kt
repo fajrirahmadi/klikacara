@@ -1,7 +1,7 @@
 package co.id.klikacara.product.presenter
 
 import android.net.Uri
-import android.support.v7.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatEditText
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.`object`.BaseProduct
 import co.id.klikacara.`object`.KlikMenu
@@ -99,8 +99,8 @@ class AddProductPresenter(
             .addOnSuccessListener {
                 it.metadata!!.reference!!.downloadUrl
                     .addOnSuccessListener { url ->
-                        view.setUploadedImageUrl(url.toString(), index)
                         view.dismissProgressDialog()
+                        view.setUploadedImageUrl(url.toString(), index)
                     }.addOnFailureListener {
                         view.dismissProgressDialog()
                     }

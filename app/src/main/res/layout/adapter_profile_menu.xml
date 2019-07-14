@@ -6,7 +6,7 @@
               android:orientation="vertical"
               android:paddingTop="@dimen/margin_medium">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/labelMenuTextView"
             style="@style/latoRegularTextView"
             android:layout_marginStart="@dimen/margin_medium"

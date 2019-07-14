@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent" android:layout_height="match_parent">
 
     <include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/productListSwipe"
             android:layout_width="match_parent"
             android:background="@color/white"
             android:layout_height="wrap_content"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <LinearLayout
@@ -22,22 +22,22 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/headerTextView"
                         android:textSize="@dimen/text_medium"
                         android:text="@string/label_pilih_metode_pembayaran"/>
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/bankListRecycleView"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButton"
             android:layout_below="@id/fakeLine"
             android:background="@color/colorPrimary"
@@ -46,4 +46,4 @@
             android:textColor="@color/white"
             style="@style/normalButton"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

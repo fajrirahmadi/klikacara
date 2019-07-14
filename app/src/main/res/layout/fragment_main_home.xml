@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -8,13 +8,13 @@
 
     <include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -26,7 +26,27 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <android.support.v7.widget.RecyclerView
+                    <RelativeLayout
+                            android:id="@+id/areaBanner"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp">
+
+                        <androidx.viewpager.widget.ViewPager
+                                android:id="@+id/bannerPager"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+                        <com.google.android.material.tabs.TabLayout
+                                android:id="@+id/tabDots"
+                                android:layout_alignParentBottom="true"
+                                android:layout_width="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_height="wrap_content"
+                                app:tabBackground="@drawable/dots_background"
+                                app:tabGravity="center"
+                                app:tabIndicatorHeight="0dp"/>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/bannerRecycleView"
                             android:layout_width="match_parent"
                             android:visibility="gone"
@@ -47,13 +67,13 @@
                         android:layout_marginEnd="@dimen/margin_medium"
                         android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/titleEventTextView"
                             style="@style/headerTextView"
                             android:layout_marginBottom="@dimen/margin_medium"
-                            android:text="Acara Terbaru"/>
+                            android:text="@string/label_acara_terbaru"/>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:layout_below="@+id/titleEventTextView"
                             android:id="@+id/eventRecycleView"
                             android:layout_width="match_parent"
@@ -67,14 +87,14 @@
                         android:layout_marginEnd="@dimen/margin_medium"
                         android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/titlePerlengkapanTextView"
                             style="@style/headerTextView"
                             android:textSize="@dimen/text_normal"
                             android:layout_marginBottom="@dimen/margin_medium"
-                            android:text="Perlengkapan Acara"/>
+                            android:text="@string/label_perlengkapan_acara"/>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:visibility="gone"
                             android:layout_below="@+id/titlePerlengkapanTextView"
                             android:id="@+id/perlengkapanRecycleView"
@@ -96,14 +116,14 @@
                         android:layout_marginEnd="@dimen/margin_medium"
                         android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/titlePaketAcaraTextView"
                             style="@style/headerTextView"
                             android:textSize="@dimen/text_normal"
                             android:layout_marginBottom="@dimen/margin_medium"
-                            android:text="Paket Acara"/>
+                            android:text="@string/paket_acara"/>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:layout_below="@+id/titlePaketAcaraTextView"
                             android:id="@+id/paketAcaraRecycleView"
                             android:layout_width="match_parent"
@@ -125,14 +145,14 @@
                         android:layout_marginEnd="@dimen/margin_medium"
                         android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/titlePengisiAcaraTextView"
                             style="@style/headerTextView"
                             android:textSize="@dimen/text_normal"
                             android:layout_marginBottom="@dimen/margin_medium"
-                            android:text="Pengisi Acara"/>
+                            android:text="@string/label_pengisi_acara"/>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:layout_below="@+id/titlePengisiAcaraTextView"
                             android:id="@+id/pengisiAcaraRecycleView"
                             android:layout_width="match_parent"
@@ -154,14 +174,14 @@
                         android:layout_marginEnd="@dimen/margin_medium"
                         android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/titleUlasanTextView"
                             style="@style/headerTextView"
                             android:textSize="@dimen/text_normal"
                             android:layout_marginBottom="@dimen/margin_medium"
-                            android:text="Kata Mereka Tentang Klik Acara"/>
+                            android:text="@string/label_kata_mereka_tentang_klik_acara"/>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:layout_below="@+id/titleUlasanTextView"
                             android:id="@+id/ulasanRecycleView"
                             android:layout_width="match_parent"
@@ -184,14 +204,14 @@
                         android:layout_marginBottom="@dimen/margin_medium"
                         android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/titleMitraTextView"
                             style="@style/headerTextView"
                             android:textSize="@dimen/text_normal"
                             android:layout_marginBottom="@dimen/margin_medium"
-                            android:text="Mitra Klik Acara"/>
+                            android:text="@string/label_mitra_klik_acara"/>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:layout_below="@+id/titleMitraTextView"
                             android:id="@+id/mitraRecycleView"
                             android:layout_width="match_parent"
@@ -208,8 +228,8 @@
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

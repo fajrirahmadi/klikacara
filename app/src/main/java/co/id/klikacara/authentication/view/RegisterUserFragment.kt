@@ -3,10 +3,10 @@ package co.id.klikacara.authentication.view
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import butterknife.BindDrawable
 import butterknife.OnClick
 import co.id.klikacara.BuildConfig
@@ -31,7 +31,7 @@ class RegisterUserFragment : BaseFragment(), AuthenticationContract.RegisterUser
 
     private var isPengguna = true
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

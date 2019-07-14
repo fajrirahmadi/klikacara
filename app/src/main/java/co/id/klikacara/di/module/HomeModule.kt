@@ -1,5 +1,6 @@
 package co.id.klikacara.di.module
 
+import co.id.klikacara.base.utils.SchedulersFacade
 import co.id.klikacara.main.contract.MainContract
 import co.id.klikacara.main.presenter.HomePresenter
 import com.google.firebase.auth.FirebaseAuth
@@ -12,8 +13,9 @@ class HomeModule {
 
     @Provides
     fun provideHomePresenter(
-        view: MainContract.HomeView
+        view: MainContract.HomeView,
+        scheduler: SchedulersFacade
     ): HomePresenter {
-        return HomePresenter(view, FirebaseAuth.getInstance(), FirebaseFirestore.getInstance())
+        return HomePresenter(view, FirebaseAuth.getInstance(), FirebaseFirestore.getInstance(), scheduler)
     }
 }

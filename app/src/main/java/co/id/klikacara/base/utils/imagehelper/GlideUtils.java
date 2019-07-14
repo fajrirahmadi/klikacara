@@ -3,7 +3,7 @@ package co.id.klikacara.base.utils.imagehelper;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.widget.ImageView;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.storage.FirebaseStorage;

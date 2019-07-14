@@ -2,7 +2,7 @@ package co.id.klikacara.authentication.view
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +31,7 @@ class RegisterMitraFragment : BaseFragment(), AuthenticationContract.RegisterMit
     @Inject
     lateinit var registerMitraPresenter: RegistrationMitraPresenter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

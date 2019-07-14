@@ -3,7 +3,6 @@ package co.id.klikacara.authentication.presenter
 import android.net.Uri
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.`object`.authentication.RegistrationVendor
-import co.id.klikacara.`object`.authentication.User
 import co.id.klikacara.authentication.contract.AuthenticationContract
 import co.id.klikacara.base.presenter.BasePresenter
 import co.id.klikacara.base.utils.stringhelper.StringHelper
@@ -18,10 +17,6 @@ class RegistrationUsahaPresenter(
     private val database: FirebaseFirestore,
     private val storage: FirebaseStorage
 ) : BasePresenter() {
-
-    fun submitRegistrationUser(user: User, password: String, confirmPassword: String) {
-
-    }
 
     fun registerUser(registrationVendor: RegistrationVendor) {
         view.showProgressDialog()

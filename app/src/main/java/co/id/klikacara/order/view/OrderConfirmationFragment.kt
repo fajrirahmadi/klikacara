@@ -33,7 +33,7 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
     lateinit var order: Order
     private val orderConfirmationDialog = BaseJavaDialog()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

@@ -24,7 +24,7 @@ class LoginFragment : BaseFragment(), AuthenticationContract.LoginView {
     @Inject
     lateinit var loginPresenter: LoginPresenter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

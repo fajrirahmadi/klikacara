@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent" android:layout_height="match_parent">
 
     <include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/productListSwipe"
             android:layout_width="match_parent"
             android:background="@color/white"
             android:layout_height="wrap_content"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <LinearLayout
@@ -22,12 +22,12 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/headerTextView"
                         android:textSize="@dimen/text_medium"
                         android:text="@string/label_masukkan_waktu_acara_anda"/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/normalTextView"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:text="@string/label_dari"/>
@@ -35,7 +35,7 @@
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/startDateEditText"
                             style="@style/registrationForm"
                             android:layout_marginEnd="@dimen/margin_small"
@@ -43,7 +43,7 @@
                             android:focusable="false"
                             android:layout_marginTop="@dimen/margin_small"
                             android:hint="@string/label_format_date"/>
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/startTimeEditText"
                             android:layout_weight="1"
                             android:focusable="false"
@@ -53,7 +53,7 @@
                             android:hint="@string/label_format_time"/>
                 </LinearLayout>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/normalTextView"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:text="@string/label_selesai"/>
@@ -61,7 +61,7 @@
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/endDateEditText"
                             style="@style/registrationForm"
                             android:layout_marginEnd="@dimen/margin_small"
@@ -69,7 +69,7 @@
                             android:focusable="false"
                             android:layout_marginTop="@dimen/margin_small"
                             android:hint="@string/label_format_date"/>
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/endTimeEditText"
                             android:layout_weight="1"
                             style="@style/registrationForm"
@@ -79,7 +79,7 @@
                             android:hint="@string/label_format_time"/>
                 </LinearLayout>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                         android:layout_marginStart="@dimen/no_margin"
                         android:layout_marginEnd="@dimen/no_margin"
                         style="@style/CardNormal">
@@ -89,19 +89,19 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/productNameTextView"
                                 style="@style/headerTextView"
                                 android:textSize="@dimen/text_medium"/>
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/vendorNameTextView"
                                 style="@style/normalTextView"
                                 android:layout_marginTop="@dimen/margin_small"/>
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/headerTextView"
                         android:textSize="@dimen/text_medium"
                         android:text="@string/label_total_pemesanan"/>
@@ -110,14 +110,14 @@
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/countPackageEditText"
                             style="@style/registrationForm"
                             android:layout_marginEnd="@dimen/margin_small"
                             android:inputType="number"
                             android:layout_weight="1"
                             android:hint="@string/label_jumlah_pemesanan"/>
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/parameterTextView"
                             android:layout_weight="1"
                             style="@style/normalTextView"
@@ -126,8 +126,8 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -136,13 +136,13 @@
         <View
                 android:id="@+id/fakeLine"
                 style="@style/Line"/>
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:layout_below="@id/fakeLine"
                 android:id="@+id/labelTotalBayar"
                 android:padding="@dimen/margin_medium"
                 style="@style/normalTextView"
                 android:text="@string/label_total_bayar"/>
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/valueTotalBayar"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/fakeLine"
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 style="@style/normalTextView"
                 android:text="@string/rp_0"/>
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/nextButton"
                 android:layout_below="@id/labelTotalBayar"
                 android:background="@color/colorPrimary"
@@ -161,4 +161,4 @@
                 style="@style/normalButton"/>
     </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

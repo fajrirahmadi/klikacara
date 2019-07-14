@@ -35,7 +35,7 @@ class RegisterUsahaFragment : BaseFragment(), AuthenticationContract.RegisterUsa
     @Inject
     lateinit var permissionPresenter: PermissionPresenter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

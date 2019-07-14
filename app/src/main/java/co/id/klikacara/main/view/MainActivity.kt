@@ -1,7 +1,7 @@
 package co.id.klikacara.main.view
 
 import android.os.Bundle
-import android.support.design.bottomnavigation.LabelVisibilityMode
+import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import android.view.View
 import android.widget.FrameLayout
 import butterknife.BindView

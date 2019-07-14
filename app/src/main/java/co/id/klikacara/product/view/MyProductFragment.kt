@@ -2,7 +2,7 @@ package co.id.klikacara.product.view
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +27,7 @@ class MyProductFragment : BaseFragment(), ProductContract.MyProductView, SwipeRe
 
     private val productListAdapter = FastItemAdapter<ProductAdapter>()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

@@ -1,12 +1,12 @@
 package co.id.klikacara.object.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.id.klikacara.R;
@@ -14,17 +14,22 @@ import co.id.klikacara.base.utils.imagehelper.GlideUtils;
 import co.id.klikacara.base.utils.stringhelper.StringHelper;
 import co.id.klikacara.object.Bank;
 import com.mikepenz.fastadapter.items.AbstractItem;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class BankAdapter extends AbstractItem<BankAdapter, BankAdapter.ViewHolder> {
 
     private Bank bank;
-    private boolean selected = false;
+    private boolean selected;
 
     public BankAdapter(Bank bank, Boolean selected) {
         this.bank = bank;
         this.selected = selected;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
     public Bank getBank() {
@@ -52,7 +57,7 @@ public class BankAdapter extends AbstractItem<BankAdapter, BankAdapter.ViewHolde
 
     @NonNull
     @Override
-    public ViewHolder getViewHolder(View v) {
+    public ViewHolder getViewHolder(@NotNull View v) {
         return new ViewHolder(v);
     }
 

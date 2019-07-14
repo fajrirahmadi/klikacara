@@ -5,7 +5,7 @@
         android:layout_marginEnd="@dimen/margin_medium"
         android:layout_height="@dimen/image_big">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mitraImageView"
             android:layout_width="@dimen/image_big"
             android:layout_height="@dimen/image_big"

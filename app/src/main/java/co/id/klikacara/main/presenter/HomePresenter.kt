@@ -9,16 +9,24 @@ import co.id.klikacara.`object`.adapter.UlasanAdapter
 import co.id.klikacara.`object`.authentication.Role
 import co.id.klikacara.`object`.authentication.User
 import co.id.klikacara.base.presenter.BasePresenter
+import co.id.klikacara.base.utils.SchedulersFacade
 import co.id.klikacara.main.contract.MainContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import io.reactivex.Observable
+import io.reactivex.disposables.Disposable
+import java.util.concurrent.TimeUnit
 
 class HomePresenter(
     private val view: MainContract.HomeView,
     private val auth: FirebaseAuth,
-    private val database: FirebaseFirestore
+    private val database: FirebaseFirestore,
+    private val schedulersFacade: SchedulersFacade
 ) : BasePresenter() {
+
+    private var bannerDisposable: Disposable? = null
+
 
     fun getBanner() {
         database.collection(BuildConfig.bannerDb).get()
@@ -75,17 +83,49 @@ class HomePresenter(
         listMenu.add(
             KlikMenu(
                 null,
-                "Performer",
-                "Sekarang mencari penampil di acara Anda sangat mudah dengan Klik Acara, cukup satu kali klik",
+                "Penari",
+                "Sekarang mencari penari untuk acara Anda sangat mudah dengan Klik Acara.",
                 MitraType.PENGISI_ACARA
             )
         )
         listMenu.add(
             KlikMenu(
                 null,
-                "MC",
-                "Sekarang mencari pengisi acara sangat mudah di Klik Acara",
+                "Penyanyi",
+                "Sekarang mencari penyanyi di acara Anda sangat mudah di Klik Acara",
                 MitraType.PENGISI_ACARA
+            )
+        )
+        listMenu.add(
+            KlikMenu(
+                null,
+                "Handy Talky",
+                "Sekarang memesan handy talky untuk acara Anda sangat mudah di Klik Acara",
+                MitraType.PERLENGKAPAN_ACARA
+            )
+        )
+        listMenu.add(
+            KlikMenu(
+                null,
+                "Lighting",
+                "Sekarang lighting untuk acara Anda sangat mudah di Klik Acara",
+                MitraType.PERLENGKAPAN_ACARA
+            )
+        )
+        listMenu.add(
+            KlikMenu(
+                null,
+                "Sound System",
+                "Sekarang memesan sound system untuk acara Anda sangat mudah di Klik Acara",
+                MitraType.PERLENGKAPAN_ACARA
+            )
+        )
+        listMenu.add(
+            KlikMenu(
+                null,
+                "Tenda",
+                "Sekarang mencari tenda acara sangat mudah di Klik Acara",
+                MitraType.PERLENGKAPAN_ACARA
             )
         )
         sendMenuToRemote(listMenu)
@@ -176,6 +216,23 @@ class HomePresenter(
         for (master in listProvince) {
             database.collection(BuildConfig.districtDb).document(master.key).set(master)
         }
+    }
+
+    fun runningPager() {
+        bannerDisposable = Observable.interval(2, TimeUnit.SECONDS)
+            .subscribeOn(schedulersFacade.io())
+            .observeOn(schedulersFacade.ui())
+            .subscribe({
+                view.changeBanner()
+            }, {
+                stopPager()
+            })
+        addDisposable(bannerDisposable!!)
+    }
+
+    fun stopPager() {
+        if (bannerDisposable != null)
+            bannerDisposable?.dispose()
     }
 
 }

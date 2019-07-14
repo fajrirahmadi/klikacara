@@ -1,14 +1,15 @@
 package co.id.klikacara.base.view.adapter
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import java.util.*
 
 /**
  * Created by Arloji on 7/23/2017.
  */
 
+@Suppress("DEPRECATION")
 class ViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     private val fragmentList = ArrayList<Fragment>()
@@ -29,5 +30,11 @@ class ViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     fun addFragment(fragment: Fragment, title: String) {
         fragmentList.add(fragment)
         fragmentTitleList.add(title)
+    }
+
+    fun clearFragment() {
+        fragmentList.clear()
+        fragmentTitleList.clear()
+        notifyDataSetChanged()
     }
 }

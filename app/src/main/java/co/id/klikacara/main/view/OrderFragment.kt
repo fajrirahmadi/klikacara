@@ -2,8 +2,8 @@ package co.id.klikacara.main.view
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +30,7 @@ class OrderFragment : BaseFragment(), MainContract.OrderView, SwipeRefreshLayout
     @Inject
     lateinit var orderPresenter: OrderPresenter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
@@ -56,7 +56,7 @@ class OrderFragment : BaseFragment(), MainContract.OrderView, SwipeRefreshLayout
     private fun configureAdapter() {
         configureItemAdapter(orderAdapter, orderRecycleView)
         orderAdapter.withEventHook(object : ClickEventHook<OrderListAdapter>() {
-            override fun onBind(viewHolder: RecyclerView.ViewHolder?): View? {
+            override fun onBind(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder?): View? {
                 return if (viewHolder is OrderListAdapter.ViewHolder) {
                     viewHolder.detailButton
                 } else null

@@ -3,7 +3,6 @@ package co.id.klikacara.product.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomSheetBehavior
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +22,7 @@ import co.id.klikacara.permission.contract.PermissionContract
 import co.id.klikacara.permission.presenter.PermissionPresenter
 import co.id.klikacara.product.contract.ProductContract
 import co.id.klikacara.product.presenter.AddProductPresenter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import com.tbruyelle.rxpermissions2.RxPermissions
 import dagger.android.support.AndroidSupportInjection
@@ -55,7 +55,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
     private var isEdit = false
     private var isChange = false
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
@@ -100,7 +100,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
 
     private fun configureAdapter() {
         configureGridItemAdapter(listImageAdapter, productPictureRecycleView, 3)
-        listImageAdapter.withOnClickListener { _, _, item, position ->
+        listImageAdapter.withOnClickListener { _, _, _, position ->
 
             if (position == listImageAdapter.adapterItemCount - 1) {
                 if (listImageAdapter.adapterItemCount > 5) {

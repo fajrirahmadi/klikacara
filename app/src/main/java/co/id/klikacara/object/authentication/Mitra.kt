@@ -19,7 +19,18 @@ class Mitra(
     var postalCode: String = "",
     var description: String = "",
     var slogan: String = "",
-    var createdDate: Long = System.currentTimeMillis()
+    var verificationStatus: VerificationStatus = VerificationStatus.NOT_VERIFIED,
+    var createdDate: Long = System.currentTimeMillis(),
+    var identityUrl: String = "",
+    var identityWithUserUrl: String = "",
+    var userWithPlaceUrl: String = "",
+    var documentUrl: String = ""
 ) : Serializable {
     constructor() : this(null, null, null, null, null)
+}
+
+enum class VerificationStatus(val description: String) {
+    VERIFIED("Terverifikasi"),
+    NOT_VERIFIED("Belum Terverifikasi"),
+    BANNED("Terblokir")
 }

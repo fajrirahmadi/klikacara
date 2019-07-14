@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/white"
@@ -8,10 +8,10 @@
 
     <include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <LinearLayout
                 android:padding="@dimen/margin_medium"
                 android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                         android:id="@+id/areaCountDown"
                         style="@style/CardNormal"
                         android:visibility="gone"
@@ -34,19 +34,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                                 style="@style/normalTextView"
                                 android:gravity="center"
                                 android:text="@string/label_sisa_waktu_untuk_melakukan_pembayaran"/>
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/timerTextView"
                                 style="@style/headerTextView"
                                 android:layout_marginTop="@dimen/margin_medium"
                                 android:gravity="center"/>
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/headerTextView"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:textSize="@dimen/text_medium"
@@ -57,7 +57,7 @@
                          android:layout_height="wrap_content"
                          android:layout_marginTop="@dimen/margin_medium"/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/labelUploadBuktiPembayaranTextView"
                         style="@style/headerTextView"
                         android:layout_marginTop="@dimen/margin_medium"
@@ -72,12 +72,12 @@
                         android:layout_width="match_parent"
                         android:background="@drawable/base_border_primary"
                         android:layout_height="150dp">
-                    <android.support.v7.widget.AppCompatImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/buktiTransaksiImageView"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"/>
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/uploadPictureButton"
                             style="@style/submitButton"
                             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                             android:paddingEnd="@dimen/margin_medium"/>
                 </RelativeLayout>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/deleteButton"
                         android:visibility="gone"
                         style="@style/normalTextView"
@@ -100,25 +100,25 @@
                         android:layout_marginTop="@dimen/margin_medium"/>
             </LinearLayout>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/headerTextView"
                     android:textSize="@dimen/text_medium"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@string/label_detail_pesanan"/>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/orderDetailRecycleView"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/actionButton"
                     android:visibility="gone"
                     style="@style/submitButton"
                     android:layout_marginTop="@dimen/margin_very_large"/>
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/cancelButton"
                     android:visibility="gone"
                     android:textColor="@color/colorPrimary"
@@ -132,6 +132,6 @@
                   android:layout_height="100dp"/>
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

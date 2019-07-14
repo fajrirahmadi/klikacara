@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/base_appbar_primary_with_title"/>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+                android:padding="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/headerTextView"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/text_medium"
+                        android:text="@string/label_identity"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/deleteButton"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="@dimen/image_small"
+                        android:layout_height="@dimen/image_small"
+                        android:src="@drawable/ic_delete"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:id="@+id/identityArea"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/base_border_primary"
+                    android:layout_height="200dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/identityImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/identityUploadButton"
+                        style="@style/submitButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/margin_big"
+                        android:layout_centerInParent="true"
+                        android:textAllCaps="false"
+                        android:text="@string/label_identity_text"
+                        android:paddingStart="@dimen/margin_medium"
+                        android:paddingEnd="@dimen/margin_medium"
+                        tools:ignore="RelativeOverlap"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_marginTop="@dimen/margin_medium"
+                        style="@style/headerTextView"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/text_medium"
+                        android:text="@string/label_diri_dan_ktp"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/deleteIdentityWithUserButton"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="@dimen/image_small"
+                        android:layout_height="@dimen/image_small"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:src="@drawable/ic_delete"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:id="@+id/identityWithUserArea"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/base_border_primary"
+                    android:layout_height="200dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/identityWithUserImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/identityWithUserUploadButton"
+                        style="@style/submitButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/margin_big"
+                        android:layout_centerInParent="true"
+                        android:textAllCaps="false"
+                        android:text="@string/label_identity_with_user_text"
+                        android:paddingStart="@dimen/margin_medium"
+                        android:paddingEnd="@dimen/margin_medium"
+                        tools:ignore="RelativeOverlap"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/headerTextView"
+                        android:textSize="@dimen/text_medium"
+                        android:layout_centerInParent="true"
+                        android:text="@string/label_tempat_usaha"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/deleteUserWithPlaceButton"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="@dimen/image_small"
+                        android:layout_height="@dimen/image_small"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:src="@drawable/ic_delete"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:id="@+id/userWithPlaceArea"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/base_border_primary"
+                    android:layout_height="200dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/userWithPlaceImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/userWithPlaceUploadButton"
+                        style="@style/submitButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/margin_big"
+                        android:layout_centerInParent="true"
+                        android:textAllCaps="false"
+                        android:text="@string/label_user_place_text"
+                        android:paddingStart="@dimen/margin_medium"
+                        android:paddingEnd="@dimen/margin_medium"
+                        tools:ignore="RelativeOverlap"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/headerTextView"
+                        android:textSize="@dimen/text_medium"
+                        android:layout_centerInParent="true"
+                        android:text="@string/label_dokument_usaha"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/deleteDokumenUsahaButton"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="@dimen/image_small"
+                        android:layout_height="@dimen/image_small"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:src="@drawable/ic_delete"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:id="@+id/documentUsahaArea"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/base_border_primary"
+                    android:layout_height="200dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/documentUsahaImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/documentUsahaUploadButton"
+                        style="@style/submitButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/margin_big"
+                        android:layout_centerInParent="true"
+                        android:textAllCaps="false"
+                        android:text="@string/label_dokumen_usaha_text"
+                        android:paddingStart="@dimen/margin_medium"
+                        android:paddingEnd="@dimen/margin_medium"
+                        tools:ignore="RelativeOverlap"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

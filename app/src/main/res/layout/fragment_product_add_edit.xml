@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -8,10 +8,10 @@
 
     <include layout="@layout/base_appbar_no_shadow_with_logo"/>
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <LinearLayout
                 android:padding="@dimen/margin_medium"
                 android:layout_width="match_parent"
@@ -19,10 +19,10 @@
                 android:focusableInTouchMode="true"
                 android:layout_height="match_parent">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/normalTextView"
                     android:text="@string/label_kategori_product_service"/>
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/kategoriEditText"
                     style="@style/registrationForm"
                     android:focusable="false"
@@ -30,21 +30,21 @@
                     android:drawableEnd="@drawable/ic_dropdown_grey"
                     android:hint="@string/label_kategori_product_service"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/normalTextView"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@string/label_product_name"/>
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/nameEditText"
                     style="@style/registrationForm"
                     android:layout_marginTop="@dimen/margin_small"
                     android:hint="@string/label_product_name"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/normalTextView"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@string/label_product_description"/>
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/descriptionEditText"
                     style="@style/registrationForm"
                     android:layout_marginTop="@dimen/margin_small"
@@ -55,22 +55,22 @@
                     android:singleLine="false"
                     android:hint="@string/label_product_description"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/normalTextView"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@string/label_price"/>
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/priceEditText"
                     style="@style/registrationForm"
                     android:inputType="number"
                     android:layout_marginTop="@dimen/margin_small"
                     android:hint="@string/label_price"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/normalTextView"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@string/label_payment_type"/>
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/paymentTypeEditText"
                     style="@style/registrationForm"
                     android:focusable="false"
@@ -78,25 +78,25 @@
                     android:layout_marginTop="@dimen/margin_small"
                     android:hint="@string/label_payment_type"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/normalTextView"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@string/label_product_picture"/>
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/productPictureRecycleView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"/>
 
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/submitButton"
                     android:layout_marginTop="@dimen/margin_large"
                     style="@style/submitButton"/>
 
             <View style="@style/Devider"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <View style="@style/ViewFullScreen"
           android:id="@+id/fakeViewBottomSheet"
@@ -104,4 +104,4 @@
 
     <include layout="@layout/base_bottom_sheet_list_of_view"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

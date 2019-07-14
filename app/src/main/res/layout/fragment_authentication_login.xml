@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,14 +12,14 @@
             android:padding="@dimen/margin_medium"
             android:layout_height="match_parent">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
                 style="@style/latoRegularTextView"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:visibility="gone"
                 android:text="@string/description_login_form"
                 android:gravity="center"/>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
                 android:layout_marginTop="@dimen/margin_large"
                 android:layout_marginStart="@dimen/no_margin"
                 android:layout_marginEnd="@dimen/no_margin"
@@ -30,42 +30,42 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/headerTextView"
                         android:text="Selamat Datang di Klik Acara"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_big"
                         android:gravity="center"/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/normalTextView"
                         android:gravity="center"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:text="Nikmati pengalaman memesan yang lebih cepat dan keuntungan lainnya dengan daftar akun sekarang."/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         android:layout_marginTop="@dimen/margin_large"
                         style="@style/normalTextView"
                         android:text="@string/label_email"/>
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/emailInputLayout"
                         android:layout_width="match_parent"
                         app:hintEnabled="false"
                         app:hintAnimationEnabled="false"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_height="wrap_content">
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/emailEditText"
                             style="@style/registrationForm"
                             android:layout_marginTop="@dimen/margin_small"
                             android:hint="@string/label_email"/>
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/normalTextView"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:text="@string/label_password"/>
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/passwordInputLayout"
                         app:passwordToggleEnabled="true"
                         android:layout_width="match_parent"
@@ -73,14 +73,14 @@
                         app:hintAnimationEnabled="false"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_height="wrap_content">
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/passwordEditText"
                             style="@style/registrationForm"
                             android:inputType="textPassword"
                             android:hint="@string/label_password"/>
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/forgetPasswordButton"
                         style="@style/latoRegularTextView"
                         android:layout_width="wrap_content"
@@ -88,25 +88,25 @@
                         android:layout_gravity="end"
                         android:text="@string/label_forgot_password"/>
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/loginButton"
                         android:layout_marginTop="@dimen/margin_large"
                         style="@style/loginButton"/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                         style="@style/normalTextView"
                         android:text="Atau"
                         android:gravity="center"
                         android:textColor="@color/grey"
                         android:layout_marginTop="@dimen/margin_medium"/>
 
-                <android.support.v7.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/loginWithGoogle"
                         android:text="Masuk dengan google"
                         android:layout_marginTop="@dimen/margin_medium"
                         style="@style/loginButton"/>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
                 android:layout_marginTop="@dimen/margin_medium"
@@ -114,10 +114,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     style="@style/latoRegularTextView"
                     android:text="@string/label_dont_have_account"/>
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/registerButton"
                     style="@style/latoSemiBoldTextView"
                     android:text="@string/label_register_now"
@@ -126,4 +126,4 @@
                     android:layout_marginStart="@dimen/margin_small"/>
         </LinearLayout>
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

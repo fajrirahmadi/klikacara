@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_medium">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/keyTextView"
                 android:layout_width="0dp"
                 android:layout_gravity="center_vertical"
@@ -21,7 +21,7 @@
                 style="@style/normalTextView"
                 android:textColor="@color/grey"/>
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/valueTextView"
                 style="@style/normalTextView"
                 android:layout_gravity="center_vertical"

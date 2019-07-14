@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+    <include
+            android:id="@+id/appBar"
+            layout="@layout/base_appbar_primary_with_logo"/>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBar">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_medium">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/headerTextView"
+                    android:text="@string/label_hubungi_kami"
+                    android:textSize="@dimen/text_normal"/>
+
+            <LinearLayout
+                    android:id="@+id/areaPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_phone_32_px"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/valuePhoneNumberTextView"
+                        style="@style/normalTextView"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_medium"/>
+
+            </LinearLayout>
+
+            <View
+                    style="@style/Line"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="#10000000"/>
+
+            <LinearLayout
+                    android:id="@+id/areaWa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_whatsapp_32_px"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/whatsappTextView"
+                        style="@style/normalTextView"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_medium"/>
+
+            </LinearLayout>
+
+            <View
+                    style="@style/Line"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="#10000000"/>
+
+            <LinearLayout
+                    android:id="@+id/areaEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_mail_32_px"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/emailtextView"
+                        style="@style/normalTextView"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_medium"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
