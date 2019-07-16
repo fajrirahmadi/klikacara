@@ -8,6 +8,5 @@ class DefaultConstanta {
         const val TAG_PREFIX_PHONE_NUMBER = "+62"
         const val CS_PHONE = "081386184298"
         const val CS_EMAIL = "klikacara@gmail.com"
-
     }
 }
