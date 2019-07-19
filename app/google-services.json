@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "676533376357-a1gqn201e6f6mmj9iu3jgcunh8hvefv7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.id.klikacara",
+            "certificate_hash": "77f8e076bf96eaf8de368115a9a488414abe5e8b"
+          }
+        },
+        {
           "client_id": "676533376357-25dfg9j4bhnic4hd3othah1alvqfks9s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
