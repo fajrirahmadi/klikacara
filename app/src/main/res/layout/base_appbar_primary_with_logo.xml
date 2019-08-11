@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.AppBarLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        android:layout_height="56dp">
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:background="@color/colorPrimary"
+		android:layout_height="56dp">
 
-    <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <RelativeLayout
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="120dp"
-                    android:layout_centerInParent="true"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/logo_klikacara_with_title"/>
-        </RelativeLayout>
-    </androidx.appcompat.widget.Toolbar>
+	<androidx.appcompat.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+		<RelativeLayout
+				android:layout_marginEnd="@dimen/margin_medium"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="120dp"
+					android:layout_centerInParent="true"
+					android:layout_height="wrap_content"
+					android:src="@drawable/logo_klikacara_with_title"/>
+			<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/backToolbarButton"
+					android:layout_width="24dp"
+					android:visibility="gone"
+					android:layout_height="24dp"
+					android:layout_centerVertical="true"
+					android:src="@drawable/ic_back_white"/>
+		</RelativeLayout>
+	</androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>

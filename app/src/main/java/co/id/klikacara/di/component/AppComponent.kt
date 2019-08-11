@@ -19,7 +19,8 @@ import javax.inject.Singleton
         ProductBuilderModule::class,
         OrderBuilderModule::class,
         RegistrationBuilderModule::class,
-        VendorBuilderModule::class]
+        VendorBuilderModule::class,
+        CreateEventBuilderModule::class]
 )
 
 interface AppComponent {

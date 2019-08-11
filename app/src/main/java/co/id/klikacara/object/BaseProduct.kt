@@ -23,4 +23,5 @@ enum class PaymentType(val description: String) {
     HARI("Hari"),
     PAKET("Paket"),
     SATUAN("Satuan"),
+    METER("Meter Persegi")
 }

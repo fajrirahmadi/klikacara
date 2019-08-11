@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import butterknife.ButterKnife
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.base.contract.BaseContract
+import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.dialog.BaseJavaDialog
 import co.id.klikacara.base.view.dialog.ProgressDialog
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
@@ -241,5 +243,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         return Compressor(this)
             .setQuality(50)
             .compressToFile(file)
+    }
+
+    protected fun configureBackButton() {
+        val view = findViewById<AppCompatImageView>(R.id.backToolbarButton)
+        ViewHelper.showView(view)
+        view.setOnClickListener { onBackPressed() }
     }
 }

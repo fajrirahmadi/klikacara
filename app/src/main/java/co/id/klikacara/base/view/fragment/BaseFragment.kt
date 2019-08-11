@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import co.id.klikacara.R
 import co.id.klikacara.base.contract.BaseContract
 import co.id.klikacara.base.utils.compressor.Compressor
 import co.id.klikacara.base.utils.listhelper.CustomEndlessRecyclerViewScrollListener
+import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.dialog.BaseJavaDialog
 import co.id.klikacara.base.view.dialog.ProgressDialog
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
@@ -258,5 +260,12 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
         return Compressor(activity)
             .setQuality(50)
             .compressToFile(file)
+    }
+
+    protected fun configureBackButton() {
+        val view = activity?.findViewById<AppCompatImageView>(R.id.backToolbarButton)
+        ViewHelper.showView(view)
+        if (view != null)
+            view.setOnClickListener { activity?.onBackPressed() }
     }
 }

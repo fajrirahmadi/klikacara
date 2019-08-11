@@ -41,6 +41,7 @@ class ProductListFragment : BaseFragment(), ProductContract.ProductListView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureProductAdapter()
+        configureBackButton()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

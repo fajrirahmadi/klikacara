@@ -26,7 +26,10 @@ class Order(
     var expiredPayment: Long = System.currentTimeMillis() + (2 * 60 * 60 * 1000),
     var reason: String = "",
     var buktiTransfer: String = "",
-    var vendorId: String = ""
+    var vendorId: String = "",
+    var isPromo: Boolean = false,
+    var isAllowRegister: Boolean = false,
+    var posterUrl: String = ""
 ) : Serializable {
 
     constructor() : this(null, null)

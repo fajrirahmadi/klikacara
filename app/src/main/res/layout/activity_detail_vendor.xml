@@ -1,90 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <include layout="@layout/base_appbar_primary_with_logo"/>
+	<include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <LinearLayout
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            android:orientation="vertical">
+	<LinearLayout
+			android:background="@color/white"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+			android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-                style="@style/CardNormal">
-            <RelativeLayout
-                    android:padding="@dimen/margin_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/mitraImageView"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="@dimen/image_normal"
-                        android:padding="1dp"
-                        android:layout_marginEnd="@dimen/margin_medium"
-                        android:layout_height="@dimen/image_normal"
-                        android:src="@drawable/logo_klikacara"
-                        android:background="@drawable/base_circle_primary"/>
+		<androidx.cardview.widget.CardView
+				style="@style/CardNormal">
+			<RelativeLayout
+					android:padding="@dimen/margin_medium"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/mitraImageView"
+						android:layout_gravity="center_horizontal"
+						android:layout_width="@dimen/image_normal"
+						android:padding="1dp"
+						android:layout_marginEnd="@dimen/margin_medium"
+						android:layout_height="@dimen/image_normal"
+						android:src="@drawable/logo_klikacara"
+						android:background="@drawable/base_circle_primary"/>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/mitraNameTextView"
-                        style="@style/headerTextView"
-                        android:layout_toEndOf="@id/mitraImageView"
-                        android:textSize="@dimen/text_medium"
-                        android:text="BKST Perform"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/mitraNameTextView"
+						style="@style/headerTextView"
+						android:layout_toEndOf="@id/mitraImageView"
+						android:textSize="@dimen/text_medium"/>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/vendorTypeTextView"
-                        style="@style/normalTextView"
-                        android:text="Vendor Acara"
-                        android:layout_below="@id/mitraNameTextView"
-                        android:layout_toEndOf="@id/mitraImageView"
-                        android:textColor="@color/grey"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/vendorTypeTextView"
+						style="@style/normalTextView"
+						android:layout_below="@id/mitraNameTextView"
+						android:layout_toEndOf="@id/mitraImageView"/>
 
-                <RatingBar
-                        android:id="@+id/vendorRating"
-                        android:layout_below="@id/vendorTypeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_toEndOf="@id/mitraImageView"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_gravity="center"
-                        android:layout_height="wrap_content"
-                        android:rating="0"/>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+				<RatingBar
+						android:id="@+id/vendorRating"
+						android:layout_below="@id/vendorTypeTextView"
+						android:layout_width="wrap_content"
+						android:layout_toEndOf="@id/mitraImageView"
+						style="?android:attr/ratingBarStyleSmall"
+						android:layout_gravity="center"
+						android:layout_height="wrap_content"
+						android:rating="0"/>
+			</RelativeLayout>
+		</androidx.cardview.widget.CardView>
 
-        <View style="@style/Line"
-              android:background="#10000000"/>
+		<View style="@style/Line"
+			  android:background="#10000000"/>
 
-        <com.google.android.material.tabs.TabLayout
-                android:background="@color/white"
-                android:id="@+id/vendorTabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                app:tabSelectedTextColor="@color/colorPrimaryDark"
-                app:tabTextAppearance="@style/AppTabTextAppearance"
-                app:tabTextColor="@color/grey">
+		<com.google.android.material.tabs.TabLayout
+				android:background="@color/white"
+				android:id="@+id/vendorTabLayout"
+				android:layout_width="match_parent"
+				android:layout_height="56dp"
+				app:tabSelectedTextColor="@color/colorPrimaryDark"
+				app:tabTextAppearance="@style/AppTabTextAppearance"
+				app:tabTextColor="@color/grey">
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Produk Saya"/>
+			<com.google.android.material.tabs.TabItem
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:text="@string/label_produk_saya"/>
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Ulasan"/>
-        </com.google.android.material.tabs.TabLayout>
+			<com.google.android.material.tabs.TabItem
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:text="@string/label_ulasan"/>
+		</com.google.android.material.tabs.TabLayout>
 
-        <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vendorPager"
-                android:padding="@dimen/margin_medium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+		<androidx.viewpager.widget.ViewPager
+				android:id="@+id/vendorPager"
+				android:padding="@dimen/margin_medium"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+	</LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

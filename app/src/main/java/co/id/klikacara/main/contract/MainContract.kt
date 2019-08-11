@@ -16,6 +16,10 @@ interface MainContract {
         fun setUlasanAdapter(ulasanListAdapter: ArrayList<UlasanAdapter>)
         fun setMitraAdapter(mitraListAdapter: ArrayList<MitraAdapter>)
         fun changeBanner()
+        fun doOnUserNotLogin()
+        fun doOnUserLogin()
+        fun setUserData(user: User)
+        fun showEvent(eventAdapter: ArrayList<EventAdapter>)
 
     }
 

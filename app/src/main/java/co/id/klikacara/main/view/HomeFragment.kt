@@ -7,20 +7,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import butterknife.OnClick
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.`object`.MitraType
-import co.id.klikacara.`object`.adapter.BannerAdapter
-import co.id.klikacara.`object`.adapter.KlikMenuAdapter
-import co.id.klikacara.`object`.adapter.MitraAdapter
-import co.id.klikacara.`object`.adapter.UlasanAdapter
+import co.id.klikacara.`object`.adapter.*
+import co.id.klikacara.`object`.authentication.Role
+import co.id.klikacara.`object`.authentication.User
 import co.id.klikacara.base.utils.updatehelper.ForceUpdateChecker
 import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.adapter.ViewPagerAdapter
 import co.id.klikacara.base.view.fragment.BaseFragment
+import co.id.klikacara.createevent.view.CreateEventActivity
 import co.id.klikacara.main.contract.MainContract
 import co.id.klikacara.main.presenter.HomePresenter
+import co.id.klikacara.product.view.MyProductActivity
 import co.id.klikacara.product.view.ProductActivity
 import co.id.klikacara.vendor.view.MitraDetailActivity
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
@@ -35,6 +39,7 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
 
     @Inject
     lateinit var homePresenter: HomePresenter
+    private var user: User? = null
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -47,6 +52,7 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
     private val pengisiAcaraAdapter = FastItemAdapter<KlikMenuAdapter>()
     private val ulasanAdapter = FastItemAdapter<UlasanAdapter>()
     private val mitraAdapter = FastItemAdapter<MitraAdapter>()
+    private val eventAdapter = FastItemAdapter<EventAdapter>()
     private lateinit var pagerAdapter: ViewPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -60,12 +66,30 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
         configureAdapter()
         configureViewPager()
         homePresenter.getBanner()
+        homePresenter.getEvent()
         homePresenter.getMenuByType(MitraType.PERLENGKAPAN_ACARA)
         homePresenter.getMenuByType(MitraType.PAKET_ACARA)
         homePresenter.getMenuByType(MitraType.PENGISI_ACARA)
         homePresenter.getUlasan()
         homePresenter.getMitra()
-        homePresenter.initUlasan()
+        homePresenter.checkLoginStatus()
+    }
+
+    override fun doOnUserLogin() {
+        ViewHelper.showView(createEventOrProductButton)
+    }
+
+    override fun doOnUserNotLogin() {
+        ViewHelper.hideView(createEventOrProductButton)
+    }
+
+    override fun setUserData(user: User) {
+        ViewHelper.showView(createEventOrProductButton)
+        this.user = user
+        if (Role.VENDOR == user.type)
+            createEventOrProductButton.text = "Tambah Produk/Layanan"
+        else if (Role.PENGGUNA == user.type)
+            createEventOrProductButton.text = "Buat Acara"
     }
 
     private fun configureViewPager() {
@@ -131,6 +155,10 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
             showActivity(intent)
             true
         }
+        configureHorizontalItemAdapter(eventAdapter, eventRecycleView)
+        eventAdapter.withOnClickListener { _, _, item, position ->
+            true
+        }
     }
 
     override fun onRefresh() {
@@ -191,5 +219,47 @@ class HomeFragment : BaseFragment(), MainContract.HomeView, SwipeRefreshLayout.O
         mitraAdapter.add(mitraListAdapter)
         ViewHelper.showView(mitraRecycleView)
         ViewHelper.hideView(mitraLoading)
+    }
+
+    @OnClick(R.id.createEventOrProductButton)
+    fun onCreateEventOrProductButtonClicked() {
+        if (user != null && Role.VENDOR == user!!.type)
+            showActivity(getIntent(activity!!, MyProductActivity::class.java))
+        else if (user != null && Role.PENGGUNA == user!!.type)
+            showActivity(getIntent(activity!!, CreateEventActivity::class.java))
+    }
+
+    override fun showEvent(eventAdapter: ArrayList<EventAdapter>) {
+        this.eventAdapter.clear()
+        this.eventAdapter.add(eventAdapter)
+        ViewHelper.showView(eventRecycleView)
+        ViewHelper.hideView(eventLoading)
+    }
+
+    @OnClick(R.id.showMorePerlengkapan)
+    fun onShowMorePerlengkapanClicked() {
+        handleShowMore(showMorePerlengkapan, perlengkapanAcaraAdapter, perlengkapanRecycleView)
+    }
+
+    @OnClick(R.id.showMorePaketAcara)
+    fun onShowMorePaketAcaraClicked() {
+        handleShowMore(showMorePaketAcara, paketAcaraAdapter, paketAcaraRecycleView)
+
+    }
+
+    @OnClick(R.id.showMorePengisiAcara)
+    fun onShowMorePengisiAcaraClicked() {
+        handleShowMore(showMorePengisiAcara, pengisiAcaraAdapter, pengisiAcaraRecycleView)
+    }
+
+    private fun handleShowMore(textView: AppCompatTextView, adapter: FastItemAdapter<*>, recycleView: RecyclerView) {
+        if (textView.isSelected) {
+            configureHorizontalItemAdapter(adapter, recycleView)
+            textView.text = "Show more"
+        } else {
+            configureGridItemAdapter(adapter, recycleView, 4)
+            textView.text = "Show less"
+        }
+        textView.isSelected = !textView.isSelected
     }
 }

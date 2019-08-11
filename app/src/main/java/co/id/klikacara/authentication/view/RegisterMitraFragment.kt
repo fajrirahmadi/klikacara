@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import butterknife.BindString
 import butterknife.OnClick
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
@@ -17,11 +18,13 @@ import co.id.klikacara.`object`.authentication.Mitra
 import co.id.klikacara.`object`.authentication.RegistrationVendor
 import co.id.klikacara.authentication.contract.AuthenticationContract
 import co.id.klikacara.authentication.presenter.RegistrationMitraPresenter
+import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.fragment.BaseFragment
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.base_bottom_sheet_list_of_view.*
 import kotlinx.android.synthetic.main.fragment_authentication_registration_mitra.*
+import kotlinx.android.synthetic.main.fragment_authentication_registration_usaha.*
 import org.apache.commons.lang3.StringUtils
 import org.parceler.Parcels
 import javax.inject.Inject
@@ -30,6 +33,17 @@ class RegisterMitraFragment : BaseFragment(), AuthenticationContract.RegisterMit
 
     @Inject
     lateinit var registerMitraPresenter: RegistrationMitraPresenter
+
+    @BindString(R.string.label_nama_usaha)
+    lateinit var labelNamaUsaha: String
+    @BindString(R.string.label_nama_usaha_ex)
+    lateinit var labelNamaUsahaExample: String
+    @BindString(R.string.label_penanggung_jawab)
+    lateinit var labelPenanggungJawab: String
+    @BindString(R.string.label_nama_panggung)
+    lateinit var labelNamaPanggung: String
+    @BindString(R.string.label_manager)
+    lateinit var labelNamaManager: String
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -80,6 +94,19 @@ class RegisterMitraFragment : BaseFragment(), AuthenticationContract.RegisterMit
         mitraCategoryAdapter.withOnClickListener { _, _, item, _ ->
             kategoriEditText.setText(item.mitraType.description)
             mitra.type = item.mitraType
+            if (mitra.type == MitraType.PENGISI_ACARA) {
+                labelNamaUsahaTextView.text = labelNamaPanggung
+                namaUsahaEditText.hint = labelNamaPanggung
+                labelPenanggungJawabTextView.text = labelNamaManager
+                pengelolaEditText.hint = labelNamaManager
+                ViewHelper.hideView(sloganEditText)
+            } else {
+                labelNamaUsahaTextView.text = labelNamaUsaha
+                namaUsahaEditText.hint = labelNamaUsahaExample
+                labelPenanggungJawabTextView.text = labelPenanggungJawab
+                pengelolaEditText.hint = labelPenanggungJawab
+                ViewHelper.showView(sloganEditText)
+            }
             sheetBehaviorListOfItem.state = BottomSheetBehavior.STATE_COLLAPSED
             true
         }
@@ -102,6 +129,8 @@ class RegisterMitraFragment : BaseFragment(), AuthenticationContract.RegisterMit
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
                         fakeViewBottomSheet.visibility = View.GONE
+                    }
+                    else -> {
                     }
                 }
             }

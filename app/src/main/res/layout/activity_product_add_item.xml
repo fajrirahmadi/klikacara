@@ -1,102 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:background="@color/white"
-        android:layout_height="match_parent">
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:background="@color/white"
+		android:layout_height="match_parent">
 
-    <include layout="@layout/base_appbar_no_shadow_with_logo"/>
+	<include layout="@layout/base_appbar_no_shadow_with_logo"/>
 
-    <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-        <LinearLayout
-                android:padding="@dimen/margin_medium"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:focusableInTouchMode="true"
-                android:layout_height="match_parent">
+	<androidx.core.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+		<LinearLayout
+				android:padding="@dimen/margin_medium"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:focusableInTouchMode="true"
+				android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/normalTextView"
-                    android:text="@string/label_kategori_product_service"/>
-            <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/kategoriEditText"
-                    style="@style/registrationForm"
-                    android:focusable="false"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:drawableEnd="@drawable/ic_dropdown_grey"
-                    android:hint="@string/label_kategori_product_service"/>
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:text="@string/label_kategori_product_service"/>
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/kategoriEditText"
+					style="@style/registrationForm"
+					android:focusable="false"
+					android:layout_marginTop="@dimen/margin_small"
+					android:drawableEnd="@drawable/ic_dropdown_grey"
+					android:hint="@string/label_kategori_product_service"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/normalTextView"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/label_product_name"/>
-            <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/nameEditText"
-                    style="@style/registrationForm"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:hint="@string/label_product_name"/>
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_product_name"/>
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/nameEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_product_name"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/normalTextView"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/label_product_description"/>
-            <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/descriptionEditText"
-                    style="@style/registrationForm"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:hint="@string/label_product_description"/>
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_product_description"/>
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/descriptionEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_product_description"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/normalTextView"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/label_price"/>
-            <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/priceEditText"
-                    style="@style/registrationForm"
-                    android:inputType="number"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:hint="@string/label_price"/>
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_price"/>
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/priceEditText"
+					style="@style/registrationForm"
+					android:inputType="number"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_price"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/normalTextView"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/label_payment_type"/>
-            <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/paymentTypeEditText"
-                    style="@style/registrationForm"
-                    android:focusable="false"
-                    android:drawableEnd="@drawable/ic_dropdown_grey"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:hint="@string/label_payment_type"/>
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_payment_type"/>
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/paymentTypeEditText"
+					style="@style/registrationForm"
+					android:focusable="false"
+					android:drawableEnd="@drawable/ic_dropdown_grey"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_payment_type"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/normalTextView"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/label_product_picture"/>
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/productPictureRecycleView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"/>
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_product_picture"/>
+			<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/productPictureRecycleView"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/margin_small"/>
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/submitButton"
-                    android:layout_marginTop="@dimen/margin_large"
-                    style="@style/nextButton"/>
+			<androidx.appcompat.widget.AppCompatButton
+					android:id="@+id/submitButton"
+					android:layout_marginTop="@dimen/margin_large"
+					style="@style/nextButton"/>
 
-            <View style="@style/Devider"/>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+			<View style="@style/Devider"/>
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
 
-    <View style="@style/ViewFullScreen"
-          android:id="@+id/fakeViewBottomSheet"
-          android:visibility="gone"/>
+	<View style="@style/ViewFullScreen"
+		  android:id="@+id/fakeViewBottomSheet"
+		  android:visibility="gone"/>
 
-    <include layout="@layout/base_bottom_sheet_list_of_view"/>
+	<include layout="@layout/base_bottom_sheet_list_of_view"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

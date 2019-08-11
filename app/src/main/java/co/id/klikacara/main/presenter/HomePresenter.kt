@@ -2,10 +2,7 @@ package co.id.klikacara.main.presenter
 
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.`object`.*
-import co.id.klikacara.`object`.adapter.BannerAdapter
-import co.id.klikacara.`object`.adapter.KlikMenuAdapter
-import co.id.klikacara.`object`.adapter.MitraAdapter
-import co.id.klikacara.`object`.adapter.UlasanAdapter
+import co.id.klikacara.`object`.adapter.*
 import co.id.klikacara.`object`.authentication.Role
 import co.id.klikacara.`object`.authentication.User
 import co.id.klikacara.base.presenter.BasePresenter
@@ -233,6 +230,47 @@ class HomePresenter(
     fun stopPager() {
         if (bannerDisposable != null)
             bannerDisposable?.dispose()
+    }
+
+    fun checkLoginStatus() {
+        if (auth.currentUser == null)
+            view.doOnUserNotLogin()
+        else
+            getProfile()
+    }
+
+    fun getProfile() {
+        if (auth.currentUser != null) {
+            database.collection(BuildConfig.userDb).document(auth.uid!!)
+                .get()
+                .addOnCompleteListener {
+                    if (it.isSuccessful && it.result != null) {
+                        val user = it.result!!.toObject(User::class.java)
+                        if (user != null) {
+                            view.setUserData(user)
+                        }
+                    }
+                }
+        }
+    }
+
+    fun getEvent() {
+        database.collection(BuildConfig.orderDb)
+            .whereEqualTo("promo", true)
+            .whereEqualTo("paymentStatus", PaymentStatus.PESANAN_SELESAI.toString())
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful && it.result != null) {
+                    val orderList = it.result!!.toObjects(Order::class.java)
+                    val eventAdapter = ArrayList<EventAdapter>()
+                    for (data in orderList) {
+                        eventAdapter.add(EventAdapter(data))
+                        if (eventAdapter.size >= 5)
+                            break
+                    }
+                    view.showEvent(eventAdapter)
+                }
+            }
     }
 
 }

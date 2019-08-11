@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		style="@style/CardNormal"
+		android:layout_marginStart="@dimen/no_margin"
+		android:layout_marginTop="@dimen/no_margin"
+		android:layout_marginBottom="@dimen/no_margin"
+		android:layout_marginEnd="@dimen/margin_small"
+		android:layout_width="wrap_content">
+
+	<LinearLayout
+			android:layout_width="90dp"
+			android:layout_height="120dp"
+			android:orientation="vertical">
+		<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/menuImageView"
+				android:layout_width="match_parent"
+				android:layout_height="70dp"
+				android:background="@color/colorPrimary"
+				android:src="@drawable/logo_klikacara"/>
+
+		<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/eventNameTextView"
+				style="@style/normalTextView"
+				android:textStyle="bold"
+				android:layout_marginTop="@dimen/margin_very_small"
+				android:layout_marginStart="@dimen/margin_small"
+				android:layout_marginEnd="@dimen/margin_small"
+				android:lineSpacingExtra="1dp"
+				android:textSize="@dimen/text_very_small"
+				android:maxLines="2"
+				android:text="Lomba Menulis Online"/>
+		<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/eventPlaceTextView"
+				style="@style/normalTextView"
+				android:layout_marginStart="@dimen/margin_small"
+				android:layout_marginEnd="@dimen/margin_small"
+				android:textSize="@dimen/text_more_small"
+				android:lineSpacingExtra="1dp"
+				android:text="DKI Jakarta"/>
+	</LinearLayout>
+
+</androidx.cardview.widget.CardView>

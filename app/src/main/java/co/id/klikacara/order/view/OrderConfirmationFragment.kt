@@ -55,7 +55,10 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
         orderConfirmationDialog.description = "Apakah Anda yakin ingin melakukan pemesanan?"
         orderConfirmationDialog.hideBtnCancel(false)
         orderConfirmationDialog.okClickListener = View.OnClickListener {
-            orderConfirmationPresenter.createOrder(order)
+            if (order.isPromo)
+                orderConfirmationPresenter.uploadImage(order)
+            else
+                orderConfirmationPresenter.createOrder(order)
             orderConfirmationDialog.dismissAllowingStateLoss()
         }
     }
@@ -76,16 +79,17 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
                 TimeUtils.getDateFormated("dd/MM/yyyy HH:mm", order.endDate)
             )
         )
-        confirmationListAdapter.add(KeyValueAdapter("Nama Paket", order.product!!.name))
-        confirmationListAdapter.add(
-            KeyValueAdapter(
-                "Harga Paket", StringHelper.getStringBuilderToString(
-                    StringHelper.getPriceInRp(order.product!!.price), "/", order.product!!.paymentType!!.description
+        if (order.product != null) {
+            confirmationListAdapter.add(KeyValueAdapter("Nama Paket", order.product!!.name))
+            confirmationListAdapter.add(
+                KeyValueAdapter(
+                    "Harga Paket", StringHelper.getStringBuilderToString(
+                        StringHelper.getPriceInRp(order.product!!.price), "/", order.product!!.paymentType!!.description
+                    )
                 )
             )
-        )
+        }
         confirmationListAdapter.add(KeyValueAdapter("Total Pembelian", order.pesanan.toString()))
-
         GlideUtils.setFotoWithUrl(activity, order.bank!!.url, logoBankImageView)
         bankTitleTextView.text = order.bank!!.bankName
         bankDescriptionTextView.text = StringHelper.getStringBuilderToString(

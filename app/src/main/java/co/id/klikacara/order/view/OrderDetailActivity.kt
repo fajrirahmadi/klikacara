@@ -78,14 +78,16 @@ class OrderDetailActivity : BaseActivity(), OrderContract.OrderDetailView, Permi
                 TimeUtils.getDateFormated("dd/MM/yyyy HH:mm", order.endDate)
             )
         )
-        orderListAdapter.add(KeyValueAdapter("Nama Paket", order.product!!.name))
-        orderListAdapter.add(
-            KeyValueAdapter(
-                "Harga Paket", StringHelper.getStringBuilderToString(
-                    StringHelper.getPriceInRp(order.product!!.price), "/", order.product!!.paymentType!!.description
+        if (order.product != null) {
+            orderListAdapter.add(KeyValueAdapter("Nama Paket", order.product!!.name))
+            orderListAdapter.add(
+                KeyValueAdapter(
+                    "Harga Paket", StringHelper.getStringBuilderToString(
+                        StringHelper.getPriceInRp(order.product!!.price), "/", order.product!!.paymentType!!.description
+                    )
                 )
             )
-        )
+        }
         orderListAdapter.add(KeyValueAdapter("Total Pembelian", order.pesanan.toString()))
         orderListAdapter.add(KeyValueAdapter("Total Pembayaran", StringHelper.getPriceInRp(order.amount)))
 

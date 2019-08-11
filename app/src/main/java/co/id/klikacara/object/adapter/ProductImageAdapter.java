@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.id.klikacara.R;
 import co.id.klikacara.base.utils.imagehelper.GlideUtils;
+import co.id.klikacara.base.utils.viewhelper.ViewHelper;
 import com.mikepenz.fastadapter.items.AbstractItem;
 import org.apache.commons.lang3.StringUtils;
 
@@ -18,6 +19,7 @@ public class ProductImageAdapter extends AbstractItem<ProductImageAdapter, Produ
 
     private String path;
     private Boolean isFromRemote = false;
+    private Boolean isLastIndex = false;
 
     public ProductImageAdapter(String path) {
         this.path = path;
@@ -26,6 +28,11 @@ public class ProductImageAdapter extends AbstractItem<ProductImageAdapter, Produ
     public ProductImageAdapter(String path, Boolean isFromRemote) {
         this(path);
         this.isFromRemote = isFromRemote;
+    }
+
+    public ProductImageAdapter(String path, Boolean isFromRemote, Boolean isLastIndex) {
+        this(path, isFromRemote);
+        this.isLastIndex = isLastIndex;
     }
 
     public void setFromRemote(Boolean fromRemote) {
@@ -38,6 +45,10 @@ public class ProductImageAdapter extends AbstractItem<ProductImageAdapter, Produ
 
     public String getPath() {
         return path;
+    }
+
+    public void setLastIndex(Boolean lastIndex) {
+        isLastIndex = lastIndex;
     }
 
     @Override
@@ -60,6 +71,9 @@ public class ProductImageAdapter extends AbstractItem<ProductImageAdapter, Produ
         @BindView(R.id.productImageView)
         AppCompatImageView productImageView;
 
+        @BindView(R.id.deleteImageButton)
+        AppCompatImageView deleteImageButton;
+
         Context context;
 
         public ViewHolder(View itemView) {
@@ -77,6 +91,10 @@ public class ProductImageAdapter extends AbstractItem<ProductImageAdapter, Produ
             GlideUtils.setFotoWithUrl(holder.context, path, holder.productImageView);
         else
             holder.productImageView.setImageResource(R.drawable.ic_add_image);
+        if (isLastIndex)
+            ViewHelper.Companion.hideView(holder.deleteImageButton);
+        else
+            ViewHelper.Companion.showView(holder.deleteImageButton);
     }
 
     @Override

@@ -86,7 +86,7 @@ class RegisterUsahaFragment : BaseFragment(), AuthenticationContract.RegisterUsa
 
     override fun doOnPermissionGranted() {
         configureEasyImage()
-        EasyImage.openChooserWithDocuments(this, "Foto Mitra", cameraPermissionCode)
+        EasyImage.openChooserWithGallery(this, "Foto Mitra", cameraPermissionCode)
     }
 
     override fun doOnPermissionRejected() {

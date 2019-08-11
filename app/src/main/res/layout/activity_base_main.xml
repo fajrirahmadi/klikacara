@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".main.view.MainActivity">
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".main.view.MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_above="@id/bottomBar"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="match_parent">
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_above="@id/bottomBar"
+			android:layout_width="match_parent"
+			android:background="@color/white"
+			android:layout_height="match_parent">
 
-        <FrameLayout
-                android:id="@+id/frameHome"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <fragment
-                    android:id="@+id/homeFragment"
-                    android:name="co.id.klikacara.main.view.HomeFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:layout="@layout/fragment_main_home"/>
-        </FrameLayout>
+		<FrameLayout
+				android:id="@+id/frameHome"
+				android:visibility="gone"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+			<fragment
+					android:id="@+id/homeFragment"
+					android:name="co.id.klikacara.main.view.HomeFragment"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					tools:layout="@layout/fragment_main_home"/>
+		</FrameLayout>
 
-        <FrameLayout
-                android:id="@+id/frameOrder"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <fragment
-                    android:id="@+id/orderFragment"
-                    android:name="co.id.klikacara.main.view.OrderFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:layout="@layout/fragment_main_order"/>
-        </FrameLayout>
+		<FrameLayout
+				android:id="@+id/frameOrder"
+				android:visibility="gone"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+			<fragment
+					android:id="@+id/orderFragment"
+					android:name="co.id.klikacara.main.view.OrderFragment"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					tools:layout="@layout/fragment_main_order"/>
+		</FrameLayout>
 
-        <FrameLayout
-                android:id="@+id/frameProfile"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <fragment
-                    android:id="@+id/profileFragment"
-                    android:name="co.id.klikacara.main.view.ProfileFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:layout="@layout/fragment_main_profile"/>
-        </FrameLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+		<FrameLayout
+				android:id="@+id/frameProfile"
+				android:visibility="gone"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+			<fragment
+					android:id="@+id/profileFragment"
+					android:name="co.id.klikacara.main.view.ProfileFragment"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					tools:layout="@layout/fragment_main_profile"/>
+		</FrameLayout>
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/base_bottom_navigation_main"
-            android:layout_alignParentBottom="true"/>
+	<View android:layout_width="match_parent"
+		  android:layout_height="4dp"
+		  android:layout_above="@id/bottomBar"
+		  android:background="@drawable/background_blur_top"/>
+
+	<include
+			android:id="@+id/bottomBar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			layout="@layout/base_bottom_navigation_main"
+			android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

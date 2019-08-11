@@ -14,5 +14,6 @@
     <item name="product_id" type="id" />
     <item name="key_value_id" type="id" />
     <item name="product_image_id" type="id" />
+    <item name="event_id" type="id" />
 
 </resources>

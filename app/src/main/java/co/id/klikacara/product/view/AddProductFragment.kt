@@ -84,7 +84,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
         addProductPresenter.bindingCurrency(priceEditText)
         permissionPresenter.init(RxPermissions(this))
         configureBottomSheet()
-        listImageAdapter.add(ProductImageAdapter(null))
+        listImageAdapter.add(ProductImageAdapter(null, false, true))
         product = Parcels.unwrap(arguments?.getParcelable(BuildConfig.productDb))
         if (product != null) {
             isEdit = true
@@ -148,6 +148,8 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
                     BottomSheetBehavior.STATE_COLLAPSED -> {
                         fakeViewBottomSheet.visibility = View.GONE
                     }
+                    else -> {
+                    }
                 }
             }
         }
@@ -198,7 +200,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
 
     override fun doOnPermissionGranted() {
         configureEasyImage()
-        EasyImage.openChooserWithDocuments(this, "Foto Produk", cameraPermissionCode)
+        EasyImage.openChooserWithGallery(this, "Foto Produk", cameraPermissionCode)
     }
 
     override fun doOnPermissionRejected() {

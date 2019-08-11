@@ -83,6 +83,7 @@ class AddProductPresenter(
         paymentTypeAdapter.add(TextAdapter(PaymentType.HARI))
         paymentTypeAdapter.add(TextAdapter(PaymentType.PAKET))
         paymentTypeAdapter.add(TextAdapter(PaymentType.SATUAN))
+        paymentTypeAdapter.add(TextAdapter(PaymentType.METER))
         view.setPaymentTypeAdapter(paymentTypeAdapter)
     }
 

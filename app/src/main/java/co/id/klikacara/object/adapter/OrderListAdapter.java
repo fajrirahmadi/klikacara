@@ -15,6 +15,7 @@ import co.id.klikacara.base.utils.stringhelper.StringHelper;
 import co.id.klikacara.base.utils.timehelper.TimeUtils;
 import co.id.klikacara.object.Order;
 import com.mikepenz.fastadapter.items.AbstractItem;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,10 +77,12 @@ public class OrderListAdapter extends AbstractItem<OrderListAdapter, OrderListAd
     public void bindView(@NonNull ViewHolder holder,
                          @NonNull List<Object> payloads) {
         super.bindView(holder, payloads);
-        if (Objects.requireNonNull(order.getProduct()).getUrl().keySet().size() > 0) {
+        if (order.getProduct() != null && order.getProduct().getUrl().keySet().size() > 0) {
             List<String> listProductPicture = new ArrayList<>(order.getProduct().getUrl().keySet());
             GlideUtils.setFotoWithUrl(holder.context, listProductPicture.get(0), holder.orderImageView);
-        } else
+        } else if (StringUtils.isNotBlank(order.getPosterUrl()))
+            GlideUtils.setFotoWithUrl(holder.context, order.getPosterUrl(), holder.orderImageView);
+        else
             holder.orderImageView.setImageResource(R.drawable.logo_klikacara);
         holder.orderItemNameTextView.setText(order.getName());
         holder.orderStatusTextView.setText(Objects.requireNonNull(order.getPaymentStatus()).getDescription());

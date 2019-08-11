@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "676533376357-mb0qn14k4it03j19908s83agbbk3hvul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.id.klikacara",
+            "certificate_hash": "9a3b65555ee3560711c49fa96d5169478b4767d5"
+          }
+        },
+        {
+          "client_id": "676533376357-ikbecl1pph8rm9c83mnn5ml0a20ktr89.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.id.klikacara",
+            "certificate_hash": "0ed4fac489c25af2ffd7cc8ab703fb8f589096ae"
+          }
+        },
+        {
           "client_id": "676533376357-a1gqn201e6f6mmj9iu3jgcunh8hvefv7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

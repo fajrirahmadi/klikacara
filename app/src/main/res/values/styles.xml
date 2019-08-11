@@ -78,7 +78,7 @@
     <style name="headerTextView" parent="normalTextView">
         <item name="android:fontFamily">@font/font_lato_bold</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:textSize">@dimen/text_big</item>
+        <item name="android:textSize">@dimen/text_normal</item>
     </style>
 
     <style name="normalInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

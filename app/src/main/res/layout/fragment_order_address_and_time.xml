@@ -79,7 +79,66 @@
 					android:layout_marginTop="@dimen/margin_small"
 					android:inputType="number"
 					android:hint="@string/label_pos_code"/>
-			<View style="@style/Devider"/>
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:textSize="@dimen/text_medium"
+					android:text="@string/label_masukkan_waktu_acara_anda"/>
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_dari"/>
+
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+				<androidx.appcompat.widget.AppCompatEditText
+						android:id="@+id/startDateEditText"
+						style="@style/registrationForm"
+						android:layout_marginEnd="@dimen/margin_small"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:layout_marginTop="@dimen/margin_small"
+						android:hint="@string/label_format_date"/>
+				<androidx.appcompat.widget.AppCompatEditText
+						android:id="@+id/startTimeEditText"
+						android:layout_weight="1"
+						android:focusable="false"
+						style="@style/registrationForm"
+						android:layout_marginStart="@dimen/margin_small"
+						android:layout_marginTop="@dimen/margin_small"
+						android:hint="@string/label_format_time"/>
+			</LinearLayout>
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_selesai"/>
+
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+				<androidx.appcompat.widget.AppCompatEditText
+						android:id="@+id/endDateEditText"
+						style="@style/registrationForm"
+						android:layout_marginEnd="@dimen/margin_small"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:layout_marginTop="@dimen/margin_small"
+						android:hint="@string/label_format_date"/>
+				<androidx.appcompat.widget.AppCompatEditText
+						android:id="@+id/endTimeEditText"
+						android:layout_weight="1"
+						style="@style/registrationForm"
+						android:focusable="false"
+						android:layout_marginStart="@dimen/margin_small"
+						android:layout_marginTop="@dimen/margin_small"
+						android:hint="@string/label_format_time"/>
+			</LinearLayout>
+			<View style="@style/Devider"
+				  android:layout_height="100dp"/>
 		</LinearLayout>
 	</androidx.core.widget.NestedScrollView>
 
