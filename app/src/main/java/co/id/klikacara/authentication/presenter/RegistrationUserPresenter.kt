@@ -34,11 +34,12 @@ class RegistrationUserPresenter(
         view.showProgressDialog()
         auth.createUserWithEmailAndPassword(user.email, password)
             .addOnSuccessListener {
-                user.uid = it.user.uid
+                user.uid = it.user?.uid
                 setRemoteUserData(user)
             }
             .addOnFailureListener {
                 view.dismissProgressDialog()
+                view.doOnRegisterFailed()
             }
     }
 

@@ -28,17 +28,19 @@ import co.id.klikacara.main.view.profile.VerifyVendorActivity
 import co.id.klikacara.product.view.MyProductActivity
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.base_appbar_primary_with_title.*
 import kotlinx.android.synthetic.main.fragment_main_profile.*
 import org.apache.commons.lang3.StringUtils
 import javax.inject.Inject
 
-class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLayout.OnRefreshListener {
+class ProfileFragment : BaseFragment(), MainContract.ProfileView,
+    SwipeRefreshLayout.OnRefreshListener {
 
     @Inject
     lateinit var profilePresenter: ProfilePresenter
 
     override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
+        //AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 
@@ -58,6 +60,8 @@ class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLa
     lateinit var menuTermCondition: String
     @BindString(R.string.menu_logout)
     lateinit var menuLogout: String
+    @BindString(R.string.label_profil)
+    lateinit var labelProfile: String
 
     private val codeEditProfile = 0
     private val codeProduct = 1
@@ -71,7 +75,11 @@ class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLa
 
     private val profileMenuAdapter = FastItemAdapter<ProfileMenuAdapter>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return getInflate(inflater, R.layout.fragment_main_profile, container)
     }
 
@@ -79,7 +87,8 @@ class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLa
         super.onViewCreated(view, savedInstanceState)
         swipeProfile.setOnRefreshListener(this)
         configureProfileMenuAdapter()
-        configureToolbarNoHome(view, "Profil")
+        configureBackButton()
+        titleToolbar.text = labelProfile
         profilePresenter.initAuthHelper(activity!!)
         profilePresenter.checkLoginStatus()
         profilePresenter.getProfile()
@@ -98,7 +107,13 @@ class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLa
             true
         }
         profileMenuAdapter.clear()
-        profileMenuAdapter.add(ProfileMenuAdapter(R.drawable.ic_edit_profile, menuEditProfile, codeEditProfile))
+        profileMenuAdapter.add(
+            ProfileMenuAdapter(
+                R.drawable.ic_edit_profile,
+                menuEditProfile,
+                codeEditProfile
+            )
+        )
         profileMenuAdapter.add(
             ProfileMenuAdapter(
                 R.drawable.ic_change_password,
@@ -107,9 +122,27 @@ class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLa
             )
         )
         profileMenuAdapter.add(ProfileMenuAdapter(R.drawable.ic_about_us, menuAbout, codeAbout))
-        profileMenuAdapter.add(ProfileMenuAdapter(R.drawable.ic_term_condition, menuTermCondition, codeTnc))
-        profileMenuAdapter.add(ProfileMenuAdapter(R.drawable.ic_privacy_policy, menuPrivacyPolicy, codePrivacyPolicy))
-        profileMenuAdapter.add(ProfileMenuAdapter(R.drawable.ic_contact_us, menuContactUs, codeContactUs))
+        profileMenuAdapter.add(
+            ProfileMenuAdapter(
+                R.drawable.ic_term_condition,
+                menuTermCondition,
+                codeTnc
+            )
+        )
+        profileMenuAdapter.add(
+            ProfileMenuAdapter(
+                R.drawable.ic_privacy_policy,
+                menuPrivacyPolicy,
+                codePrivacyPolicy
+            )
+        )
+        profileMenuAdapter.add(
+            ProfileMenuAdapter(
+                R.drawable.ic_contact_us,
+                menuContactUs,
+                codeContactUs
+            )
+        )
         profileMenuAdapter.add(ProfileMenuAdapter(R.drawable.ic_logout, menuLogout, codeLogout))
     }
 
@@ -194,7 +227,10 @@ class ProfileFragment : BaseFragment(), MainContract.ProfileView, SwipeRefreshLa
             ViewHelper.showView(registerVendorButton)
         else {
             if (!isTokoAdded) {
-                profileMenuAdapter.add(1, ProfileMenuAdapter(R.drawable.ic_product, menuProduct, codeProduct))
+                profileMenuAdapter.add(
+                    1,
+                    ProfileMenuAdapter(R.drawable.ic_product, menuProduct, codeProduct)
+                )
                 isTokoAdded = true
             }
             profilePresenter.getMitraData()

@@ -25,7 +25,6 @@
                 style="@style/normalTextView"
                 android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
-                android:textColor="@color/grey"
                 android:text="Tidak ada list tersedia"/>
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import butterknife.OnClick
 import co.id.klikacara.R
 import co.id.klikacara.base.utils.imagehelper.GlideUtils
 import co.id.klikacara.base.view.fragment.BaseFragment
@@ -23,14 +24,24 @@ class BannerFragment : BaseFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return getInflate(inflater, R.layout.fragment_banner, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        configureImagePopUp()
         arguments?.getString(bannerUrl, "")?.let {
-            GlideUtils.setFotoWithUrl(activity!!, it, bannerImageView)
+            GlideUtils.setFotoRoundedWithUrl(activity!!, it, bannerImageView)
+            imagePopup.initiatePopupWithPicasso(it)
         }
+    }
+
+    @OnClick(R.id.bannerImageView)
+    fun bannerImageViewClicked() {
     }
 }

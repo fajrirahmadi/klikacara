@@ -1,5 +1,9 @@
 <resources>
 	<string name="app_name">Klikacara</string>
+	<string name="channel_name">com.boostpenjual.channel</string>
+	<string name="channel_description">com.boostpenjual.channel.description</string>
+	<string name="default_notification_channel_id">com.boost.penjual.channel.id</string>
+
 	<string name="label_nyantai_bentar">Tunggu Sebentar</string>
 	<string name="label_info">Informasi</string>
 	<string name="label_error">Gagal</string>
@@ -171,5 +175,49 @@
 	<string name="label_produk_saya">Produk Saya</string>
 	<string name="label_ulasan">Ulasan</string>
 	<string name="label_poster">Poster Acara</string>
+	<string name="label_deskripsi_acara">Deskripsi Acara</string>
+	<string name="label_hint_deskripsi_acara">Tulis deskripsi acaramu disini</string>
+	<string name="label_harga_tiket_acara">Harga Tiket Acara</string>
+	<string name="label_lokasi_acara">Lokasi Acara</string>
+	<string name="label_crew_acara">Crew Acara</string>
+	<string name="label_daftar_sekarang">Daftar Sekarang</string>
+	<string name="label_lihat_peserta_acara">Lihat Peserta Acara</string>
+	<string name="label_add_cover">Cover Produk</string>
+	<string name="label_notes">Catatan</string>
+	<string name="label_notes_ex">(Mis. Pemesanan max H-7 sebelum acara, …)</string>
+	<string name="label_deskripsi_tanggapan">Berilah tanggapan pada vendor untuk pelayanan lebih baik, saran Anda dapat
+		meningkatkan pelayanan yang diberikan.
+	</string>
+	<string name="labnel_rating_mitra">Rating Mitra</string>
+	<string name="label_ulasan_pengguna">Ulasan Pengguna</string>
+	<string name="label_cari_acara">Cari acaramu disini...</string>
+	<string name="hi_guest">Hi, Guest</string>
+	<string name="label_buat_acara">Buat Acara</string>
+	<string name="label_masukkan_detail_acara_anda">Masukkan Detail Acara Anda</string>
+	<string name="label_izinkan_daftar_dari_klikacara">Izinkan Daftar dari Klikacara</string>
+	<string name="label_promosikan_acara">Promosikan Acara</string>
+	<string name="label_berikutnya">BERIKUTNYA</string>
+	<string name="label_link_pendaftaran">Link Pendaftaran (Jika ada)</string>
+	<string name="label_bitly">bit.ly/klikAcara</string>
+	<string name="label_page_not_found">Data yang Anda cari tidak ditemukan</string>
+	<string name="label_mohon_tunggu">Mohon Tunggu</string>
+	<string name="label_order">Order</string>
+	<string name="label_profil">Profil</string>
+	<string name="label_search_for_vendor">Cari Kebutuhan Acara</string>
+	<string name="label_detail_kebutuhan_acara">Tulis kebutuhan acaramu, akan kami carikan yang terbaik</string>
+	<string name="label_kebutuhan_acara">Kebutuhan Acara</string>
+	<string name="label_budget">Budget Perlengkapan</string>
+	<string name="label_layanan_kami">Layanan Kami</string>
+	<string name="label_terima">Terima</string>
+	<string name="label_product_recomended">Rekomendasi Produk</string>
+	<string name="description_search_for_vendor">Kami sedang mencarikan vendor untuk kebutuhan acara Anda</string>
+	<string name="label_waktu_acara">Waktu Acara</string>
+	<string name="label_masuk">Masuk</string>
+	<string name="label_masuk_dengan_google">Masuk dengan google</string>
+	<string name="label_atau">Atau</string>
+	<string name="label_proses">Proses</string>
+	<string name="label_hubungi_kami_untuk_berkomunikasi_dengan_vendor">Hubungi kami untuk berkomunikasi dengan vendor</string>
+	<string name="label_kami_sedang_memverifikasi_pembayaran_anda">Kami sedang memverifikasi pembayaran Anda</string>
+	<string name="label_bukti_pembayaran">Bukti Pembayaran</string>
 
 </resources>

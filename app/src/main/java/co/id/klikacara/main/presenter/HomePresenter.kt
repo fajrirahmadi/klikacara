@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
+import org.apache.commons.lang3.StringUtils
 import java.util.concurrent.TimeUnit
 
 class HomePresenter(
@@ -48,7 +49,8 @@ class HomePresenter(
 
     fun getMenuByType(mitraType: MitraType) {
         database.collection(BuildConfig.klikMenuDb)
-            .whereEqualTo("mitraType", mitraType.toString())
+            .whereEqualTo("active", true)
+            .orderBy("mitraType", Query.Direction.ASCENDING)
             .get()
             .addOnCompleteListener {
                 if (it.isSuccessful && it.result != null) {
@@ -61,7 +63,10 @@ class HomePresenter(
             }
     }
 
-    private fun setMenuToView(mitraType: MitraType, klikMenuListAdapter: ArrayList<KlikMenuAdapter>) {
+    private fun setMenuToView(
+        mitraType: MitraType,
+        klikMenuListAdapter: ArrayList<KlikMenuAdapter>
+    ) {
         when (mitraType) {
             MitraType.PERLENGKAPAN_ACARA -> {
                 view.setPerlengkapanAcaraAdapter(klikMenuListAdapter)
@@ -71,6 +76,9 @@ class HomePresenter(
             }
             MitraType.PENGISI_ACARA -> {
                 view.setPengisiAcaraAdapter(klikMenuListAdapter)
+            }
+            MitraType.CREW_ACARA -> {
+                view.setCrewAcaraAdapter(klikMenuListAdapter)
             }
         }
     }
@@ -235,8 +243,10 @@ class HomePresenter(
     fun checkLoginStatus() {
         if (auth.currentUser == null)
             view.doOnUserNotLogin()
-        else
+        else {
+            view.doOnUserLogin()
             getProfile()
+        }
     }
 
     fun getProfile() {
@@ -258,19 +268,27 @@ class HomePresenter(
         database.collection(BuildConfig.orderDb)
             .whereEqualTo("promo", true)
             .whereEqualTo("paymentStatus", PaymentStatus.PESANAN_SELESAI.toString())
+            .orderBy("startDate", Query.Direction.ASCENDING)
             .get()
             .addOnCompleteListener {
                 if (it.isSuccessful && it.result != null) {
                     val orderList = it.result!!.toObjects(Order::class.java)
                     val eventAdapter = ArrayList<EventAdapter>()
-                    for (data in orderList) {
-                        eventAdapter.add(EventAdapter(data))
-                        if (eventAdapter.size >= 5)
+                    for ((index, data) in orderList.withIndex()) {
+                        if (data.endDate > System.currentTimeMillis())
+                            eventAdapter.add(EventAdapter(data))
+                        if (eventAdapter.size == 2)
                             break
                     }
                     view.showEvent(eventAdapter)
                 }
             }
+    }
+
+    fun sendNotificationToken(token: String?) {
+        if (StringUtils.isNotBlank(token) && auth.currentUser != null) {
+            database.collection(BuildConfig.userDb).document(auth.uid!!).update("token", token!!)
+        }
     }
 
 }

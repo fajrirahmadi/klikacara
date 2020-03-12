@@ -22,8 +22,8 @@ class RegistrationUsahaPresenter(
         view.showProgressDialog()
         auth.createUserWithEmailAndPassword(registrationVendor.user!!.email, registrationVendor.password)
             .addOnSuccessListener {
-                registrationVendor.user!!.uid = it.user.uid
-                registrationVendor.mitra!!.key = it.user.uid
+                registrationVendor.user!!.uid = it.user?.uid
+                registrationVendor.mitra!!.key = it.user?.uid
                 view.handleOnRegisterUserSuccess(registrationVendor)
             }
             .addOnFailureListener {

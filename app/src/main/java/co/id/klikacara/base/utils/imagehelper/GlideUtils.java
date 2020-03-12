@@ -3,9 +3,13 @@ package co.id.klikacara.base.utils.imagehelper;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+
 import androidx.appcompat.widget.AppCompatImageView;
+
 import android.widget.ImageView;
+
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.io.File;
@@ -39,6 +43,22 @@ public class GlideUtils {
     public static void setFotoWithUrl(Context context, String url, ImageView imageView) {
         GlideApp.with(context)
                 .load(url)
+                .centerCrop()
+                .into(imageView);
+    }
+
+    public static void setFotoRoundedWithUrl(Context context, String uri, ImageView imageView) {
+        GlideApp.with(context)
+                .load(uri)
+                .centerCrop()
+                .transform(new RoundedCorners(50))
+                .into(imageView);
+    }
+
+    public static void setFotoRoundedWithUrl(Context context, String uri, ImageView imageView, Integer radius) {
+        GlideApp.with(context)
+                .load(uri)
+                .transform(new RoundedCorners(radius))
                 .centerCrop()
                 .into(imageView);
     }

@@ -16,6 +16,7 @@ import co.id.klikacara.`object`.KlikMenu
 import co.id.klikacara.`object`.adapter.ProductImageAdapter
 import co.id.klikacara.`object`.adapter.TextAdapter
 import co.id.klikacara.`object`.authentication.Mitra
+import co.id.klikacara.base.utils.imagehelper.GlideUtils
 import co.id.klikacara.base.utils.stringhelper.StringHelper
 import co.id.klikacara.base.view.fragment.BaseFragment
 import co.id.klikacara.permission.contract.PermissionContract
@@ -46,8 +47,9 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
     private val listCategoryAdapter = FastItemAdapter<TextAdapter>()
     private val paymentTypeAdapter = FastItemAdapter<TextAdapter>()
     private val listImageAdapter = FastItemAdapter<ProductImageAdapter>()
-    private val cameraPermissionCode = 10
+    private var cameraPermissionCode = 10
     private val uploadedImage = ArrayList<Int>()
+    private var coverFile: File? = null
 
     private lateinit var sheetBehaviorListOfItem: BottomSheetBehavior<*>
     private lateinit var sheetBehaviorListOfItemCallback: BottomSheetBehavior.BottomSheetCallback
@@ -84,6 +86,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
         addProductPresenter.bindingCurrency(priceEditText)
         permissionPresenter.init(RxPermissions(this))
         configureBottomSheet()
+        configureBackButton()
         listImageAdapter.add(ProductImageAdapter(null, false, true))
         product = Parcels.unwrap(arguments?.getParcelable(BuildConfig.productDb))
         if (product != null) {
@@ -106,6 +109,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
                 if (listImageAdapter.adapterItemCount > 5) {
                     showInfo("Maksimum gambar adalah 5")
                 } else {
+                    cameraPermissionCode = 10
                     permissionPresenter.getCameraPermission()
                 }
             } else {
@@ -184,20 +188,6 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
         this.paymentTypeAdapter.add(paymentTypeAdapter)
     }
 
-    @OnClick(R.id.paymentTypeEditText)
-    fun onPaymentTypeClicked() {
-        titleTextView.text = "Pilih Tipe Pembayaran"
-        configureItemAdapter(paymentTypeAdapter, itemRecycleView)
-        sheetBehaviorListOfItem.state = BottomSheetBehavior.STATE_EXPANDED
-    }
-
-    @OnClick(R.id.kategoriEditText)
-    fun onKategoriClicked() {
-        titleTextView.text = "Pilih Kategori"
-        configureItemAdapter(listCategoryAdapter, itemRecycleView)
-        sheetBehaviorListOfItem.state = BottomSheetBehavior.STATE_EXPANDED
-    }
-
     override fun doOnPermissionGranted() {
         configureEasyImage()
         EasyImage.openChooserWithGallery(this, "Foto Produk", cameraPermissionCode)
@@ -211,8 +201,13 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
         super.onActivityResult(requestCode, resultCode, data)
         EasyImage.handleActivityResult(requestCode, resultCode, data, activity, object : DefaultCallback() {
             override fun onImagePicked(imageFile: File?, source: EasyImage.ImageSource?, type: Int) {
-                isChange = true
-                listImageAdapter.add(0, ProductImageAdapter(imageFile?.absolutePath))
+                if (type == 10) {
+                    isChange = true
+                    listImageAdapter.add(0, ProductImageAdapter(imageFile?.absolutePath))
+                } else {
+                    coverFile = imageFile
+                    GlideUtils.setFotoWithUrl(activity, imageFile?.absolutePath, coverImageView)
+                }
             }
 
             override fun onImagePickerError(e: Exception?, source: EasyImage.ImageSource?, type: Int) {
@@ -227,45 +222,28 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
         })
     }
 
-    @OnClick(R.id.submitButton)
-    fun onSubmitButtonClicked() {
-        if (StringUtils.isBlank(kategoriEditText.text.toString()))
-            showError("Anda belum memilih kategori produk/layanan")
-        else if (StringUtils.isBlank(nameEditText.text.toString()))
-            showError("Anda belum memasukkan nama produk")
-        else if (StringUtils.isBlank(descriptionEditText.text.toString()))
-            showError("Anda belum menambahkan deskripsi produk")
-        else if (StringUtils.isBlank(priceEditText.text.toString()))
-            showError("Anda belum menambahkan harga produk/layanan")
-        else if (StringUtils.isBlank(paymentTypeEditText.text.toString()))
-            showError("Anda belum memilih tipe pembayaran")
-        else if (StringUtils.isBlank(priceEditText.text.toString()))
-            showError("Anda belum menambahkan gambar produk/layanan")
-        else if (isEdit) {
-            showInfoWithCancel("Yakin ingin melakukan perubahan?", View.OnClickListener {
-                infoDialog.dismissAllowingStateLoss()
-                doSubmit()
-            })
-        } else {
-            showInfoWithCancel("Yakin ingin menambahkan produk baru?", View.OnClickListener {
-                infoDialog.dismissAllowingStateLoss()
-                doSubmit()
-            })
-        }
-    }
-
     private fun doSubmit() {
         product!!.name = nameEditText.text.toString().trim()
         product!!.description = descriptionEditText.text.toString().trim()
         product!!.price = StringHelper.removeDotFromFormatedValue(priceEditText.text.toString().trim()).toLong()
+        product!!.notes = notesEditText.text.toString().trim()
         uploadedImage.clear()
         for ((index, item) in listImageAdapter.adapterItems.withIndex()) {
             if (!item.fromRemote && index != listImageAdapter.adapterItemCount - 1) {
-                addProductPresenter.uploadImage(product!!, item.path, index)
+                addProductPresenter.uploadImage(product!!, item.path, index, false)
             } else if (index != listImageAdapter.adapterItemCount - 1) {
                 setUploadedImageUrl(item.path, index)
             }
         }
+    }
+
+    override fun setCoverUploaded(url: String) {
+        product!!.cover = url
+        addProductPresenter.submitProduct(product!!)
+    }
+
+    override fun setCoverFailedUploaded() {
+        showInfo("Gagal mengupload cover, silahkan coba lagi")
     }
 
     override fun setUploadedImageUrl(url: String, index: Int) {
@@ -274,7 +252,7 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
         uploadedImage.add(index)
         if (listImageAdapter.adapterItemCount - 1 == mapImage.size) {
             product!!.url = mapImage
-            addProductPresenter.submitProduct(product!!)
+            addProductPresenter.uploadImage(product!!, coverFile!!.absolutePath, index, true)
         }
     }
 
@@ -293,5 +271,60 @@ class AddProductFragment : BaseFragment(), ProductContract.AddProductView, Permi
 
     override fun doOnSubmitProductFailed() {
         showError("Produk gagal ditambahkan")
+    }
+
+    @OnClick(R.id.paymentTypeEditText)
+    fun onPaymentTypeClicked() {
+        titleTextView.text = "Pilih Tipe Pembayaran"
+        configureItemAdapter(paymentTypeAdapter, itemRecycleView)
+        sheetBehaviorListOfItem.state = BottomSheetBehavior.STATE_EXPANDED
+    }
+
+    @OnClick(R.id.kategoriEditText)
+    fun onKategoriClicked() {
+        titleTextView.text = "Pilih Kategori"
+        configureItemAdapter(listCategoryAdapter, itemRecycleView)
+        sheetBehaviorListOfItem.state = BottomSheetBehavior.STATE_EXPANDED
+    }
+
+    @OnClick(R.id.coverImageView)
+    fun onCoverImageViewClicked() {
+        cameraPermissionCode = 11
+        permissionPresenter.getCameraPermission()
+    }
+
+    @OnClick(R.id.deleteImageButton)
+    fun onDeleteButtonClicked() {
+        coverImageView.setImageResource(R.drawable.ic_add_image)
+        coverFile = null
+    }
+
+    @OnClick(R.id.submitButton)
+    fun onSubmitButtonClicked() {
+        if (StringUtils.isBlank(kategoriEditText.text.toString()))
+            showError("Anda belum memilih kategori produk/layanan")
+        else if (StringUtils.isBlank(nameEditText.text.toString()))
+            showError("Anda belum memasukkan nama produk")
+        else if (StringUtils.isBlank(descriptionEditText.text.toString()))
+            showError("Anda belum menambahkan deskripsi produk")
+        else if (StringUtils.isBlank(priceEditText.text.toString()))
+            showError("Anda belum menambahkan harga produk/layanan")
+        else if (StringUtils.isBlank(paymentTypeEditText.text.toString()))
+            showError("Anda belum memilih tipe pembayaran")
+        else if (StringUtils.isBlank(priceEditText.text.toString()))
+            showError("Anda belum menambahkan gambar produk/layanan")
+        else if (coverFile == null)
+            showError("Anda belum menambahkan cover produk")
+        else if (isEdit) {
+            showInfoWithCancel("Yakin ingin melakukan perubahan?", View.OnClickListener {
+                infoDialog.dismissAllowingStateLoss()
+                doSubmit()
+            })
+        } else {
+            showInfoWithCancel("Yakin ingin menambahkan produk baru?", View.OnClickListener {
+                infoDialog.dismissAllowingStateLoss()
+                doSubmit()
+            })
+        }
     }
 }

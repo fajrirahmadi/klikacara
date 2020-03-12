@@ -1,4 +1,4 @@
-package co.id.klikacara.order.view
+package co.id.klikacara.order.view.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -41,6 +41,7 @@ class OrderPaymentFragment : BaseFragment(), OrderContract.OrderPaymentView {
         super.onViewCreated(view, savedInstanceState)
         order = Parcels.unwrap(arguments?.getParcelable(BuildConfig.orderDb))
         configureAdapter()
+        configureBackButton()
         orderPaymentPresenter.getListBank()
     }
 

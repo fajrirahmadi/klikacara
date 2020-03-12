@@ -22,6 +22,7 @@ class ChangePasswordActivity : BaseActivity(), AuthenticationContract.ChangePass
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_authentication_change_password)
+        configureBackButton()
     }
 
     @OnClick(R.id.submitButton)

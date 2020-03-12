@@ -1,8 +1,7 @@
-package co.id.klikacara.order.view
+package co.id.klikacara.order.view.fragment
 
 import android.content.Context
 import android.os.Bundle
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,7 @@ import co.id.klikacara.`object`.adapter.TextAdapter
 import co.id.klikacara.base.view.fragment.BaseFragment
 import co.id.klikacara.master.contract.MasterContract
 import co.id.klikacara.master.presenter.MasterAddressPresenter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.activity_product_add_item.fakeViewBottomSheet
@@ -89,6 +89,7 @@ class OrderAddressFragment : BaseFragment(), MasterContract.MasterAddressView {
                         fakeViewBottomSheet.visibility = View.GONE
                         nextButton.visibility = View.VISIBLE
                     }
+                    else -> TODO()
                 }
             }
         }

@@ -2,15 +2,15 @@ package co.id.klikacara.product.view
 
 import android.content.Context
 import android.os.Bundle
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import butterknife.OnClick
-import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.`object`.adapter.ProductAdapter
+import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.fragment.BaseFragment
 import co.id.klikacara.product.contract.ProductContract
 import co.id.klikacara.product.presenter.MyProductPresenter
@@ -40,6 +40,7 @@ class MyProductFragment : BaseFragment(), ProductContract.MyProductView, SwipeRe
         super.onViewCreated(view, savedInstanceState)
         productListSwipe.setOnRefreshListener(this)
         configureProductAdapter()
+        configureBackButton()
         ViewHelper.hideView(titleProduct)
         ViewHelper.hideView(descriptionProduct)
         productListPresenter.getListProduct()
@@ -51,7 +52,7 @@ class MyProductFragment : BaseFragment(), ProductContract.MyProductView, SwipeRe
     }
 
     private fun configureProductAdapter() {
-        configureGridItemAdapter(productListAdapter, productRecycleView, 2)
+        configureGridItemAdapter(productListAdapter, productRecycleView, 3)
         productListAdapter.withOnClickListener { _, _, item, _ ->
             val bundle = Bundle()
             bundle.putParcelable(BuildConfig.productDb, Parcels.wrap(item.product))

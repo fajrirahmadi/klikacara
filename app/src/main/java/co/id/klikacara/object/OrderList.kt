@@ -15,6 +15,7 @@ class OrderList(
 }
 
 enum class PaymentStatus(val description: String) {
+    MENCARI_VENDOR("Mencari Vendor"),
     MENUNGGU_PEMBAYARAN("Menunggu Pembayaran"),
     VERIFIKASI_PEMBAYARAN("Menunggu Verifikasi Pembayaran"),
     PESANAN_DITERIMA("Pesanan Diterima"),

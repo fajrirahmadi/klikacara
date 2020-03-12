@@ -46,7 +46,7 @@ class VendorProductFragment : BaseFragment(), ProductContract.MyProductView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        configureGridItemAdapter(productListAdapter, listOfViewRecycleView, 2)
+        configureGridItemAdapter(productListAdapter, listOfViewRecycleView, 3)
         arguments?.getString(BuildConfig.userDb, "")?.let {
             myProductPresenter.getListProductByVendorId(it)
         }

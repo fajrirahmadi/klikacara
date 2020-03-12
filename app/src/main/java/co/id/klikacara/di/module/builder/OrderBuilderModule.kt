@@ -3,6 +3,10 @@ package co.id.klikacara.di.module.builder
 import co.id.klikacara.di.module.*
 import co.id.klikacara.di.module.view.OrderViewModule
 import co.id.klikacara.order.view.*
+import co.id.klikacara.order.view.fragment.OrderAddressFragment
+import co.id.klikacara.order.view.fragment.OrderConfirmationFragment
+import co.id.klikacara.order.view.fragment.OrderDateFragment
+import co.id.klikacara.order.view.fragment.OrderPaymentFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -22,7 +22,6 @@
             android:layout_marginTop="@dimen/margin_large"
             android:gravity="center"
             style="@style/normalTextView"
-            android:textColor="@color/grey"
             android:text="Masuk ke dalam aplikasi terlebih dahulu Agar dapat menikmati berbagai layanan dalam aplikasi Klikacara"/>
 
     <androidx.appcompat.widget.AppCompatButton

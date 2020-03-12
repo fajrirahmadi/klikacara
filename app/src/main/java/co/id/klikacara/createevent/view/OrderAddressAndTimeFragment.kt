@@ -2,7 +2,6 @@ package co.id.klikacara.createevent.view
 
 import android.content.Context
 import android.os.Bundle
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +10,14 @@ import butterknife.OnClick
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.`object`.Order
+import co.id.klikacara.`object`.PaymentStatus
 import co.id.klikacara.`object`.adapter.TextAdapter
 import co.id.klikacara.base.utils.datehelper.DateHelper
 import co.id.klikacara.base.utils.timehelper.TimeHelper
 import co.id.klikacara.base.view.fragment.BaseFragment
 import co.id.klikacara.master.contract.MasterContract
 import co.id.klikacara.master.presenter.MasterAddressPresenter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.activity_product_add_item.fakeViewBottomSheet
@@ -48,13 +49,18 @@ class OrderAddressAndTimeFragment : BaseFragment(), MasterContract.MasterAddress
         super.onAttach(context)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return getInflate(inflater, R.layout.fragment_order_address_and_time, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureBottomSheet()
+        configureBackButton()
         order = Parcels.unwrap(arguments?.getParcelable(BuildConfig.orderDb))
     }
 
@@ -77,6 +83,8 @@ class OrderAddressAndTimeFragment : BaseFragment(), MasterContract.MasterAddress
             StringUtils.isBlank(endTimeEditText.text.toString()) -> startDateEditText.error =
                 "Anda belum memilih waktu selesai acara"
             else -> {
+                order.startDate = calendarStart.timeInMillis
+                order.endDate = calendarEnd.timeInMillis
                 val bundle = Bundle()
                 bundle.putParcelable(BuildConfig.orderDb, Parcels.wrap(order))
                 navigateTo(
@@ -193,12 +201,22 @@ class OrderAddressAndTimeFragment : BaseFragment(), MasterContract.MasterAddress
 
     @OnClick(R.id.startDateEditText)
     fun onStartDateClicked() {
-        DateHelper.getDateWithMin(activity!!, calendarStart, startDateEditText, System.currentTimeMillis())
+        DateHelper.getDateWithMin(
+            activity!!,
+            calendarStart,
+            startDateEditText,
+            System.currentTimeMillis()
+        )
     }
 
     @OnClick(R.id.endDateEditText)
     fun onEndDateClicked() {
-        DateHelper.getDateWithMin(activity!!, calendarEnd, endDateEditText, calendarStart.timeInMillis)
+        DateHelper.getDateWithMin(
+            activity!!,
+            calendarEnd,
+            endDateEditText,
+            calendarStart.timeInMillis
+        )
     }
 
     @OnClick(R.id.startTimeEditText)
@@ -209,6 +227,11 @@ class OrderAddressAndTimeFragment : BaseFragment(), MasterContract.MasterAddress
     @OnClick(R.id.endTimeEditText)
     fun onEndTimeClicked() {
         TimeHelper.getTime(activity!!, calendarEnd, endTimeEditText)
+    }
+
+    @OnClick(R.id.closeButton)
+    fun closeButton() {
+        sheetBehaviorListOfItem.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
 }

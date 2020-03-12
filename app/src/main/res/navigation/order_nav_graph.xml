@@ -8,7 +8,7 @@
     <fragment android:id="@+id/orderDetailFragment"
               tools:layout="@layout/fragment_order_detail"
               android:label="OrderDetailFragment"
-              android:name="co.id.klikacara.order.view.OrderDetailFragment">
+              android:name="co.id.klikacara.order.view.fragment.OrderDetailFragment">
 
         <action android:id="@+id/action_move_fromOrderDetailFragment_toOrderAddressFragment"
                 app:destination="@+id/orderAddressFragment"
@@ -22,7 +22,7 @@
     <fragment android:id="@+id/orderAddressFragment"
               tools:layout="@layout/fragment_order_address"
               android:label="OrderAddressFragment"
-              android:name="co.id.klikacara.order.view.OrderAddressFragment">
+              android:name="co.id.klikacara.order.view.fragment.OrderAddressFragment">
         <action android:id="@+id/action_move_fromOrderAddressFragment_toOrderDateFragment"
                 app:destination="@+id/orderDateFragment"
                 app:enterAnim="@anim/enter_from_right"
@@ -34,7 +34,7 @@
     <fragment android:id="@+id/orderDateFragment"
               tools:layout="@layout/fragment_order_info_pesanan"
               android:label="OrderDateFragment"
-              android:name="co.id.klikacara.order.view.OrderDateFragment">
+              android:name="co.id.klikacara.order.view.fragment.OrderDateFragment">
         <action android:id="@+id/action_move_fromOrderDateFragment_toOrderPaymentFragment"
                 app:destination="@+id/orderPaymentFragment"
                 app:enterAnim="@anim/enter_from_right"
@@ -46,7 +46,7 @@
     <fragment android:id="@+id/orderPaymentFragment"
               tools:layout="@layout/fragment_order_bank_list"
               android:label="OrderPaymentFragment"
-              android:name="co.id.klikacara.order.view.OrderPaymentFragment">
+              android:name="co.id.klikacara.order.view.fragment.OrderPaymentFragment">
         <action android:id="@+id/action_move_fromOrderPaymentFragment_toOrderConfirmationFragment"
                 app:destination="@+id/orderConfirmationFragment"
                 app:enterAnim="@anim/enter_from_right"
@@ -58,6 +58,6 @@
     <fragment android:id="@+id/orderConfirmationFragment"
               tools:layout="@layout/fragment_order_konfirmasi"
               android:label="OrderConfirmationFragment"
-              android:name="co.id.klikacara.order.view.OrderConfirmationFragment"/>
+              android:name="co.id.klikacara.order.view.fragment.OrderConfirmationFragment"/>
 
 </navigation>

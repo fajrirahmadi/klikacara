@@ -30,6 +30,7 @@ class ContactActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
         initValueContact()
+        configureBackButton()
     }
 
     private fun initValueContact() {

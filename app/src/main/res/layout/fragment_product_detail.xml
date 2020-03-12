@@ -1,108 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <include layout="@layout/base_appbar_primary_with_logo"/>
+	<include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/productListSwipe"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="wrap_content"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/productListSwipe"
+			android:layout_width="match_parent"
+			android:background="@color/white"
+			android:layout_height="wrap_content"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+		<androidx.core.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/productBannerRecycleView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+				<androidx.recyclerview.widget.RecyclerView
+						android:id="@+id/productBannerRecycleView"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"/>
 
-                <androidx.cardview.widget.CardView
-                        style="@style/CardNormal">
-                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/margin_medium"
-                            android:orientation="vertical">
-                        <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/productNameTextView"
-                                style="@style/headerTextView"
-                                android:textSize="@dimen/text_medium"/>
+				<androidx.cardview.widget.CardView
+						style="@style/CardNormal">
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:padding="@dimen/margin_medium"
+							android:orientation="vertical">
+						<androidx.appcompat.widget.AppCompatTextView
+								android:id="@+id/productNameTextView"
+								style="@style/headerTextView"
+								android:textSize="@dimen/text_medium"/>
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/vendorTextView"
-                                style="@style/normalTextView"
-                                android:layout_marginTop="@dimen/margin_small"
-                                android:textColor="@color/grey"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+						<androidx.appcompat.widget.AppCompatTextView
+								android:id="@+id/vendorTextView"
+								style="@style/normalTextView"
+								android:layout_marginTop="@dimen/margin_small"/>
+					</LinearLayout>
+				</androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                        android:layout_marginTop="@dimen/no_margin"
-                        style="@style/CardNormal">
-                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/margin_medium"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                        <androidx.appcompat.widget.AppCompatTextView
-                                style="@style/headerTextView"
-                                android:text="@string/label_description"
-                                android:textSize="@dimen/text_medium"/>
+				<androidx.cardview.widget.CardView
+						android:layout_marginTop="@dimen/no_margin"
+						style="@style/CardNormal">
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:padding="@dimen/margin_medium"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
+						<androidx.appcompat.widget.AppCompatTextView
+								style="@style/headerTextView"
+								android:text="@string/label_description"
+								android:textSize="@dimen/text_medium"/>
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/productDescriptionTextView"
-                                style="@style/normalTextView"
-                                android:layout_marginTop="@dimen/margin_small"
-                                android:textColor="@color/grey"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+						<androidx.appcompat.widget.AppCompatTextView
+								android:id="@+id/productDescriptionTextView"
+								style="@style/normalTextView"
+								android:layout_marginTop="@dimen/margin_small"/>
+					</LinearLayout>
+				</androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                        android:layout_marginTop="@dimen/no_margin"
-                        style="@style/CardNormal">
-                    <LinearLayout
-                            android:padding="@dimen/margin_medium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+				<androidx.cardview.widget.CardView
+						android:layout_marginTop="@dimen/no_margin"
+						style="@style/CardNormal">
+					<LinearLayout
+							android:padding="@dimen/margin_medium"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                                style="@style/headerTextView"
-                                android:text="@string/label_harga"
-                                android:textSize="@dimen/text_medium"/>
+						<androidx.appcompat.widget.AppCompatTextView
+								style="@style/headerTextView"
+								android:text="@string/label_harga"
+								android:textSize="@dimen/text_medium"/>
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/productPriceTextView"
-                                style="@style/normalTextView"
-                                android:textSize="@dimen/text_medium"
-                                android:fontFamily="@font/font_lato_bold"
-                                android:layout_marginTop="@dimen/margin_small"/>
+						<androidx.appcompat.widget.AppCompatTextView
+								android:id="@+id/productPriceTextView"
+								style="@style/normalTextView"
+								android:textSize="@dimen/text_medium"
+								android:fontFamily="@font/font_lato_bold"
+								android:layout_marginTop="@dimen/margin_small"/>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+					</LinearLayout>
+				</androidx.cardview.widget.CardView>
 
-                <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/orderButton"
-                        android:layout_marginTop="@dimen/margin_large"
-                        style="@style/submitButton"
-                        android:layout_marginStart="@dimen/margin_medium"
-                        android:layout_marginEnd="@dimen/margin_medium"
-                        android:text="@string/label_pesan_sekarang"/>
+				<androidx.cardview.widget.CardView
+						android:id="@+id/areaNotes"
+						android:layout_marginTop="@dimen/no_margin"
+						style="@style/CardNormal">
+					<LinearLayout
+							android:padding="@dimen/margin_medium"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
 
-                <View style="@style/Devider"/>
+						<androidx.appcompat.widget.AppCompatTextView
+								style="@style/headerTextView"
+								android:text="@string/label_notes"
+								android:textSize="@dimen/text_medium"/>
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+						<androidx.appcompat.widget.AppCompatTextView
+								android:id="@+id/productNoteTextView"
+								style="@style/normalTextView"
+								android:textSize="@dimen/text_medium"
+								android:fontFamily="@font/font_lato_bold"
+								android:layout_marginTop="@dimen/margin_small"/>
+
+					</LinearLayout>
+				</androidx.cardview.widget.CardView>
+
+				<androidx.appcompat.widget.AppCompatButton
+						android:id="@+id/orderButton"
+						android:layout_marginTop="@dimen/margin_large"
+						style="@style/submitButton"
+						android:layout_marginStart="@dimen/margin_medium"
+						android:layout_marginEnd="@dimen/margin_medium"
+						android:text="@string/label_pesan_sekarang"/>
+
+				<View style="@style/Devider"/>
+
+			</LinearLayout>
+		</androidx.core.widget.NestedScrollView>
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

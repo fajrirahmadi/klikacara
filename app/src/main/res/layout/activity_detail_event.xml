@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:orientation="vertical"
+		android:background="@color/white"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	<androidx.core.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+			<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+				<RelativeLayout
+						android:visibility="gone"
+						android:id="@+id/areaBanner"
+						android:layout_width="match_parent"
+						android:layout_height="200dp">
+
+					<androidx.viewpager.widget.ViewPager
+							android:id="@+id/bannerPager"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent" />
+
+					<com.google.android.material.tabs.TabLayout
+							android:id="@+id/tabDots"
+							android:layout_alignParentBottom="true"
+							android:layout_width="wrap_content"
+							android:layout_centerHorizontal="true"
+							android:layout_height="wrap_content"
+							app:tabBackground="@drawable/dots_background"
+							app:tabGravity="center"
+							app:tabIndicatorHeight="0dp" />
+				</RelativeLayout>
+
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/posterAcaraImageView"
+						android:layout_width="match_parent"
+						android:layout_height="200dp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+						android:id="@+id/bannerRecycleView"
+						android:layout_width="match_parent"
+						android:visibility="gone"
+						android:layout_height="wrap_content" />
+
+				<com.wang.avi.AVLoadingIndicatorView
+						android:id="@+id/bannerLoading"
+						style="@style/Loading"
+						android:layout_margin="@dimen/margin_large"
+						android:layout_centerInParent="true" />
+			</RelativeLayout>
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:id="@+id/namaAcaraTextView"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium"
+					android:textSize="@dimen/text_big"
+					android:layout_marginTop="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:id="@+id/tanggalAcaraTextView"
+					android:layout_marginTop="@dimen/margin_very_small"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:id="@+id/viewParticipantButton"
+					android:background="@drawable/base_border_primary"
+					android:layout_width="wrap_content"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium"
+					android:text="@string/label_lihat_peserta_acara"
+					android:visibility="gone"
+					android:paddingStart="@dimen/margin_small"
+					android:paddingEnd="@dimen/margin_small"
+					android:paddingTop="@dimen/margin_very_small"
+					android:paddingBottom="@dimen/margin_very_small"
+					android:layout_marginTop="@dimen/margin_small" />
+
+			<View
+					style="@style/Line"
+					android:layout_margin="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:text="@string/label_deskripsi_acara"
+					android:textSize="@dimen/text_medium"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/deskripsiAcaraTextView"
+					style="@style/normalTextView"
+					android:text=""
+					android:layout_marginTop="@dimen/margin_very_small"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<View
+					style="@style/Line"
+					android:layout_margin="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:text="@string/label_lokasi_acara"
+					android:textSize="@dimen/text_medium"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/lokasiAcaraTextView"
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_very_small"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<View
+					style="@style/Line"
+					android:layout_margin="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:text="@string/label_waktu_acara"
+					android:textSize="@dimen/text_medium"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/waktuAcaraTextView"
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_very_small"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<View
+					style="@style/Line"
+					android:layout_margin="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:text="@string/label_harga_tiket_acara"
+					android:textSize="@dimen/text_medium"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/hargaTiketAcaraTextView"
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_very_small"
+					android:layout_marginStart="@dimen/margin_medium"
+					android:layout_marginEnd="@dimen/margin_medium" />
+
+			<View
+					android:layout_width="match_parent"
+					android:layout_height="100dp" />
+
+		</LinearLayout>
+
+	</androidx.core.widget.NestedScrollView>
+
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/margin_medium"
+			android:background="@drawable/background_gradient_red_bottom" />
+
+	<androidx.appcompat.widget.AppCompatButton
+			style="@style/submitButton"
+			android:id="@+id/joinEventButton"
+			android:layout_gravity="bottom"
+			android:layout_margin="@dimen/margin_medium"
+			android:text="@string/label_daftar_sekarang" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

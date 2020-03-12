@@ -24,7 +24,7 @@ class ForceUpdateChecker(
         val appVersion = getAppVersion(context)
         val updateUrl = remoteConfig.getString(BuildConfig.playStoreUrlKey)
 
-        if (!StringUtils.equals(currentVersion, appVersion) && onUpdateNeededListener != null) {
+        if (appVersion.replace(".", "") < currentVersion.replace(".", "") && onUpdateNeededListener != null) {
             onUpdateNeededListener.onUpdateNeeded(updateUrl)
         }
     }

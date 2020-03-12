@@ -48,7 +48,6 @@
                         style="@style/normalButton"
                         android:text="Tidak"
                         android:layout_height="@dimen/margin_large"
-                        android:textColor="@color/grey"
                         android:layout_marginEnd="@dimen/margin_small"
                         android:background="@color/white"/>
 

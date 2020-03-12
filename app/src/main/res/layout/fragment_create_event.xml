@@ -1,152 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
-		android:layout_width="match_parent" android:layout_height="match_parent">
+		android:layout_width="match_parent"
+		android:background="@color/white"
+		android:layout_height="match_parent">
 
-	<include layout="@layout/base_appbar_primary_with_logo"/>
+	<include layout="@layout/base_appbar_primary_with_logo" />
 
-	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-			android:id="@+id/productListSwipe"
+	<androidx.core.widget.NestedScrollView
 			android:layout_width="match_parent"
-			android:background="@color/white"
-			android:layout_height="wrap_content"
+			android:layout_height="match_parent"
 			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-		<androidx.core.widget.NestedScrollView
+		<LinearLayout
+				android:padding="@dimen/margin_medium"
 				android:layout_width="match_parent"
-				android:layout_height="match_parent">
-			<LinearLayout
-					android:padding="@dimen/margin_medium"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/headerTextView"
+					android:textSize="@dimen/text_normal"
+					android:text="@string/label_masukkan_detail_acara_anda" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_nama_acara" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/namaAcaraEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_nama_acara" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_deskripsi_acara" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/deskripsiAcaraEditText"
+					style="@style/registrationForm"
+					android:layout_height="wrap_content"
+					android:minHeight="100dp"
+					android:singleLine="false"
+					android:gravity="top"
+					android:paddingTop="@dimen/margin_medium"
+					android:paddingBottom="@dimen/margin_medium"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_hint_deskripsi_acara" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_harga_tiket_acara" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/hargaTiketAcaraEditText"
+					style="@style/registrationForm"
+					android:inputType="number"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_harga_tiket_acara" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_penanggung_jawab" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/penanggungJawabEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_penanggung_jawab" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_email" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/emailEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_email" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_phone" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/phoneEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:inputType="number"
+					android:hint="@string/label_phone" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+					style="@style/normalTextView"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:text="@string/label_link_pendaftaran" />
+
+			<androidx.appcompat.widget.AppCompatEditText
+					android:id="@+id/linkPendaftaranEditText"
+					style="@style/registrationForm"
+					android:layout_marginTop="@dimen/margin_small"
+					android:hint="@string/label_bitly" />
+
+			<androidx.appcompat.widget.AppCompatCheckBox
+					android:id="@+id/perlengkapanAcaraCheckBox"
+					android:layout_width="wrap_content"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:fontFamily="@font/font_lato_reguler"
+					android:layout_height="wrap_content"
+					android:visibility="gone"
+					android:text="Sewa Perlengkapan Acara" />
+
+			<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/perlengkapanRecycleView"
+					android:visibility="gone"
+					android:layout_marginTop="@dimen/margin_small"
 					android:layout_width="match_parent"
-					android:layout_height="match_parent"
+					android:layout_height="wrap_content" />
+
+			<androidx.appcompat.widget.AppCompatCheckBox
+					android:id="@+id/pengisiAcaraCheckBox"
+					android:layout_width="wrap_content"
+					android:visibility="gone"
+					android:layout_marginTop="@dimen/margin_small"
+					android:fontFamily="@font/font_lato_reguler"
+					android:layout_height="wrap_content"
+					android:text="Sewa Pengisi Acara" />
+
+			<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/pengisiAcaraRecycleView"
+					android:visibility="gone"
+					android:layout_marginTop="@dimen/margin_small"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content" />
+
+			<androidx.appcompat.widget.AppCompatCheckBox
+					android:id="@+id/promosiAcaraCheckBox"
+					android:layout_width="wrap_content"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:fontFamily="@font/font_lato_reguler"
+					android:layout_height="wrap_content"
+					android:text="@string/label_promosikan_acara" />
+
+			<LinearLayout
+					android:layout_marginTop="@dimen/margin_medium"
+					android:id="@+id/promosiArea"
+					android:visibility="gone"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
 					android:orientation="vertical">
 
 				<androidx.appcompat.widget.AppCompatTextView
-						style="@style/headerTextView"
-						android:textSize="@dimen/text_normal"
-						android:text="Masukkan Detail Acara Anda"/>
+						style="@style/normalTextView"
+						android:text="@string/label_poster" />
+
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/posterAcaraImageView"
+						android:layout_width="120dp"
+						android:layout_height="160dp"
+						android:src="@drawable/ic_add_image"
+						android:layout_marginTop="@dimen/margin_small" />
+
+				<androidx.appcompat.widget.AppCompatCheckBox
+						android:id="@+id/registerAcaraCheckBox"
+						android:layout_width="wrap_content"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:fontFamily="@font/font_lato_reguler"
+						android:layout_height="wrap_content"
+						android:text="@string/label_izinkan_daftar_dari_klikacara" />
+			</LinearLayout>
+
+			<androidx.appcompat.widget.AppCompatCheckBox
+					android:id="@+id/cariinVendorCheckBox"
+					android:layout_width="wrap_content"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:fontFamily="@font/font_lato_reguler"
+					android:layout_height="wrap_content"
+					android:text="@string/label_search_for_vendor" />
+
+			<LinearLayout
+					android:visibility="gone"
+					android:id="@+id/areaCariinVendor"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
 
 				<androidx.appcompat.widget.AppCompatTextView
 						style="@style/normalTextView"
-						android:layout_marginTop="@dimen/margin_medium"
-						android:text="@string/label_nama_acara"/>
+						android:text="@string/label_kebutuhan_acara" />
+
 				<androidx.appcompat.widget.AppCompatEditText
-						android:id="@+id/namaAcaraEditText"
+						android:id="@+id/peralatanAcaraEditText"
 						style="@style/registrationForm"
+						android:layout_height="wrap_content"
+						android:minHeight="100dp"
+						android:singleLine="false"
+						android:gravity="top"
+						android:paddingTop="@dimen/margin_medium"
+						android:paddingBottom="@dimen/margin_medium"
 						android:layout_marginTop="@dimen/margin_small"
-						android:hint="@string/label_nama_acara"/>
+						android:hint="@string/label_detail_kebutuhan_acara" />
 
 				<androidx.appcompat.widget.AppCompatTextView
 						style="@style/normalTextView"
 						android:layout_marginTop="@dimen/margin_medium"
-						android:text="@string/label_penanggung_jawab"/>
-				<androidx.appcompat.widget.AppCompatEditText
-						android:id="@+id/penanggungJawabEditText"
-						style="@style/registrationForm"
-						android:layout_marginTop="@dimen/margin_small"
-						android:hint="@string/label_penanggung_jawab"/>
+						android:text="@string/label_budget" />
 
-				<androidx.appcompat.widget.AppCompatTextView
-						style="@style/normalTextView"
-						android:layout_marginTop="@dimen/margin_medium"
-						android:text="@string/label_email"/>
 				<androidx.appcompat.widget.AppCompatEditText
-						android:id="@+id/emailEditText"
-						style="@style/registrationForm"
-						android:layout_marginTop="@dimen/margin_small"
-						android:hint="@string/label_email"/>
-
-				<androidx.appcompat.widget.AppCompatTextView
-						style="@style/normalTextView"
-						android:layout_marginTop="@dimen/margin_medium"
-						android:text="@string/label_phone"/>
-				<androidx.appcompat.widget.AppCompatEditText
-						android:id="@+id/phoneEditText"
+						android:id="@+id/budgetEditText"
 						style="@style/registrationForm"
 						android:layout_marginTop="@dimen/margin_small"
 						android:inputType="number"
-						android:hint="@string/label_phone"/>
-
-				<androidx.appcompat.widget.AppCompatCheckBox
-						android:id="@+id/perlengkapanAcaraCheckBox"
-						android:layout_width="wrap_content"
-						android:layout_marginTop="@dimen/margin_medium"
-						android:fontFamily="@font/font_lato_reguler"
-						android:layout_height="wrap_content"
-						android:visibility="gone"
-						android:text="Sewa Perlengkapan Acara"/>
-
-				<androidx.recyclerview.widget.RecyclerView
-						android:id="@+id/perlengkapanRecycleView"
-						android:visibility="gone"
-						android:layout_marginTop="@dimen/margin_small"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"/>
-
-				<androidx.appcompat.widget.AppCompatCheckBox
-						android:id="@+id/pengisiAcaraCheckBox"
-						android:layout_width="wrap_content"
-						android:visibility="gone"
-						android:layout_marginTop="@dimen/margin_small"
-						android:fontFamily="@font/font_lato_reguler"
-						android:layout_height="wrap_content"
-						android:text="Sewa Pengisi Acara"/>
-
-				<androidx.recyclerview.widget.RecyclerView
-						android:id="@+id/pengisiAcaraRecycleView"
-						android:visibility="gone"
-						android:layout_marginTop="@dimen/margin_small"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"/>
-
-				<androidx.appcompat.widget.AppCompatCheckBox
-						android:id="@+id/promosiAcaraCheckBox"
-						android:layout_width="wrap_content"
-						android:layout_marginTop="@dimen/margin_medium"
-						android:fontFamily="@font/font_lato_reguler"
-						android:layout_height="wrap_content"
-						android:text="Promosikan Acara"/>
-
-				<LinearLayout
-						android:layout_marginTop="@dimen/margin_medium"
-						android:id="@+id/promosiArea"
-						android:visibility="gone"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:orientation="vertical">
-					<androidx.appcompat.widget.AppCompatTextView
-							style="@style/normalTextView"
-							android:text="@string/label_poster"/>
-					<androidx.appcompat.widget.AppCompatImageView
-							android:id="@+id/posterAcaraImageView"
-							android:layout_width="120dp"
-							android:layout_height="160dp"
-							android:src="@drawable/ic_add_image"
-							android:layout_marginTop="@dimen/margin_small"/>
-					<androidx.appcompat.widget.AppCompatCheckBox
-							android:id="@+id/registerAcaraCheckBox"
-							android:layout_width="wrap_content"
-							android:layout_marginTop="@dimen/margin_medium"
-							android:fontFamily="@font/font_lato_reguler"
-							android:layout_height="wrap_content"
-							android:text="Izinkan Daftar dari Klikacara"/>
-				</LinearLayout>
-
-				<View style="@style/Devider"
-					  android:layout_height="@dimen/margin_more_large"/>
+						android:hint="@string/label_budget" />
 
 			</LinearLayout>
-		</androidx.core.widget.NestedScrollView>
-	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-	<androidx.appcompat.widget.AppCompatButton
-			android:id="@+id/nextButton"
-			android:layout_below="@id/fakeLine"
-			android:background="@color/colorPrimary"
-			android:text="BERIKUTNYA"
-			android:layout_gravity="bottom"
-			android:textColor="@color/white"
-			style="@style/normalButton"/>
+			<androidx.appcompat.widget.AppCompatButton
+					android:id="@+id/nextButton"
+					android:background="@drawable/base_button_primary"
+					android:text="@string/label_berikutnya"
+					android:layout_marginTop="@dimen/margin_large"
+					android:textColor="@color/white"
+					style="@style/normalButton" />
+
+			<View
+					style="@style/Devider"
+					android:layout_height="@dimen/margin_more_large" />
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

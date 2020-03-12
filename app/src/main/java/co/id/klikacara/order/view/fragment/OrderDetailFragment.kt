@@ -1,4 +1,4 @@
-package co.id.klikacara.order.view
+package co.id.klikacara.order.view.fragment
 
 import android.os.Bundle
 import androidx.core.util.PatternsCompat

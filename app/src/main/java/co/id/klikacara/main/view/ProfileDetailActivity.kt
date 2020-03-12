@@ -64,6 +64,7 @@ class ProfileDetailActivity : BaseActivity(), MainContract.ProfileDetailView, Pe
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_detail)
+        configureBackButton()
         permissionPresenter.init(RxPermissions(this))
         configureToolbarNoHomeAndTitle("Detail Profil")
         profileDetailPresentar.getProfile()
@@ -137,7 +138,7 @@ class ProfileDetailActivity : BaseActivity(), MainContract.ProfileDetailView, Pe
 
     override fun doOnPermissionGranted() {
         configureEasyImage()
-        EasyImage.openChooserWithDocuments(this, "Foto Profil", cameraPermissionCode)
+        EasyImage.openChooserWithGallery(this, "Foto Profil", cameraPermissionCode)
     }
 
     override fun doOnPermissionRejected() {

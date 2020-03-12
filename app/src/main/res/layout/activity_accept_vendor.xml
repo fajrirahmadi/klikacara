@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:background="@color/white"
+		android:layout_height="match_parent">
+
+	<include
+			layout="@layout/base_appbar_primary_with_title"
+			android:id="@+id/toolbar" />
+
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:layout_above="@id/bottomView"
+			android:layout_below="@+id/toolbar"
+			android:id="@+id/swipeList"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<androidx.core.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:fillViewport="true">
+
+			<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+				<LinearLayout
+						android:id="@+id/contentArea"
+						android:orientation="vertical"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+					<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/descriptionChooseProductTextView"
+							style="@style/latoSemiBoldTextView"
+							android:layout_margin="@dimen/margin_medium"
+							android:text="Silahkan pilih produk rekomendasi kami untuk kebutuhan acara Anda" />
+
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="@dimen/margin_medium"
+							android:layout_marginEnd="@dimen/margin_medium"
+							android:layout_marginBottom="@dimen/margin_medium"
+							android:orientation="vertical">
+
+						<androidx.appcompat.widget.AppCompatTextView
+								style="@style/normalTextView"
+								android:textSize="@dimen/text_small"
+								android:text="Kebutuhan" />
+
+						<androidx.appcompat.widget.AppCompatTextView
+								style="@style/normalTextView"
+								android:textSize="@dimen/text_medium" />
+					</LinearLayout>
+
+					<androidx.recyclerview.widget.RecyclerView
+							android:layout_marginStart="@dimen/margin_small"
+							android:layout_marginEnd="@dimen/margin_small"
+							android:id="@+id/listOfViewRecycleView"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content" />
+
+				</LinearLayout>
+
+				<include layout="@layout/content_error" />
+
+				<include
+						layout="@layout/content_loading"
+						android:visibility="gone" />
+			</RelativeLayout>
+		</androidx.core.widget.NestedScrollView>
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+	<LinearLayout
+			android:id="@+id/bottomView"
+			android:visibility="gone"
+			android:layout_alignParentBottom="true"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/margin_medium">
+
+		<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/acceptButton"
+				style="@style/selectorButton"
+				android:enabled="false"
+				android:textAllCaps="false"
+				android:text="@string/label_proses" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/cancelButton"
+				style="@style/normalTextView"
+				android:text="@string/label_batalkan"
+				android:layout_marginTop="@dimen/margin_medium"
+				android:gravity="center"
+				android:textSize="@dimen/text_medium"
+				android:textColor="@color/colorPrimary" />
+	</LinearLayout>
+
+</RelativeLayout>

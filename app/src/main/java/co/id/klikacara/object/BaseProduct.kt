@@ -13,7 +13,9 @@ class BaseProduct(
     var price: Long = 0L,
     var vendorId: String = "",
     var productCategory: String = "",
-    var createdDate: Long = System.currentTimeMillis()
+    var createdDate: Long = System.currentTimeMillis(),
+    var cover: String = "",
+    var notes: String = ""
 ) : Serializable {
     constructor() : this(null, null)
 }

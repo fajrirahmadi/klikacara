@@ -2,8 +2,10 @@ package co.id.klikacara.base.view.fragment
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ import butterknife.Unbinder
 import co.id.klikacara.R
 import co.id.klikacara.base.contract.BaseContract
 import co.id.klikacara.base.utils.compressor.Compressor
+import co.id.klikacara.base.utils.imagehelper.ImagePopup
 import co.id.klikacara.base.utils.listhelper.CustomEndlessRecyclerViewScrollListener
 import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.dialog.BaseJavaDialog
@@ -33,6 +36,7 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
 
     private var progressDialog: ProgressDialog? = null
     lateinit var infoDialog: BaseJavaDialog
+    lateinit var imagePopup: ImagePopup
 
     lateinit var unbinder: Unbinder
 
@@ -265,7 +269,14 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
     protected fun configureBackButton() {
         val view = activity?.findViewById<AppCompatImageView>(R.id.backToolbarButton)
         ViewHelper.showView(view)
-        if (view != null)
-            view.setOnClickListener { activity?.onBackPressed() }
+        view?.setOnClickListener { activity?.onBackPressed() }
+    }
+
+    protected fun configureImagePopUp() {
+        imagePopup = ImagePopup(activity!!)
+        imagePopup.backgroundColor = Color.BLACK
+        imagePopup.isFullScreen = true
+        imagePopup.isHideCloseIcon = true
+        imagePopup.isImageOnClickClose = true
     }
 }

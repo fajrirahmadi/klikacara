@@ -9,7 +9,6 @@
             style="@style/normalTextView"
             android:padding="@dimen/margin_medium"
             android:layout_toStartOf="@+id/valueTextView"
-            android:textColor="@color/grey"
             android:text="Nama Acara"/>
 
     <androidx.appcompat.widget.AppCompatTextView

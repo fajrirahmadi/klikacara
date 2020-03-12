@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/swipeOrder"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+		<androidx.core.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:fillViewport="true">
+
+			<RelativeLayout
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+				<RelativeLayout
+						android:visibility="visible"
+						android:id="@+id/loginArea"
+						android:orientation="vertical"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+
+					<LinearLayout
+							android:visibility="gone"
+							android:id="@+id/noOrderArea"
+							android:gravity="center"
+							android:padding="@dimen/margin_large"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
+
+						<androidx.appcompat.widget.AppCompatImageView
+								android:src="@drawable/logo_klikacara"
+								android:layout_width="@dimen/image_big"
+								android:padding="1dp"
+								android:background="@drawable/base_circle_primary"
+								android:layout_height="@dimen/image_big" />
+
+						<androidx.appcompat.widget.AppCompatTextView
+								android:id="@+id/labelNoOrder"
+								style="@style/normalTextView"
+								android:gravity="center"
+								android:layout_marginTop="@dimen/margin_medium"
+								android:text="Anda belum memiliki pesanan" />
+					</LinearLayout>
+
+					<androidx.recyclerview.widget.RecyclerView
+							android:id="@+id/orderRecycleView"
+							android:layout_width="match_parent"
+							android:visibility="gone"
+							android:layout_height="wrap_content" />
+
+					<View
+							style="@style/Devider"
+							android:layout_below="@id/orderRecycleView" />
+				</RelativeLayout>
+
+				<com.wang.avi.AVLoadingIndicatorView
+						android:id="@+id/loadingOrder"
+						style="@style/Loading"
+						android:layout_centerInParent="true"
+						android:layout_marginTop="@dimen/margin_very_large" />
+
+			</RelativeLayout>
+
+		</androidx.core.widget.NestedScrollView>
+
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

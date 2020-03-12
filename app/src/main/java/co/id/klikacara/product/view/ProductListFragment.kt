@@ -47,7 +47,7 @@ class ProductListFragment : BaseFragment(), ProductContract.ProductListView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         ViewHelper.hideView(addProductButton)
-        menuChoosed = Parcels.unwrap<KlikMenu>(activity?.intent?.extras?.getParcelable(BuildConfig.klikMenuDb))
+        menuChoosed = Parcels.unwrap(activity?.intent?.extras?.getParcelable(BuildConfig.klikMenuDb))
         titleProduct.text =
             StringHelper.getStringBuilderToString(menuChoosed.mitraType?.description, " - ", menuChoosed.name)
         descriptionProduct.text = menuChoosed.description
@@ -55,7 +55,7 @@ class ProductListFragment : BaseFragment(), ProductContract.ProductListView {
     }
 
     private fun configureProductAdapter() {
-        configureGridItemAdapter(productListAdapter, productRecycleView, 2)
+        configureGridItemAdapter(productListAdapter, productRecycleView, 3)
         productListAdapter.withOnClickListener { _, _, item, _ ->
             val intent = getIntent(activity!!, ProductDetailActivity::class.java)
             intent.putExtra(BuildConfig.productDb, Parcels.wrap(item.product))

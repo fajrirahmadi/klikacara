@@ -34,6 +34,8 @@ interface ProductContract {
         fun doOnSubmitProductSuccess()
         fun doOnSubmitProductFailed()
         fun setFailedImage(index: Int)
+        fun setCoverFailedUploaded()
+        fun setCoverUploaded(url: String)
 
     }
 }

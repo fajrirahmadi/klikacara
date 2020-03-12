@@ -1,140 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:background="@color/white"
-        android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:background="@color/white"
+		android:layout_height="match_parent">
 
-    <include layout="@layout/base_appbar_primary_with_title"/>
+	<include layout="@layout/base_appbar_primary_with_title" />
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeProfile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/swipeProfile"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+		<androidx.core.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
 
-            <RelativeLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+			<RelativeLayout
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
 
-                <LinearLayout
-                        android:id="@+id/loginArea"
-                        android:visibility="gone"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+				<LinearLayout
+						android:id="@+id/loginArea"
+						android:visibility="gone"
+						android:orientation="vertical"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
 
-                    <androidx.cardview.widget.CardView
-                            style="@style/CardNormal">
-                        <RelativeLayout
-                                android:padding="@dimen/margin_medium"
-                                android:background="@color/white"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                            <androidx.appcompat.widget.AppCompatImageView
-                                    android:id="@+id/profileImageView"
-                                    android:layout_width="@dimen/image_normal"
-                                    android:layout_height="@dimen/image_normal"
-                                    android:layout_marginEnd="@dimen/margin_medium"
-                                    android:background="@drawable/base_circle_primary"/>
+					<androidx.cardview.widget.CardView style="@style/CardNormal">
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/nameTextView"
-                                    style="@style/headerTextView"
-                                    android:textSize="@dimen/text_medium"
-                                    android:layout_toEndOf="@id/profileImageView"/>
+						<RelativeLayout
+								android:padding="@dimen/margin_medium"
+								android:background="@color/white"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content">
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/roleTextView"
-                                    style="@style/normalTextView"
-                                    android:text="@string/label_pengguna"
-                                    android:layout_width="wrap_content"
-                                    android:layout_below="@id/nameTextView"
-                                    android:layout_toEndOf="@id/profileImageView"
-                                    android:textColor="@color/grey"/>
+							<androidx.appcompat.widget.AppCompatImageView
+									android:id="@+id/profileImageView"
+									android:layout_width="@dimen/image_big"
+									android:layout_height="@dimen/image_big"
+									android:layout_marginEnd="@dimen/margin_medium"
+									android:background="@drawable/base_circle_primary" />
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/registerVendorButton"
-                                    style="@style/normalTextView"
-                                    android:text="@string/button_menjadi_vendor"
-                                    android:layout_width="wrap_content"
-                                    android:layout_below="@id/roleTextView"
-                                    android:layout_toEndOf="@id/profileImageView"
-                                    android:layout_marginTop="@dimen/margin_small"
-                                    android:background="@drawable/base_button_primary"
-                                    android:textColor="@color/white"
-                                    android:paddingStart="@dimen/margin_small"
-                                    android:paddingEnd="@dimen/margin_small"
-                                    android:paddingTop="@dimen/margin_very_small"
-                                    android:visibility="gone"
-                                    android:paddingBottom="@dimen/margin_very_small"/>
+							<androidx.appcompat.widget.AppCompatTextView
+									android:id="@+id/nameTextView"
+									style="@style/headerTextView"
+									android:textSize="@dimen/text_medium"
+									android:layout_toEndOf="@id/profileImageView" />
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/verifyButton"
-                                    style="@style/normalTextView"
-                                    android:text="@string/button_verify_vendor"
-                                    android:layout_width="wrap_content"
-                                    android:layout_below="@id/roleTextView"
-                                    android:layout_toEndOf="@id/profileImageView"
-                                    android:layout_marginTop="@dimen/margin_small"
-                                    android:visibility="gone"
-                                    android:background="@drawable/base_button_primary"
-                                    android:textColor="@color/white"
-                                    android:paddingStart="@dimen/margin_small"
-                                    android:paddingEnd="@dimen/margin_small"
-                                    android:paddingTop="@dimen/margin_very_small"
-                                    android:paddingBottom="@dimen/margin_very_small"/>
+							<androidx.appcompat.widget.AppCompatTextView
+									android:id="@+id/roleTextView"
+									style="@style/normalTextView"
+									android:text="@string/label_pengguna"
+									android:layout_width="wrap_content"
+									android:layout_below="@id/nameTextView"
+									android:layout_toEndOf="@id/profileImageView" />
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/verifiedTextView"
-                                    style="@style/normalTextView"
-                                    android:text="@string/label_verifed"
-                                    android:layout_width="wrap_content"
-                                    android:layout_below="@id/roleTextView"
-                                    android:visibility="gone"
-                                    android:layout_toEndOf="@id/profileImageView"
-                                    android:layout_marginTop="@dimen/margin_small"
-                                    android:background="@drawable/base_button_primary"
-                                    android:textColor="@color/white"
-                                    android:paddingStart="@dimen/margin_small"
-                                    android:paddingEnd="@dimen/margin_small"
-                                    android:paddingTop="@dimen/margin_very_small"
-                                    android:paddingBottom="@dimen/margin_very_small"/>
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+							<androidx.appcompat.widget.AppCompatTextView
+									android:id="@+id/registerVendorButton"
+									style="@style/normalTextView"
+									android:text="@string/button_menjadi_vendor"
+									android:layout_width="wrap_content"
+									android:layout_below="@id/roleTextView"
+									android:layout_toEndOf="@id/profileImageView"
+									android:layout_marginTop="@dimen/margin_small"
+									android:background="@drawable/base_button_primary"
+									android:textColor="@color/white"
+									android:paddingStart="@dimen/margin_small"
+									android:paddingEnd="@dimen/margin_small"
+									android:paddingTop="@dimen/margin_very_small"
+									android:visibility="gone"
+									android:paddingBottom="@dimen/margin_very_small" />
 
-                    <View style="@style/Line"
-                          android:background="#10000000"
-                          android:layout_marginTop="@dimen/margin_medium"/>
+							<androidx.appcompat.widget.AppCompatTextView
+									android:id="@+id/verifyButton"
+									style="@style/normalTextView"
+									android:text="@string/button_verify_vendor"
+									android:layout_width="wrap_content"
+									android:layout_below="@id/roleTextView"
+									android:layout_toEndOf="@id/profileImageView"
+									android:layout_marginTop="@dimen/margin_small"
+									android:visibility="gone"
+									android:background="@drawable/base_button_primary"
+									android:textColor="@color/white"
+									android:paddingStart="@dimen/margin_small"
+									android:paddingEnd="@dimen/margin_small"
+									android:paddingTop="@dimen/margin_very_small"
+									android:paddingBottom="@dimen/margin_very_small" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/profileMenuRecycleView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
+							<androidx.appcompat.widget.AppCompatTextView
+									android:id="@+id/verifiedTextView"
+									style="@style/normalTextView"
+									android:text="@string/label_verifed"
+									android:layout_width="wrap_content"
+									android:layout_below="@id/roleTextView"
+									android:visibility="gone"
+									android:layout_toEndOf="@id/profileImageView"
+									android:layout_marginTop="@dimen/margin_small"
+									android:background="@drawable/base_button_primary"
+									android:textColor="@color/white"
+									android:paddingStart="@dimen/margin_small"
+									android:paddingEnd="@dimen/margin_small"
+									android:paddingTop="@dimen/margin_very_small"
+									android:paddingBottom="@dimen/margin_very_small" />
+						</RelativeLayout>
+					</androidx.cardview.widget.CardView>
 
-                    <View style="@style/Devider"/>
-                </LinearLayout>
+					<View
+							style="@style/Line"
+							android:background="#10000000"
+							android:layout_marginTop="@dimen/margin_medium" />
 
-                <include
-                        android:id="@+id/notLoginArea"
-                        android:visibility="gone"
-                        layout="@layout/content_login_first"/>
+					<androidx.recyclerview.widget.RecyclerView
+							android:id="@+id/profileMenuRecycleView"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent" />
 
-                <com.wang.avi.AVLoadingIndicatorView
-                        android:id="@+id/loadingProfile"
-                        style="@style/Loading"
-                        android:layout_centerInParent="true"
-                        android:layout_marginTop="@dimen/margin_very_large"/>
-            </RelativeLayout>
+					<View style="@style/Devider" />
+				</LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+				<include
+						android:id="@+id/notLoginArea"
+						android:visibility="gone"
+						layout="@layout/content_login_first" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+				<com.wang.avi.AVLoadingIndicatorView
+						android:id="@+id/loadingProfile"
+						style="@style/Loading"
+						android:layout_centerInParent="true"
+						android:layout_marginTop="@dimen/margin_very_large" />
+			</RelativeLayout>
+
+		</androidx.core.widget.NestedScrollView>
+
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

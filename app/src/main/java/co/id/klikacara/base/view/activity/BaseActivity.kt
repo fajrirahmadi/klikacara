@@ -2,6 +2,7 @@ package co.id.klikacara.base.view.activity
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.view.MenuItem
@@ -15,6 +16,7 @@ import butterknife.ButterKnife
 import co.id.klikacara.BuildConfig
 import co.id.klikacara.R
 import co.id.klikacara.base.contract.BaseContract
+import co.id.klikacara.base.utils.imagehelper.ImagePopup
 import co.id.klikacara.base.utils.viewhelper.ViewHelper
 import co.id.klikacara.base.view.dialog.BaseJavaDialog
 import co.id.klikacara.base.view.dialog.ProgressDialog
@@ -30,6 +32,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 
     var progressDialog: ProgressDialog? = null
     lateinit var infoDialog: BaseJavaDialog
+    lateinit var imagePopup: ImagePopup
 
     private var isProgressShown = false
 
@@ -173,6 +176,18 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
             adapter.withSelectable(true)
     }
 
+    fun configureGridItemAdapter(
+        adapter: FastItemAdapter<*>,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
+        span: Int
+    ) {
+        recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, span)
+        recyclerView.adapter = adapter
+        recyclerView.isNestedScrollingEnabled = false
+        if (!adapter.isSelectable)
+            adapter.withSelectable(true)
+    }
+
     protected fun configureToolbarWithHomeAndTitle(title: String) {
         configureToolbarWithHomeAndTitle(findViewById(R.id.toolbar), title)
     }
@@ -249,5 +264,18 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         val view = findViewById<AppCompatImageView>(R.id.backToolbarButton)
         ViewHelper.showView(view)
         view.setOnClickListener { onBackPressed() }
+    }
+
+    fun finishActivityForResult(intent: Intent, requestCode: Int) {
+        setResult(requestCode, intent)
+        finish()
+    }
+
+    protected fun configureImagePopUp() {
+        imagePopup = ImagePopup(this)
+        imagePopup.backgroundColor = Color.BLACK
+        imagePopup.isFullScreen = true
+        imagePopup.isHideCloseIcon = true
+        imagePopup.isImageOnClickClose = true
     }
 }

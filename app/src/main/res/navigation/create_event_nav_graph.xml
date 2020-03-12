@@ -34,7 +34,7 @@
 	<fragment android:id="@+id/orderPaymentFragment"
 			  tools:layout="@layout/fragment_order_bank_list"
 			  android:label="OrderPaymentFragment"
-			  android:name="co.id.klikacara.order.view.OrderPaymentFragment">
+			  android:name="co.id.klikacara.order.view.fragment.OrderPaymentFragment">
 		<action android:id="@+id/action_move_fromOrderPaymentFragment_toOrderConfirmationFragment"
 				app:destination="@+id/orderConfirmationFragment"
 				app:enterAnim="@anim/enter_from_right"
@@ -46,6 +46,6 @@
 	<fragment android:id="@+id/orderConfirmationFragment"
 			  tools:layout="@layout/fragment_order_konfirmasi"
 			  android:label="OrderConfirmationFragment"
-			  android:name="co.id.klikacara.order.view.OrderConfirmationFragment"/>
+			  android:name="co.id.klikacara.order.view.fragment.OrderConfirmationFragment"/>
 
 </navigation>

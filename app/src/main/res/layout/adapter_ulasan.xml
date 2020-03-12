@@ -33,7 +33,6 @@
                 style="@style/normalTextView"
                 android:text="Vendor"
                 android:layout_toEndOf="@id/userImageView"
-                android:textColor="@color/grey"
                 android:layout_below="@id/nameTextView"/>
 
         <View style="@style/Line"

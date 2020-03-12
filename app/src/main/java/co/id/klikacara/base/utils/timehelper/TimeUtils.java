@@ -2,6 +2,7 @@ package co.id.klikacara.base.utils.timehelper;
 
 
 import co.id.klikacara.base.utils.stringhelper.StringHelper;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.text.ParseException;
@@ -99,6 +100,10 @@ public class TimeUtils {
         return calendarDay.get(Calendar.YEAR) == calAcara.get(Calendar.YEAR) &&
                 calendarDay.get(Calendar.ERA) == calAcara.get(Calendar.ERA) &&
                 calendarDay.get(Calendar.DAY_OF_YEAR) == calAcara.get(Calendar.DAY_OF_YEAR);
+    }
+
+    public static boolean isSameDate(Long firstDate, Long secondDate) {
+        return getDateFormated("ddMMyyyy", firstDate).equals(getDateFormated("ddMMyyyy", secondDate));
     }
 
     public static Long getBirthDateLimit() {

@@ -87,7 +87,7 @@ class AddProductPresenter(
         view.setPaymentTypeAdapter(paymentTypeAdapter)
     }
 
-    fun uploadImage(product: BaseProduct, pathAbsolute: String, index: Int) {
+    fun uploadImage(product: BaseProduct, pathAbsolute: String, index: Int, isCover: Boolean) {
         view.showProgressDialog()
         val path = StringHelper.getStringBuilderToString(
             auth.uid,
@@ -101,13 +101,19 @@ class AddProductPresenter(
                 it.metadata!!.reference!!.downloadUrl
                     .addOnSuccessListener { url ->
                         view.dismissProgressDialog()
-                        view.setUploadedImageUrl(url.toString(), index)
+                        if (isCover)
+                            view.setCoverUploaded(url.toString())
+                        else
+                            view.setUploadedImageUrl(url.toString(), index)
                     }.addOnFailureListener {
                         view.dismissProgressDialog()
                     }
             }
             .addOnFailureListener {
-                view.setFailedImage(index)
+                if (isCover)
+                    view.setCoverFailedUploaded()
+                else
+                    view.setFailedImage(index)
                 view.dismissProgressDialog()
             }
     }

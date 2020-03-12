@@ -1,68 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/CardNormal"
-        android:layout_marginBottom="@dimen/no_margin">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="1dp">
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="@dimen/margin_medium">
+	<androidx.cardview.widget.CardView
+			style="@style/CardNormal"
+			android:layout_marginTop="1dp"
+			android:layout_marginStart="@dimen/no_margin"
+			android:layout_marginEnd="@dimen/no_margin">
 
-        <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/orderImageView"
-                android:layout_width="@dimen/image_normal"
-                android:layout_height="@dimen/image_normal"
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:background="@drawable/base_circle_primary"/>
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:padding="@dimen/margin_medium">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_toEndOf="@id/orderImageView">
+			<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/orderImageView"
+					android:layout_width="@dimen/image_normal"
+					android:layout_height="@dimen/image_normal"
+					android:layout_marginEnd="@dimen/margin_medium"
+					android:background="@drawable/base_circle_primary" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/orderItemNameTextView"
-                    style="@style/headerTextView"
-                    android:textSize="@dimen/text_medium"/>
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_toEndOf="@id/orderImageView">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/orderDateTextView"
-                    style="@style/normalTextView"
-                    android:textSize="@dimen/text_small"
-                    android:textColor="@color/grey"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/orderItemNameTextView"
+						style="@style/headerTextView"
+						android:textSize="@dimen/text_medium" />
 
-            <View style="@style/Line"
-                  android:layout_marginTop="@dimen/margin_small"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/orderDateTextView"
+						style="@style/normalTextView"
+						android:textSize="@dimen/text_small" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/orderStatusTextView"
-                    style="@style/normalTextView"
-                    android:textSize="@dimen/text_small"
-                    android:layout_marginTop="@dimen/margin_small"/>
+				<View
+						style="@style/Line"
+						android:layout_marginTop="@dimen/margin_small" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/amountTextView"
-                    style="@style/normalTextView"
-                    android:textSize="@dimen/text_normal"
-                    android:textStyle="bold"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/orderStatusTextView"
+						style="@style/normalTextView"
+						android:textSize="@dimen/text_small"
+						android:layout_marginTop="@dimen/margin_small" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/detailButton"
-                    style="@style/normalButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/margin_big"
-                    android:layout_gravity="end"
-                    android:text="@string/label_detail"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@drawable/base_button_primary"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_small"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/amountTextView"
+						style="@style/normalTextView"
+						android:textSize="@dimen/text_normal"
+						android:textStyle="bold" />
 
-        </LinearLayout>
+				<androidx.appcompat.widget.AppCompatButton
+						android:id="@+id/detailButton"
+						style="@style/normalButton"
+						android:layout_width="wrap_content"
+						android:layout_height="@dimen/margin_big"
+						android:layout_gravity="end"
+						android:text="@string/label_detail"
+						android:layout_marginTop="@dimen/margin_small"
+						android:background="@drawable/base_button_primary"
+						android:textColor="@color/white"
+						android:textSize="@dimen/text_small" />
 
-    </RelativeLayout>
+			</LinearLayout>
 
-</androidx.cardview.widget.CardView>
+		</RelativeLayout>
+
+	</androidx.cardview.widget.CardView>
+</RelativeLayout>

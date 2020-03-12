@@ -1,11 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
+		xmlns:tools="http://schemas.android.com/tools"
 		android:background="@color/white"
 		android:layout_height="match_parent">
 
+	<com.google.android.material.appbar.AppBarLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white">
+
+		<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="56dp">
+
+			<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginEnd="@dimen/margin_medium"
+					android:background="@color/white"
+					android:gravity="center_vertical">
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/titleToolbar"
+						style="@style/normalTextView"
+						android:layout_centerVertical="true"
+						android:visibility="gone"
+						android:fontFamily="@font/font_lato_bold"
+						android:textColor="@color/colorPrimaryDark"
+						android:textSize="@dimen/text_normal" />
+
+				<androidx.appcompat.widget.AppCompatEditText
+						android:id="@+id/searchEditText"
+						style="@style/normalEditText"
+						android:layout_toStartOf="@id/historyButton"
+						android:hint="@string/label_cari_acara"
+						android:layout_marginEnd="@dimen/margin_medium"
+						android:paddingStart="@dimen/margin_small"
+						android:paddingEnd="@dimen/margin_small"
+						android:drawableStart="@drawable/ic_search_new"
+						android:drawableTint="@color/grey"
+						android:focusable="false"
+						android:gravity="center_vertical"
+						android:drawablePadding="@dimen/margin_very_small"
+						android:layout_centerVertical="true"
+						android:textSize="@dimen/text_medium"
+						android:layout_height="40dp"
+						android:background="@drawable/border_grey"
+						tools:ignore="UnusedAttribute" />
+
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/notificationButton"
+						android:layout_width="28dp"
+						android:layout_height="28dp"
+						android:src="@drawable/ic_notification"
+						android:padding="@dimen/margin_very_small"
+						android:visibility="gone"
+						android:layout_marginEnd="@dimen/margin_small"
+						android:layout_toStartOf="@id/historyButton"
+						android:background="@drawable/base_border_primary"
+						android:layout_centerVertical="true" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/notificationCounter"
+						android:layout_width="20dp"
+						android:layout_height="20dp"
+						android:background="@drawable/base_circle_primary"
+						android:text="10"
+						android:maxLength="2"
+						android:visibility="gone"
+						android:layout_marginTop="@dimen/margin_small"
+						android:layout_toStartOf="@id/historyButton"
+						android:layout_marginEnd="@dimen/margin_very_small"
+						android:textColor="@color/white"
+						android:padding="@dimen/margin_very_small"
+						android:textSize="@dimen/text_very_small" />
+
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/historyButton"
+						android:layout_width="28dp"
+						android:layout_height="28dp"
+						android:padding="@dimen/margin_very_small"
+						android:src="@drawable/menu_order"
+						android:layout_marginEnd="@dimen/margin_medium"
+						android:background="@drawable/base_border_primary"
+						android:layout_toStartOf="@+id/profileButton"
+						android:layout_centerVertical="true" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/orderCounter"
+						android:layout_width="20dp"
+						android:layout_height="20dp"
+						android:visibility="gone"
+						android:background="@drawable/base_circle_primary"
+						android:text="10"
+						android:maxLength="2"
+						android:layout_marginTop="@dimen/margin_small"
+						android:layout_toStartOf="@id/profileButton"
+						android:layout_marginEnd="@dimen/margin_very_small"
+						android:textColor="@color/white"
+						android:padding="@dimen/margin_very_small"
+						android:textSize="@dimen/text_very_small" />
+
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/profileButton"
+						android:layout_width="40dp"
+						android:layout_height="40dp"
+						android:padding="1dp"
+						android:src="@drawable/logo_klikacara"
+						android:background="@drawable/base_circle_primary"
+						android:layout_alignParentEnd="true"
+						android:layout_centerVertical="true" />
+			</RelativeLayout>
+		</androidx.appcompat.widget.Toolbar>
+	</com.google.android.material.appbar.AppBarLayout>
 
 	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 			android:id="@+id/swipeHome"
@@ -22,54 +132,50 @@
 					android:layout_width="match_parent"
 					android:layout_height="match_parent">
 
-				<RelativeLayout
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-					<RelativeLayout
-							android:id="@+id/areaBanner"
-							android:layout_width="match_parent"
-							android:layout_height="150dp">
-
-						<androidx.viewpager.widget.ViewPager
-								android:id="@+id/bannerPager"
-								android:layout_width="match_parent"
-								android:layout_height="match_parent"/>
-
-						<com.google.android.material.tabs.TabLayout
-								android:id="@+id/tabDots"
-								android:layout_alignParentBottom="true"
-								android:layout_width="wrap_content"
-								android:layout_centerHorizontal="true"
-								android:layout_height="wrap_content"
-								app:tabBackground="@drawable/dots_background"
-								app:tabGravity="center"
-								app:tabIndicatorHeight="0dp"/>
-					</RelativeLayout>
-					<androidx.recyclerview.widget.RecyclerView
-							android:id="@+id/bannerRecycleView"
-							android:layout_width="match_parent"
-							android:visibility="gone"
-							android:layout_height="wrap_content"/>
-
-					<com.wang.avi.AVLoadingIndicatorView
-							android:id="@+id/bannerLoading"
-							style="@style/Loading"
-							android:layout_margin="@dimen/margin_large"
-							android:layout_centerInParent="true"/>
-				</RelativeLayout>
-
-				<androidx.appcompat.widget.AppCompatTextView
-						android:id="@+id/createEventOrProductButton"
-						android:visibility="gone"
-						android:background="@drawable/base_button_primary"
-						style="@style/normalButton"
-						android:textColor="@color/white"
-						android:layout_height="36dp"
-						android:layout_marginStart="@dimen/margin_very_large"
+				<LinearLayout
 						android:layout_marginTop="@dimen/margin_medium"
-						android:layout_marginEnd="@dimen/margin_very_large"
-						android:text="Buat Acara"
-						android:textAllCaps="false"/>
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/labelGreetingTextView"
+							style="@style/headerTextView"
+							android:text="@string/hi_guest"
+							android:padding="@dimen/margin_medium" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/createEventOrProductButton"
+							android:visibility="visible"
+							android:background="@drawable/base_button_primary"
+							style="@style/normalButton"
+							android:textColor="@color/white"
+							android:layout_height="36dp"
+							android:text="@string/label_buat_acara"
+							android:textAllCaps="false" />
+				</LinearLayout>
+
+				<RelativeLayout
+						android:layout_marginTop="@dimen/margin_medium"
+						android:id="@+id/areaBanner"
+						android:layout_width="match_parent"
+						android:layout_height="150dp">
+
+					<androidx.viewpager.widget.ViewPager
+							android:id="@+id/bannerPager"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent" />
+
+					<com.google.android.material.tabs.TabLayout
+							android:id="@+id/tabDots"
+							android:layout_alignParentBottom="true"
+							android:layout_width="wrap_content"
+							android:layout_centerHorizontal="true"
+							android:layout_height="wrap_content"
+							app:tabBackground="@drawable/dots_background"
+							app:tabGravity="center"
+							app:tabIndicatorHeight="0dp" />
+				</RelativeLayout>
 
 				<RelativeLayout
 						android:visibility="visible"
@@ -84,27 +190,39 @@
 							style="@style/headerTextView"
 							android:textSize="@dimen/text_medium"
 							android:layout_marginBottom="@dimen/margin_medium"
-							android:text="@string/label_acara_terbaru"/>
+							android:text="@string/label_acara_terbaru" />
 
 					<androidx.recyclerview.widget.RecyclerView
 							android:layout_below="@+id/titleEventTextView"
 							android:id="@+id/eventRecycleView"
 							android:layout_width="match_parent"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					<com.wang.avi.AVLoadingIndicatorView
 							android:id="@+id/eventLoading"
 							style="@style/Loading"
 							android:layout_below="@id/titleEventTextView"
 							android:layout_margin="@dimen/margin_large"
-							android:layout_centerHorizontal="true"/>
+							android:layout_centerHorizontal="true" />
 				</RelativeLayout>
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/showMoreButton"
+						style="@style/normalButton"
+						android:text="Event lainnya"
+						android:background="@drawable/base_button_primary"
+						android:textColor="@color/white"
+						android:gravity="center"
+						android:textAllCaps="false"
+						android:layout_marginStart="@dimen/margin_medium"
+						android:layout_marginEnd="@dimen/margin_medium"
+						android:layout_marginBottom="@dimen/margin_medium" />
 
 				<RelativeLayout
 						android:layout_width="match_parent"
-						android:layout_marginTop="@dimen/margin_medium"
 						android:layout_marginStart="@dimen/margin_medium"
 						android:layout_marginEnd="@dimen/margin_medium"
+						android:visibility="visible"
 						android:layout_height="wrap_content">
 
 					<androidx.appcompat.widget.AppCompatTextView
@@ -113,7 +231,7 @@
 							android:textSize="@dimen/text_medium"
 							android:layout_toStartOf="@id/showMorePerlengkapan"
 							android:layout_marginBottom="@dimen/margin_medium"
-							android:text="@string/label_perlengkapan_acara"/>
+							android:text="@string/label_layanan_kami" />
 
 					<androidx.appcompat.widget.AppCompatTextView
 							android:id="@+id/showMorePerlengkapan"
@@ -121,24 +239,25 @@
 							android:layout_width="wrap_content"
 							android:textSize="@dimen/text_small"
 							android:layout_alignParentEnd="true"
-							android:text="Show more"/>
+							android:text="Show more" />
 
 					<androidx.recyclerview.widget.RecyclerView
 							android:visibility="gone"
 							android:layout_below="@+id/titlePerlengkapanTextView"
 							android:id="@+id/perlengkapanRecycleView"
 							android:layout_width="match_parent"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					<com.wang.avi.AVLoadingIndicatorView
 							android:id="@+id/perlengkapanLoading"
 							style="@style/Loading"
 							android:layout_below="@id/titlePerlengkapanTextView"
 							android:layout_margin="@dimen/margin_large"
-							android:layout_centerHorizontal="true"/>
+							android:layout_centerHorizontal="true" />
 				</RelativeLayout>
 
 				<RelativeLayout
+						android:visibility="gone"
 						android:layout_width="match_parent"
 						android:layout_marginTop="@dimen/margin_medium"
 						android:layout_marginStart="@dimen/margin_medium"
@@ -150,7 +269,7 @@
 							style="@style/headerTextView"
 							android:textSize="@dimen/text_medium"
 							android:layout_marginBottom="@dimen/margin_medium"
-							android:text="@string/paket_acara"/>
+							android:text="@string/paket_acara" />
 
 					<androidx.appcompat.widget.AppCompatTextView
 							android:id="@+id/showMorePaketAcara"
@@ -158,24 +277,25 @@
 							android:layout_width="wrap_content"
 							android:textSize="@dimen/text_small"
 							android:layout_alignParentEnd="true"
-							android:text="Show more"/>
+							android:text="Show more" />
 
 					<androidx.recyclerview.widget.RecyclerView
 							android:layout_below="@+id/titlePaketAcaraTextView"
 							android:id="@+id/paketAcaraRecycleView"
 							android:layout_width="match_parent"
 							android:visibility="gone"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					<com.wang.avi.AVLoadingIndicatorView
 							android:id="@+id/paketAcaraLoading"
 							style="@style/Loading"
 							android:layout_below="@id/titlePaketAcaraTextView"
 							android:layout_margin="@dimen/margin_large"
-							android:layout_centerHorizontal="true"/>
+							android:layout_centerHorizontal="true" />
 				</RelativeLayout>
 
 				<RelativeLayout
+						android:visibility="gone"
 						android:layout_width="match_parent"
 						android:layout_marginTop="@dimen/margin_medium"
 						android:layout_marginStart="@dimen/margin_medium"
@@ -187,7 +307,7 @@
 							style="@style/headerTextView"
 							android:textSize="@dimen/text_medium"
 							android:layout_marginBottom="@dimen/margin_medium"
-							android:text="@string/label_pengisi_acara"/>
+							android:text="@string/label_pengisi_acara" />
 
 					<androidx.appcompat.widget.AppCompatTextView
 							android:id="@+id/showMorePengisiAcara"
@@ -195,24 +315,25 @@
 							android:layout_width="wrap_content"
 							android:textSize="@dimen/text_small"
 							android:layout_alignParentEnd="true"
-							android:text="Show more"/>
+							android:text="Show more" />
 
 					<androidx.recyclerview.widget.RecyclerView
 							android:layout_below="@+id/titlePengisiAcaraTextView"
 							android:id="@+id/pengisiAcaraRecycleView"
 							android:layout_width="match_parent"
 							android:visibility="gone"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					<com.wang.avi.AVLoadingIndicatorView
 							android:id="@+id/pengisiAcaraLoading"
 							style="@style/Loading"
 							android:layout_below="@id/titlePengisiAcaraTextView"
 							android:layout_margin="@dimen/margin_large"
-							android:layout_centerHorizontal="true"/>
+							android:layout_centerHorizontal="true" />
 				</RelativeLayout>
 
 				<RelativeLayout
+						android:visibility="gone"
 						android:layout_width="match_parent"
 						android:layout_marginTop="@dimen/margin_medium"
 						android:layout_marginStart="@dimen/margin_medium"
@@ -220,25 +341,64 @@
 						android:layout_height="wrap_content">
 
 					<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/titleCrewAcaraTextView"
+							style="@style/headerTextView"
+							android:textSize="@dimen/text_medium"
+							android:layout_marginBottom="@dimen/margin_medium"
+							android:text="@string/label_crew_acara" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/showMoreCrewAcara"
+							style="@style/normalTextView"
+							android:layout_width="wrap_content"
+							android:textSize="@dimen/text_small"
+							android:layout_alignParentEnd="true"
+							android:text="Show more" />
+
+					<androidx.recyclerview.widget.RecyclerView
+							android:layout_below="@+id/titleCrewAcaraTextView"
+							android:id="@+id/crewAcaraRecycleView"
+							android:layout_width="match_parent"
+							android:visibility="gone"
+							android:layout_height="wrap_content" />
+
+					<com.wang.avi.AVLoadingIndicatorView
+							android:id="@+id/crewAcaraLoading"
+							style="@style/Loading"
+							android:layout_below="@id/titleCrewAcaraTextView"
+							android:layout_margin="@dimen/margin_large"
+							android:layout_centerHorizontal="true" />
+				</RelativeLayout>
+
+				<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_marginStart="@dimen/margin_medium"
+						android:layout_marginEnd="@dimen/margin_medium"
+						android:visibility="visible"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:layout_marginBottom="@dimen/margin_medium"
+						android:layout_height="wrap_content">
+
+					<androidx.appcompat.widget.AppCompatTextView
 							android:id="@+id/titleUlasanTextView"
 							style="@style/headerTextView"
 							android:textSize="@dimen/text_medium"
 							android:layout_marginBottom="@dimen/margin_medium"
-							android:text="@string/label_kata_mereka_tentang_klik_acara"/>
+							android:text="@string/label_kata_mereka_tentang_klik_acara" />
 
 					<androidx.recyclerview.widget.RecyclerView
 							android:layout_below="@+id/titleUlasanTextView"
 							android:id="@+id/ulasanRecycleView"
 							android:layout_width="match_parent"
 							android:visibility="gone"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					<com.wang.avi.AVLoadingIndicatorView
 							android:id="@+id/ulasanLoading"
 							style="@style/Loading"
 							android:layout_below="@id/titleUlasanTextView"
 							android:layout_margin="@dimen/margin_large"
-							android:layout_centerHorizontal="true"/>
+							android:layout_centerHorizontal="true" />
 				</RelativeLayout>
 
 				<RelativeLayout
@@ -246,6 +406,7 @@
 						android:layout_marginTop="@dimen/margin_medium"
 						android:layout_marginStart="@dimen/margin_medium"
 						android:layout_marginEnd="@dimen/margin_medium"
+						android:visibility="gone"
 						android:layout_marginBottom="@dimen/margin_medium"
 						android:layout_height="wrap_content">
 
@@ -254,27 +415,31 @@
 							style="@style/headerTextView"
 							android:textSize="@dimen/text_medium"
 							android:layout_marginBottom="@dimen/margin_medium"
-							android:text="@string/label_mitra_klik_acara"/>
+							android:text="@string/label_mitra_klik_acara" />
 
 					<androidx.recyclerview.widget.RecyclerView
 							android:layout_below="@+id/titleMitraTextView"
 							android:id="@+id/mitraRecycleView"
 							android:layout_width="match_parent"
 							android:visibility="gone"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					<com.wang.avi.AVLoadingIndicatorView
 							android:id="@+id/mitraLoading"
 							style="@style/Loading"
 							android:layout_below="@id/titleMitraTextView"
 							android:layout_margin="@dimen/margin_large"
-							android:layout_centerHorizontal="true"/>
+							android:layout_centerHorizontal="true" />
 				</RelativeLayout>
 
+				<View
+						android:layout_width="match_parent"
+						android:layout_height="@dimen/margin_very_large" />
 			</LinearLayout>
 
 		</androidx.core.widget.NestedScrollView>
 
 	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

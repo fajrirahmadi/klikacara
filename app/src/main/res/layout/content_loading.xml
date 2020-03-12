@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+		android:orientation="vertical"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:gravity="center"
+		android:id="@+id/loadingArea"
+		android:background="@color/white"
+		android:translationZ="100dp"
+		android:clickable="true"
+		android:focusable="true"
+		android:layout_height="match_parent"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		tools:targetApi="lollipop">
+
+	<com.wang.avi.AVLoadingIndicatorView
+			android:id="@+id/loading"
+			style="@style/Loading"
+			android:layout_marginTop="@dimen/margin_large"
+			app:indicatorName="BallBeatIndicator"
+			android:visibility="visible" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+			style="@style/normalTextView"
+			android:gravity="center"
+			android:text="@string/label_mohon_tunggu"
+			android:textColor="@color/colorPrimaryDark"
+			android:textStyle="bold"
+			android:layout_marginTop="@dimen/margin_medium" />
+
+</LinearLayout>

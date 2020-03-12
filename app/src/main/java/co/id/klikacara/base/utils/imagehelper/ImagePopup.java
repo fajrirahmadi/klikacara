@@ -5,7 +5,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+
 import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -14,7 +16,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
+
 import co.id.klikacara.R;
+
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
@@ -132,6 +136,8 @@ public class ImagePopup extends AppCompatImageView {
     public void initiatePopupWithPicasso(String imageUrl) {
 
         try {
+            imageIsSet = true;
+
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
             layout = inflater.inflate(R.layout.base_dialog_popup, (ViewGroup) findViewById(R.id.popup));
@@ -143,6 +149,7 @@ public class ImagePopup extends AppCompatImageView {
             Picasso.with(context).load(imageUrl).into(imageView);
 
         } catch (Exception e) {
+            imageIsSet = false;
             e.printStackTrace();
             Log.e("ImagePopup ", e.getMessage());
 
@@ -172,8 +179,9 @@ public class ImagePopup extends AppCompatImageView {
     }
 
     public void initiatePopupWithPicasso(Uri imageUri) {
-        imageIsSet = true;
         try {
+            imageIsSet = true;
+
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
             layout = inflater.inflate(R.layout.base_dialog_popup, (ViewGroup) findViewById(R.id.popup));

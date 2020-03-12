@@ -19,6 +19,7 @@ import co.id.klikacara.product.presenter.ProductDetailPresenter
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.fragment_product_detail.*
+import org.apache.commons.lang3.StringUtils
 import org.parceler.Parcels
 import javax.inject.Inject
 
@@ -34,6 +35,7 @@ class ProductDetailActivity : BaseActivity(), ProductContract.ProductDetailView,
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_product_detail)
+        configureBackButton()
         productDetailPresenter.checkRole()
         productListSwipe.setOnRefreshListener(this)
         product = Parcels.unwrap(intent.extras?.getParcelable(BuildConfig.productDb))
@@ -46,9 +48,12 @@ class ProductDetailActivity : BaseActivity(), ProductContract.ProductDetailView,
             "/",
             product.paymentType!!.description
         )
+        productNoteTextView.text = product.notes
         for (imageUrl in product.url.keys) {
             productBannerAdapter.add(BannerAdapter(imageUrl))
         }
+        if (StringUtils.isBlank(product.notes))
+            ViewHelper.hideView(areaNotes)
     }
 
     override fun onRefresh() {

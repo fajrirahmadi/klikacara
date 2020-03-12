@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-		  package="co.id.klikacara">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		package="co.id.klikacara">
 
-	<uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-	<uses-permission android:name="android.permission.CAMERA"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.CAMERA" />
 
 	<application
 			android:name=".KlikApplication"
@@ -18,47 +19,111 @@
 			android:largeHeap="true"
 			android:theme="@style/AppTheme.noActionBar"
 			tools:replace="android:allowBackup">
-		<activity android:name=".splash.SplashActivity"
-				  android:screenOrientation="portrait"
-				  android:theme="@style/SplashTheme">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
 
-				<category android:name="android.intent.category.LAUNCHER"/>
+		<uses-library
+				android:name="org.apache.http.legacy"
+				android:required="false" />
+
+		<activity
+				android:name=".splash.SplashActivity"
+				android:screenOrientation="portrait"
+				android:theme="@style/SplashTheme">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".base.view.activity.KlikWeb"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".main.view.MainActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".authentication.view.AuthenticationActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".product.view.ProductActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".order.view.OrderActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".order.view.OrderDetailActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".authentication.view.ChangePasswordActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".product.view.MyProductActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".main.view.ProfileDetailActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".authentication.view.RegistrationActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".vendor.view.MitraDetailActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".order.view.RatingActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".product.view.ProductDetailActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".main.view.profile.ContactActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".main.view.profile.VerifyVendorActivity"
-				  android:screenOrientation="portrait"/>
-		<activity android:name=".createevent.view.CreateEventActivity"
-				  android:screenOrientation="portrait"/>
+		<activity
+				android:name=".base.view.activity.KlikWeb"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".main.view.MainActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".authentication.view.AuthenticationActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".product.view.ProductActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".order.view.OrderActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".order.view.OrderDetailActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".authentication.view.ChangePasswordActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".product.view.MyProductActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".main.view.ProfileDetailActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".authentication.view.RegistrationActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".vendor.view.MitraDetailActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".order.view.RatingActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".product.view.ProductDetailActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".main.view.profile.ContactActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".main.view.profile.VerifyVendorActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".createevent.view.CreateEventActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".createevent.view.DetailEventActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".createevent.view.ViewParticipantActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name="com.sajaksenja.search.SearchEventActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".main.view.OrderActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".main.view.ProfileActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".order.view.ProductOrderActivity"
+				android:screenOrientation="portrait" />
+		<activity
+				android:name=".order.view.RecomendProductActivity"
+				android:screenOrientation="portrait" />
+
+		<service
+				android:name=".notification.KlikAcaraMassagingService"
+				android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+			</intent-filter>
+		</service>
+
+		<meta-data
+				android:name="com.google.firebase.messaging.default_notification_icon"
+				android:resource="@drawable/logo_klikacara" />
+		<!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+			 notification message. See README(https://goo.gl/6BKBk7) for more. -->
+		<meta-data
+				android:name="com.google.firebase.messaging.default_notification_color"
+				android:resource="@color/colorAccent" />
+
+		<meta-data
+				android:name="com.google.firebase.messaging.default_notification_channel_id"
+				android:value="@string/default_notification_channel_id" />
 	</application>
 
 </manifest>

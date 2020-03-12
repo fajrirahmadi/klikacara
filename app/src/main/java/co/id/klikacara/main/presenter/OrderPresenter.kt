@@ -11,6 +11,7 @@ import co.id.klikacara.main.contract.MainContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import org.apache.commons.lang3.StringUtils
 
 class OrderPresenter(
     private val view: MainContract.OrderView,
@@ -19,6 +20,7 @@ class OrderPresenter(
 ) : BasePresenter() {
 
     fun getOrderList() {
+        view.showProgressDialog()
         database.collection(BuildConfig.orderDb)
             .whereEqualTo("uid", auth.uid!!)
             .get()
@@ -26,47 +28,39 @@ class OrderPresenter(
                 if (it.isSuccessful && it.result != null && !it.result!!.isEmpty) {
                     val orderList = it.result!!.toObjects(Order::class.java)
                     val orderListAdapter = ArrayList<OrderListAdapter>()
-                    for (order in orderList)
-                        orderListAdapter.add(OrderListAdapter(order))
-                    view.setOrderListAdapter(orderListAdapter)
+                    for (order in orderList) {
+                        if (!(order.paymentStatus == PaymentStatus.PESANAN_SELESAI &&
+                                    StringUtils.isBlank(order.recomendedVendor))
+                        )
+                            orderListAdapter.add(OrderListAdapter(order))
+                    }
+                    if (orderListAdapter.isNotEmpty())
+                        view.setOrderListAdapter(orderListAdapter)
+                    else
+                        view.showNoOrderFound()
                 } else {
                     view.showNoOrderFound()
                 }
+                view.dismissProgressDialog()
             }
     }
 
-    fun checkLoginStatus() {
-        if (auth.currentUser == null)
-            view.showNotLoginArea()
-        else
-            view.showLoginArea()
-    }
-
     fun checkRole() {
+        view.showProgressDialog()
         database.collection(BuildConfig.userDb).document(auth.uid!!).get()
             .addOnCompleteListener {
                 if (it.isSuccessful && it.result != null) {
                     val user = it.result!!.toObject(User::class.java)
                     if (user != null) {
-                        when (user.type) {
-                            Role.ADMIN -> {
-                                getAllOrder()
-                            }
-                            Role.VENDOR -> {
-                                getOrderByVendorId(user.uid!!)
-                            }
-                            Role.PENGGUNA -> {
-                                getOrderList()
-                            }
-                            Role.AMBASADOR -> {
-                            }
-                        }
+                        view.setUserRole(user.type)
                     }
                 }
+                view.dismissProgressDialog()
             }
     }
 
-    private fun getAllOrder() {
+    fun getAllOrder() {
+        view.showProgressDialog()
         database.collection(BuildConfig.orderDb)
             .orderBy("paymentStatus", Query.Direction.DESCENDING)
             .get()
@@ -74,18 +68,27 @@ class OrderPresenter(
                 if (it.isSuccessful && it.result != null && !it.result!!.isEmpty) {
                     val orderList = it.result!!.toObjects(Order::class.java)
                     val orderListAdapter = ArrayList<OrderListAdapter>()
-                    for (order in orderList)
-                        orderListAdapter.add(OrderListAdapter(order))
-                    view.setOrderListAdapter(orderListAdapter)
+                    for (order in orderList) {
+                        if (order.paymentStatus == PaymentStatus.MENCARI_VENDOR ||
+                            order.paymentStatus == PaymentStatus.VERIFIKASI_PEMBAYARAN
+                        )
+                            orderListAdapter.add(OrderListAdapter(order))
+                    }
+                    if (orderListAdapter.isNotEmpty())
+                        view.setOrderListAdapter(orderListAdapter)
+                    else
+                        view.showNoOrderFound()
                 } else {
                     view.showNoOrderFound()
                 }
+                view.dismissProgressDialog()
             }
     }
 
-    private fun getOrderByVendorId(uid: String) {
+    fun getOrderByVendorId() {
+        view.showProgressDialog()
         database.collection(BuildConfig.orderDb)
-            .whereEqualTo("vendorId", uid)
+            .whereEqualTo("vendorId", auth.uid)
             .get()
             .addOnCompleteListener {
                 if (it.isSuccessful && it.result != null && !it.result!!.isEmpty) {
@@ -94,14 +97,20 @@ class OrderPresenter(
                     for (order in orderList) {
                         if (order.paymentStatus != PaymentStatus.MENUNGGU_PEMBAYARAN &&
                             order.paymentStatus != PaymentStatus.VERIFIKASI_PEMBAYARAN &&
-                            order.paymentStatus != PaymentStatus.PESANAN_DIBATALKAN
+                            order.paymentStatus != PaymentStatus.PESANAN_DIBATALKAN &&
+                            (!(order.paymentStatus == PaymentStatus.PESANAN_SELESAI &&
+                                    StringUtils.isBlank(order.recomendedVendor)))
                         )
                             orderListAdapter.add(OrderListAdapter(order))
                     }
-                    view.setOrderListAdapter(orderListAdapter)
+                    if (orderListAdapter.isNotEmpty())
+                        view.setOrderListAdapter(orderListAdapter)
+                    else
+                        view.showNoOrderFound()
                 } else {
                     view.showNoOrderFound()
                 }
+                view.dismissProgressDialog()
             }
     }
 

@@ -1,4 +1,4 @@
-package co.id.klikacara.order.view
+package co.id.klikacara.order.view.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -15,6 +15,7 @@ import co.id.klikacara.base.utils.stringhelper.StringHelper
 import co.id.klikacara.base.utils.timehelper.TimeUtils
 import co.id.klikacara.base.view.dialog.BaseJavaDialog
 import co.id.klikacara.base.view.fragment.BaseFragment
+import co.id.klikacara.main.view.OrderActivity
 import co.id.klikacara.order.contract.OrderContract
 import co.id.klikacara.order.presenter.OrderConfirmationPresenter
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
@@ -38,7 +39,11 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
         super.onAttach(context)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return getInflate(inflater, R.layout.fragment_order_konfirmasi, container)
     }
 
@@ -48,6 +53,7 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
         configureItemAdapter(confirmationListAdapter, konfirmasiRecycleView)
         initConfirmationData()
         initOrderConfirmationDialog()
+        configureBackButton()
     }
 
     private fun initOrderConfirmationDialog() {
@@ -84,7 +90,9 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
             confirmationListAdapter.add(
                 KeyValueAdapter(
                     "Harga Paket", StringHelper.getStringBuilderToString(
-                        StringHelper.getPriceInRp(order.product!!.price), "/", order.product!!.paymentType!!.description
+                        StringHelper.getPriceInRp(order.product!!.price),
+                        "/",
+                        order.product!!.paymentType!!.description
                     )
                 )
             )
@@ -108,7 +116,7 @@ class OrderConfirmationFragment : BaseFragment(), OrderContract.OrderConfirmatio
         showSuccess(
             "Anda berhasil melakukan order, silahkan lakukan pembayaran.",
             View.OnClickListener {
-                val intent = getIntent(activity!!, OrderDetailActivity::class.java)
+                val intent = getIntent(activity!!, OrderActivity::class.java)
                 intent.putExtra(BuildConfig.orderDb, Parcels.wrap(order))
                 showActivityAndFinishCurent(intent)
             })

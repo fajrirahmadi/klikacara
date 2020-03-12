@@ -11,7 +11,7 @@ import dagger.Provides
 class OrderModule {
 
     @Provides
-    fun provideHomePresenter(
+    fun provideOrderPresenter(
         view: MainContract.OrderView
     ): OrderPresenter {
         return OrderPresenter(view, FirebaseAuth.getInstance(), FirebaseFirestore.getInstance())

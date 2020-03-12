@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:orientation="vertical"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:background="@color/white"
+			  android:paddingTop="@dimen/margin_medium">
+
+	<androidx.appcompat.widget.AppCompatTextView
+			style="@style/normalTextView"
+			android:id="@+id/nameTextView"
+			android:fontFamily="@font/font_montserrat_semibold"/>
+
+	<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/emailTextView"
+			style="@style/normalTextView"
+			android:layout_marginTop="@dimen/margin_small"/>
+
+	<View style="@style/Line"
+		  android:layout_marginTop="@dimen/margin_medium"/>
+
+</LinearLayout>

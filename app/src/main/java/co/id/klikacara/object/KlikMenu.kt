@@ -19,5 +19,6 @@ class KlikMenu(
 enum class MitraType(var description: String) {
     PERLENGKAPAN_ACARA("Perlengkapan"),
     PAKET_ACARA("Paket Acara"),
-    PENGISI_ACARA("Pengisi Acara")
+    PENGISI_ACARA("Pengisi Acara"),
+    CREW_ACARA("Crew Acara")
 }

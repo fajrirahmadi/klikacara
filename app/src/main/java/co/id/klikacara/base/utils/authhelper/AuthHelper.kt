@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class AuthHelper(val context: Context) {
 
-    val firebaseAuth = FirebaseAuth.getInstance()
+    private val firebaseAuth = FirebaseAuth.getInstance()
     var gso: GoogleSignInOptions? = null
     var googleApiClient: GoogleApiClient? = null
 

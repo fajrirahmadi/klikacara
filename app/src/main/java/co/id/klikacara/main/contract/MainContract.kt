@@ -2,6 +2,7 @@ package co.id.klikacara.main.contract
 
 import co.id.klikacara.`object`.adapter.*
 import co.id.klikacara.`object`.authentication.Mitra
+import co.id.klikacara.`object`.authentication.Role
 import co.id.klikacara.`object`.authentication.User
 import co.id.klikacara.base.contract.BaseContract
 
@@ -20,14 +21,14 @@ interface MainContract {
         fun doOnUserLogin()
         fun setUserData(user: User)
         fun showEvent(eventAdapter: ArrayList<EventAdapter>)
+        fun setCrewAcaraAdapter(klikMenuListAdapter: java.util.ArrayList<KlikMenuAdapter>)
 
     }
 
     interface OrderView : BaseContract.View {
         fun setOrderListAdapter(orderListAdapter: ArrayList<OrderListAdapter>)
-        fun showNotLoginArea()
-        fun showLoginArea()
         fun showNoOrderFound()
+        fun setUserRole(type: Role)
 
     }
 

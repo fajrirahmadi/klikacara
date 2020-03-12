@@ -62,8 +62,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="56dp"
 				app:tabSelectedTextColor="@color/colorPrimaryDark"
-				app:tabTextAppearance="@style/AppTabTextAppearance"
-				app:tabTextColor="@color/grey">
+				app:tabTextAppearance="@style/AppTabTextAppearance">
 
 			<com.google.android.material.tabs.TabItem
 					android:layout_width="match_parent"

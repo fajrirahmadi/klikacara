@@ -20,7 +20,6 @@ class SplashActivity : BaseActivity() {
         setContentView(R.layout.base_activity_splash)
         Handler().postDelayed({
             this.showActivityAndFinishCurent(getIntent(this, MainActivity::class.java))
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-        }, 1000)
+        }, 2000)
     }
 }

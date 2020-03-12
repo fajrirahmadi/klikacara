@@ -1,88 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <include layout="@layout/base_appbar_primary_with_logo"/>
+	<include layout="@layout/base_appbar_primary_with_logo"/>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/productListSwipe"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="wrap_content"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/productListSwipe"
+			android:layout_width="match_parent"
+			android:background="@color/white"
+			android:layout_height="wrap_content"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:padding="@dimen/margin_medium"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+		<androidx.core.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:padding="@dimen/margin_medium"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/titleProduct"
-                        style="@style/headerTextView"
-                        android:textSize="@dimen/text_normal"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/titleProduct"
+						style="@style/headerTextView"
+						android:textSize="@dimen/text_normal"/>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/descriptionProduct"
-                        android:layout_marginTop="@dimen/margin_small"
-                        style="@style/normalTextView"
-                        android:textColor="@color/grey"/>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/descriptionProduct"
+						android:layout_marginTop="@dimen/margin_small"
+						style="@style/normalTextView"/>
 
-                <RelativeLayout
-                        android:layout_marginTop="@dimen/margin_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/productRecycleView"
-                            android:visibility="gone"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+				<RelativeLayout
+						android:layout_marginTop="@dimen/margin_medium"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+					<androidx.recyclerview.widget.RecyclerView
+							android:id="@+id/productRecycleView"
+							android:visibility="gone"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"/>
 
-                    <LinearLayout
-                            android:id="@+id/areaNoPackage"
-                            android:visibility="gone"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical">
-                        <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_width="@dimen/image_big"
-                                android:layout_height="@dimen/image_big"
-                                android:background="@drawable/base_circle_primary"
-                                android:src="@drawable/logo_klikacara"/>
+					<LinearLayout
+							android:id="@+id/areaNoPackage"
+							android:visibility="gone"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="@dimen/margin_medium"
+							android:gravity="center_horizontal"
+							android:orientation="vertical">
+						<androidx.appcompat.widget.AppCompatImageView
+								android:layout_width="@dimen/image_big"
+								android:layout_height="@dimen/image_big"
+								android:background="@drawable/base_circle_primary"
+								android:src="@drawable/logo_klikacara"/>
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                                style="@style/normalTextView"
-                                android:text="Maaf belum ada paket tersedia"
-                                android:textColor="@color/grey"
-                                android:gravity="center"
-                                android:layout_marginTop="@dimen/margin_medium"/>
-                    </LinearLayout>
+						<androidx.appcompat.widget.AppCompatTextView
+								style="@style/normalTextView"
+								android:text="Maaf belum ada paket tersedia"
+								android:gravity="center"
+								android:layout_marginTop="@dimen/margin_medium"/>
+					</LinearLayout>
 
-                    <com.wang.avi.AVLoadingIndicatorView
-                            android:id="@+id/loadingProductList"
-                            android:layout_marginTop="@dimen/margin_medium"
-                            android:layout_centerHorizontal="true"
-                            style="@style/Loading"/>
-                </RelativeLayout>
+					<com.wang.avi.AVLoadingIndicatorView
+							android:id="@+id/loadingProductList"
+							android:layout_marginTop="@dimen/margin_medium"
+							android:layout_centerHorizontal="true"
+							style="@style/Loading"/>
+				</RelativeLayout>
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+			</LinearLayout>
+		</androidx.core.widget.NestedScrollView>
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addProductButton"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_add_white"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="@dimen/margin_medium"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:layout_height="wrap_content"/>
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+			android:id="@+id/addProductButton"
+			android:layout_width="wrap_content"
+			android:src="@drawable/ic_add_white"
+			android:layout_gravity="bottom|end"
+			android:layout_marginEnd="@dimen/margin_medium"
+			android:layout_marginBottom="@dimen/margin_medium"
+			android:layout_height="wrap_content"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/CardNormal"
-        android:layout_width="wrap_content"
-        android:layout_margin="@dimen/no_margin">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
 
-    <LinearLayout
-            android:layout_width="160dp"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+	<androidx.cardview.widget.CardView
+			style="@style/CardNormal"
+			android:layout_margin="@dimen/no_margin">
 
-        <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/productImageView"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/logo_klikacara"
-                android:background="@color/colorPrimary"/>
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/productTitleTextView"
-                style="@style/headerTextView"
-                android:textSize="@dimen/text_medium"
-                android:padding="@dimen/margin_small"
-                android:text="Katering Manja Banget"/>
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:orientation="vertical"
+					android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/productPriceTextView"
-                style="@style/normalTextView"
-                android:paddingStart="@dimen/margin_small"
-                android:paddingEnd="@dimen/margin_small"
-                android:paddingBottom="@dimen/margin_small"
-                android:text="Rp 200.000/Paket"/>
-    </LinearLayout>
+				<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/productImageView"
+						android:layout_width="100dp"
+						android:layout_height="100dp"
+						android:layout_gravity="center_horizontal"
+						android:src="@drawable/logo_klikacara"
+						android:background="@color/colorPrimary" />
 
-</androidx.cardview.widget.CardView>
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/productTitleTextView"
+						style="@style/headerTextView"
+						android:textSize="@dimen/text_small"
+						android:padding="@dimen/margin_small"
+						android:maxLines="2"
+						android:text="Katering Manja Banget" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/productPriceTextView"
+						style="@style/normalTextView"
+						android:paddingStart="@dimen/margin_small"
+						android:paddingEnd="@dimen/margin_small"
+						android:textSize="@dimen/text_very_small"
+						android:paddingBottom="@dimen/margin_small"
+						android:text="Rp 200.000/Paket" />
+			</LinearLayout>
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/selectedImageView"
+					android:visibility="gone"
+					android:layout_width="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_margin="@dimen/margin_small"
+					android:layout_height="wrap_content"
+					android:src="@drawable/icon_checklist_green" />
+		</RelativeLayout>
+
+	</androidx.cardview.widget.CardView>
+</RelativeLayout>

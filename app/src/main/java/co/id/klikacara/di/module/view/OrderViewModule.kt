@@ -3,6 +3,10 @@ package co.id.klikacara.di.module.view
 import co.id.klikacara.master.contract.MasterContract
 import co.id.klikacara.order.contract.OrderContract
 import co.id.klikacara.order.view.*
+import co.id.klikacara.order.view.fragment.OrderAddressFragment
+import co.id.klikacara.order.view.fragment.OrderConfirmationFragment
+import co.id.klikacara.order.view.fragment.OrderDateFragment
+import co.id.klikacara.order.view.fragment.OrderPaymentFragment
 import co.id.klikacara.permission.contract.PermissionContract
 import dagger.Binds
 import dagger.Module
